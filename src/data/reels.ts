@@ -1,4 +1,5 @@
 import { publicAsset } from "@/lib/publicAsset";
+import type { HostedVideo } from "@/lib/videoEmbed";
 
 export interface Reel {
   id: string;
@@ -10,11 +11,19 @@ export interface Reel {
   projectCategory: string;
 }
 
-/** Single site-wide showreel */
-export const mainShowreel = {
+/**
+ * Showreel source — switch provider + id when moving to Vimeo or another host.
+ *
+ * YouTube: provider "youtube", id = video ID or full URL
+ * Vimeo:   provider "vimeo",   id = numeric ID or vimeo.com/… URL
+ */
+export const mainShowreel: HostedVideo = {
   title: "GLOWL Showreel",
   poster: publicAsset("/images/header_02.png"),
-  video: publicAsset("/videos/showreel.mp4"),
+  provider: "youtube",
+  id: "-cdiXSJczdU",
+  // provider: "vimeo",
+  // id: "123456789",
 };
 
 export const reels: Reel[] = [

@@ -31,15 +31,15 @@ function FooterLink({ id, label }: { id: string; label: string }) {
 
 export default function Footer() {
   return (
-    <footer className="px-[var(--page-padding)] pb-24 pt-10 md:pb-12 md:pt-14">
-      <div className="mx-auto max-w-[1440px]">
-        <div className="glass-panel-glow overflow-hidden rounded-[24px] md:rounded-[32px]">
-          <div className="glass-panel px-6 py-8 md:px-10 md:py-10">
-            <div className="grid gap-10 md:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)_minmax(0,0.8fr)] md:gap-8 lg:gap-12">
+    <footer className="px-[var(--page-padding)] pb-24 pt-7 md:pb-12 md:pt-14">
+      <div className="mx-auto max-w-[920px]">
+        <article className="how-ios-card">
+          <div className="how-ios-card-inner">
+            <div className="grid gap-5 md:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)_minmax(0,0.8fr)] md:gap-8 lg:gap-12">
               <div className="min-w-0">
                 <a
                   href="#top"
-                  className="inline-flex min-w-0 flex-col gap-2"
+                  className="inline-flex min-w-0 flex-col gap-1 md:gap-2"
                   aria-label="GLOWL home"
                   onClick={(e) => {
                     e.preventDefault();
@@ -48,67 +48,69 @@ export default function Footer() {
                 >
                   <span
                     className="font-display font-extralight uppercase leading-none tracking-[0.1em] text-white"
-                    style={{ fontSize: "clamp(1.5rem, 3vw, 2rem)" }}
+                    style={{ fontSize: "clamp(1.35rem, 3vw, 2rem)" }}
                   >
                     GLOWL
                   </span>
                   <span
                     className="font-sans uppercase leading-snug text-white/50"
-                    style={{ fontSize: "clamp(9px, 1vw, 11px)", letterSpacing: "0.14em" }}
+                    style={{ fontSize: "clamp(8px, 1vw, 11px)", letterSpacing: "0.14em" }}
                   >
                     Creative partner for AI-era moving image
                   </span>
                 </a>
-                <p className="mt-4 max-w-sm text-sm font-light leading-relaxed text-text-secondary">
+                <p className="mt-3 hidden max-w-sm text-sm font-light leading-relaxed text-text-secondary md:block">
                   Commercials, gaming creatives and cinematic content — produced through an expert-led process
                   supported by AI.
                 </p>
                 <button
                   type="button"
                   onClick={() => scrollToSection(sectionIds.contact)}
-                  className="gradient-button mt-6 rounded-full px-5 py-2.5 text-xs font-medium tracking-wide text-white md:text-sm"
+                  className="gradient-button mt-4 hidden rounded-full px-5 py-2.5 text-xs font-medium tracking-wide text-white sm:inline-flex md:mt-6 md:text-sm"
                 >
                   Get a Project Estimate
                 </button>
               </div>
 
-              <nav aria-label="Footer navigation">
-                <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/45">Navigate</p>
-                <ul className="mt-4 flex flex-col gap-3">
-                  {navLinks.map((link) => (
-                    <li key={link.id}>
-                      <FooterLink id={link.id} label={link.label} />
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+              <div className="grid grid-cols-2 gap-x-4 gap-y-0 md:contents">
+                <nav aria-label="Footer navigation">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45 md:text-[11px]">Navigate</p>
+                  <ul className="mt-2 flex flex-col gap-1.5 md:mt-4 md:gap-3">
+                    {navLinks.map((link) => (
+                      <li key={link.id}>
+                        <FooterLink id={link.id} label={link.label} />
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
 
-              <nav aria-label="Social links">
-                <p className="text-[11px] font-medium uppercase tracking-[0.14em] text-white/45">Connect</p>
-                <ul className="mt-4 flex flex-col gap-3">
-                  {socialLinks.map((link) => (
-                    <li key={link.label}>
-                      <a
-                        href={link.href}
-                        className="text-sm font-light text-text-secondary transition-colors hover:text-white"
-                        {...(link.external
-                          ? { target: "_blank", rel: "noopener noreferrer" }
-                          : {})}
-                      >
-                        {link.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
+                <nav aria-label="Social links">
+                  <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45 md:text-[11px]">Connect</p>
+                  <ul className="mt-2 flex flex-col gap-1.5 md:mt-4 md:gap-3">
+                    {socialLinks.map((link) => (
+                      <li key={link.label}>
+                        <a
+                          href={link.href}
+                          className="text-sm font-light text-text-secondary transition-colors hover:text-white"
+                          {...(link.external
+                            ? { target: "_blank", rel: "noopener noreferrer" }
+                            : {})}
+                        >
+                          {link.label}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              </div>
             </div>
 
-            <div className="mt-10 flex flex-col gap-3 border-t border-white/8 pt-6 text-[11px] font-light text-text-secondary/60 md:flex-row md:items-center md:justify-between">
-              <span>{site.locations}</span>
-              <span>© {new Date().getFullYear()} {site.name}</span>
+            <div className="mt-5 flex flex-row items-center justify-between gap-3 border-t border-white/8 pt-4 text-[10px] font-light text-text-secondary/60 md:mt-10 md:flex-row md:pt-6 md:text-[11px]">
+              <span className="truncate">{site.locations}</span>
+              <span className="shrink-0">© {new Date().getFullYear()} {site.name}</span>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </footer>
   );

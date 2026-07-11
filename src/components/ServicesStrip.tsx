@@ -34,9 +34,9 @@ export default function ServicesStrip() {
       className="relative z-10 -mt-8 px-[var(--page-padding)] md:-mt-10"
       aria-label="Production types"
     >
-      <div className="mx-auto max-w-[1440px]">
-        <div className="glass-panel-glow overflow-hidden rounded-[30px] md:rounded-[34px]">
-          <div className="glass-panel overflow-hidden px-5 py-4 md:px-8 md:py-5">
+      <div className="mx-auto max-w-[920px]">
+        <article className="how-ios-card">
+          <div className="how-ios-card-inner how-ios-card-inner--compact overflow-hidden">
             <div className="strip-marquee-viewport overflow-hidden">
               <div className="strip-marquee-track flex w-max items-center">
                 <ServiceRow groupId="a" />
@@ -44,7 +44,7 @@ export default function ServicesStrip() {
               </div>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </section>
   );

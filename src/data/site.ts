@@ -40,6 +40,10 @@ export function scrollToSection(id: string, onDone?: () => void) {
   const el = document.getElementById(id);
   if (el) {
     el.scrollIntoView({ behavior: "smooth", block: "start" });
-    onDone?.();
+    if (onDone) {
+      onDone();
+    } else if (id === sectionIds.contact) {
+      window.setTimeout(() => document.getElementById("contact-email")?.focus(), 650);
+    }
   }
 }

@@ -55,7 +55,6 @@ export default function Header() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
-  const goEstimate = () => scrollToSection(sectionIds.contact, closeMenu);
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
@@ -69,7 +68,7 @@ export default function Header() {
         }}
         aria-label="Main navigation"
       >
-        <div className="mx-auto flex min-h-16 max-w-[1440px] items-center gap-3 px-[var(--page-padding)] py-3 md:gap-4">
+        <div className="mx-auto flex min-h-[4.25rem] max-w-[1440px] items-center gap-2 px-[var(--page-padding)] py-2.5 md:min-h-16 md:gap-4 md:py-3">
           <a
             href="#top"
             className="relative z-10 flex min-w-0 shrink-0 items-center gap-2.5 md:gap-4"
@@ -82,7 +81,7 @@ export default function Header() {
             <img
               src={publicAsset("/logos/glowl-logo-white.png")}
               alt="GLOWL"
-              className="h-[1.925rem] w-auto shrink-0 object-contain md:h-[2.2rem]"
+              className="h-[3.08rem] w-auto max-w-[7.6rem] shrink-0 object-contain object-left md:h-[2.2rem] md:max-w-none"
               width={2100}
               height={795}
             />
@@ -111,16 +110,7 @@ export default function Header() {
             ))}
           </ul>
 
-          <div className="ml-auto flex shrink-0 items-center gap-2 md:gap-2.5">
-            <button
-              type="button"
-              onClick={goEstimate}
-              className="gradient-button whitespace-nowrap rounded-full px-3 py-2 text-[10px] font-medium tracking-wide text-white sm:px-4 sm:text-[11px] md:px-5 md:text-xs lg:text-sm"
-            >
-              <span className="sm:hidden">Estimate</span>
-              <span className="hidden sm:inline">Get a Project Estimate</span>
-            </button>
-
+          <div className="ml-auto flex shrink-0 items-center gap-1.5 md:gap-2.5">
             <button
               type="button"
               className="flex h-9 w-9 shrink-0 items-center justify-center text-white lg:hidden"
