@@ -1,3 +1,5 @@
+import { publicAsset } from "@/lib/publicAsset";
+
 export interface Reel {
   id: string;
   title: string;
@@ -11,16 +13,16 @@ export interface Reel {
 /** Single site-wide showreel */
 export const mainShowreel = {
   title: "GLOWL Showreel",
-  poster: "/images/header_02.png",
-  video: "/videos/showreel.mp4",
+  poster: publicAsset("/images/header_02.png"),
+  video: publicAsset("/videos/showreel.mp4"),
 };
 
 export const reels: Reel[] = [
   {
     id: "commercial",
     title: "Commercial Animation",
-    poster: "/images/reels/commercial.svg",
-    video: "/videos/commercial.mp4",
+    poster: publicAsset("/images/reels/commercial.svg"),
+    video: publicAsset("/videos/commercial.mp4"),
     accent: "var(--cyan)",
     description: "Brand films, product campaigns and social content.",
     projectCategory: "commercial",
@@ -28,8 +30,8 @@ export const reels: Reel[] = [
   {
     id: "gaming",
     title: "Gaming & Gambling",
-    poster: "/images/reels/gaming.svg",
-    video: "/videos/gaming.mp4",
+    poster: publicAsset("/images/reels/gaming.svg"),
+    video: publicAsset("/videos/gaming.mp4"),
     accent: "var(--magenta)",
     description: "Trailers, gameplay creatives, cinematics and performance ads.",
     projectCategory: "gaming",
@@ -37,8 +39,8 @@ export const reels: Reel[] = [
   {
     id: "film",
     title: "Film & Entertainment",
-    poster: "/images/reels/cinema.svg",
-    video: "/videos/cinema.mp4",
+    poster: publicAsset("/images/reels/cinema.svg"),
+    video: publicAsset("/videos/cinema.mp4"),
     accent: "var(--orange)",
     description: "Short films, music videos and cinematic storytelling.",
     projectCategory: "film",

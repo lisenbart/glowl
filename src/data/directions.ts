@@ -1,3 +1,5 @@
+import { publicAsset } from "@/lib/publicAsset";
+
 export interface Direction {
   id: string;
   reelId: string;
@@ -17,7 +19,7 @@ export const directions: Direction[] = [
     title: "Commercials",
     description: "Brand films, product videos, campaign assets and social content.",
     cta: "View Commercial Work",
-    image: "/images/reels/commercial.svg",
+    image: publicAsset("/images/reels/commercial.svg"),
     accent: "var(--cyan)",
   },
   {
@@ -27,7 +29,7 @@ export const directions: Direction[] = [
     title: "Gaming",
     description: "Trailers, gameplay ads, cinematics, UA creatives and gambling content.",
     cta: "View Gaming Work",
-    image: "/images/reels/gaming.svg",
+    image: publicAsset("/images/reels/gaming.svg"),
     accent: "var(--magenta)",
   },
   {
@@ -37,7 +39,7 @@ export const directions: Direction[] = [
     title: "Film & Entertainment",
     description: "Concept films, music videos, title sequences and cinematic production.",
     cta: "View Film Work",
-    image: "/images/reels/cinema.svg",
+    image: publicAsset("/images/reels/cinema.svg"),
     accent: "var(--orange)",
   },
 ];

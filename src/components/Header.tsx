@@ -3,6 +3,8 @@ import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sectionIds, scrollToSection } from "@/data/site";
 
+import { publicAsset } from "@/lib/publicAsset";
+
 const navLinks = [
   { id: sectionIds.work, label: "Work" },
   { id: sectionIds.services, label: "Services" },
@@ -78,7 +80,7 @@ export default function Header() {
             }}
           >
             <img
-              src="/logos/glowl-logo-white.png"
+              src={publicAsset("/logos/glowl-logo-white.png")}
               alt="GLOWL"
               className="h-[1.925rem] w-auto shrink-0 object-contain md:h-[2.2rem]"
               width={2100}

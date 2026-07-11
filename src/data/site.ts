@@ -1,3 +1,5 @@
+import { publicAsset } from "@/lib/publicAsset";
+
 export const site = {
   name: "GLOWL WORKS",
   email: "hello@glowlworks.com",
@@ -10,7 +12,7 @@ export const site = {
     title: "GLOWL WORKS — Commercial, Gaming and Cinematic Video Production",
     description:
       "GLOWL WORKS creates commercials, product animation, game trailers, gameplay creatives and cinematic content for brands, agencies, game teams and producers.",
-    ogImage: "/images/header_01.png",
+    ogImage: publicAsset("/images/header_01.png"),
   },
   /** Set to your Formspree endpoint or backend URL for live submissions */
   contactEndpoint: "",
