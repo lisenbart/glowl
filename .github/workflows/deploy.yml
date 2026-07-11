@@ -32,6 +32,14 @@ jobs:
         env:
           BASE_PATH: /glowl/
 
+      - name: Verify production build
+        run: |
+          test -f dist/index.html
+          grep -q '/glowl/assets/' dist/index.html
+          ! grep -q '/src/main.tsx' dist/index.html
+
+      - uses: actions/configure-pages@v4
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
