@@ -17,7 +17,7 @@ Pushes to `main` deploy automatically via GitHub Actions.
 
 Live URL: `https://lisenbart.github.io/glowl/`
 
-To enable the first deploy, open the repo on GitHub → **Settings** → **Pages** → set **Source** to **GitHub Actions**.
+To enable deploy, open the repo on GitHub → **Settings** → **Pages** → set **Source** to branch **`gh-pages`** / **`/ (root)`**.
 
 ## Production build
 
