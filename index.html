@@ -31,6 +31,12 @@
         "knowsAbout": ["Commercial Animation", "Game Trailers", "Cinematic Production"]
       }
     </script>
+    <script>
+      (function () {
+        var t = localStorage.getItem("glowl-theme");
+        document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+      })();
+    </script>
     <style>html, body { height: 100%; margin: 0; } #root { min-height: 100%; }</style>
   </head>
   <body>

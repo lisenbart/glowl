@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, Moon, Sun, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { sectionIds, scrollToSection } from "@/data/site";
-
+import { useTheme } from "@/hooks/useTheme";
 import { publicAsset } from "@/lib/publicAsset";
 
 const navLinks = [
@@ -40,6 +40,7 @@ function NavLink({
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -55,17 +56,15 @@ export default function Header() {
   }, [menuOpen]);
 
   const closeMenu = () => setMenuOpen(false);
+  const logoSrc =
+    theme === "light"
+      ? publicAsset("/logos/glowl-logo-black.png")
+      : publicAsset("/logos/glowl-logo-white.png");
 
   return (
     <header className="fixed top-0 inset-x-0 z-50">
       <nav
-        className="transition-all duration-300"
-        style={{
-          background: scrolled ? "rgba(3, 5, 16, 0.88)" : "rgba(3, 5, 16, 0.55)",
-          backdropFilter: "blur(14px)",
-          WebkitBackdropFilter: "blur(14px)",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-        }}
+        className={`site-header-nav transition-all duration-300${scrolled ? " site-header-nav--scrolled" : ""}`}
         aria-label="Main navigation"
       >
         <div className="mx-auto flex min-h-[4.25rem] max-w-[1440px] items-center gap-2 px-[var(--page-padding)] py-2.5 md:min-h-16 md:gap-4 md:py-3">
@@ -79,14 +78,14 @@ export default function Header() {
             }}
           >
             <img
-              src={publicAsset("/logos/glowl-logo-white.png")}
+              src={logoSrc}
               alt="GLOWL"
               className="h-[3.08rem] w-auto max-w-[7.6rem] shrink-0 object-contain object-left md:h-[2.2rem] md:max-w-none"
               width={2100}
               height={795}
             />
             <span
-              className="font-sans hidden flex-col justify-center gap-px leading-none text-white/55 uppercase sm:flex"
+              className="site-header-tagline font-sans hidden flex-col justify-center gap-px leading-none uppercase sm:flex"
               style={{
                 fontSize: "clamp(7px, 1.05vw, 10px)",
                 letterSpacing: "0.14em",
@@ -104,7 +103,7 @@ export default function Header() {
                 <NavLink
                   id={link.id}
                   label={link.label}
-                  className="whitespace-nowrap rounded-full px-3 py-2 text-[11px] font-medium uppercase tracking-[0.1em] text-white/65 transition-colors hover:text-white xl:px-4 xl:text-[13px]"
+                  className="site-header-link whitespace-nowrap rounded-full px-3 py-2 text-[11px] font-medium uppercase tracking-[0.1em] xl:px-4 xl:text-[13px]"
                 />
               </li>
             ))}
@@ -113,7 +112,15 @@ export default function Header() {
           <div className="ml-auto flex shrink-0 items-center gap-1.5 md:gap-2.5">
             <button
               type="button"
-              className="flex h-9 w-9 shrink-0 items-center justify-center text-white lg:hidden"
+              className="theme-toggle"
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === "dark" ? <Sun size={18} strokeWidth={1.75} /> : <Moon size={18} strokeWidth={1.75} />}
+            </button>
+            <button
+              type="button"
+              className="site-header-link flex h-9 w-9 shrink-0 items-center justify-center lg:hidden"
               onClick={() => setMenuOpen((v) => !v)}
               aria-expanded={menuOpen}
               aria-label={menuOpen ? "Close menu" : "Open menu"}
@@ -130,8 +137,7 @@ export default function Header() {
               animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="overflow-hidden border-t border-white/10 lg:hidden"
-              style={{ background: "rgba(3, 5, 16, 0.95)" }}
+              className="site-header-mobile-menu overflow-hidden lg:hidden"
             >
               <ul className="flex flex-col gap-1 px-[var(--page-padding)] py-5">
                 {navLinks.map((link) => (
@@ -140,7 +146,7 @@ export default function Header() {
                       id={link.id}
                       label={link.label}
                       onNavigate={closeMenu}
-                      className="block py-3 text-left text-[13px] font-medium uppercase tracking-[0.14em] text-white/70 transition-colors hover:text-white"
+                      className="site-header-link block py-3 text-left text-[13px] font-medium uppercase tracking-[0.14em]"
                     />
                   </li>
                 ))}

@@ -19,7 +19,7 @@ export default function DirectionCards() {
         className="showreel-hero scroll-mt-24 pt-16 md:pt-[4.5rem]"
         aria-label="Showreel"
       >
-        <div className="relative aspect-video w-full overflow-hidden bg-black">
+        <div className="video-stage relative aspect-video w-full overflow-hidden">
           {isPlaying ? (
             <VideoEmbed
               provider={mainShowreel.provider}
@@ -54,7 +54,7 @@ export default function DirectionCards() {
       <section className="px-[var(--page-padding)] pb-4 pt-5 md:pb-5 md:pt-6" aria-label="Introduction">
         <div className="mx-auto max-w-[1440px] text-center">
           <h1
-            className="mx-auto max-w-4xl whitespace-nowrap font-display font-normal uppercase leading-[0.92] tracking-[0.04em] text-white"
+            className="mx-auto max-w-4xl whitespace-nowrap font-display font-normal uppercase leading-[0.92] tracking-[0.04em] text-text-primary"
             style={{
               fontSize: "clamp(0.85rem, 2.85vw, 2.65rem)",
               letterSpacing: "-0.01em",

@@ -17,13 +17,13 @@ export default function MobileEstimateCTA() {
 
   return (
     <div
-      className="fixed bottom-0 left-0 right-0 z-40 border-t border-white/10 bg-[#030510]/90 px-4 py-3 backdrop-blur-xl md:hidden"
+      className="mobile-estimate-bar fixed bottom-0 left-0 right-0 z-40 px-4 py-3 md:hidden"
       style={{ paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))" }}
     >
       <button
         type="button"
         onClick={() => scrollToSection(sectionIds.contact)}
-        className="gradient-button w-full rounded-full py-3 text-sm font-medium text-white"
+        className="gradient-button btn-on-accent w-full rounded-full py-3 text-sm font-medium"
       >
         Get an Estimate
       </button>

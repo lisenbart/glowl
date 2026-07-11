@@ -19,7 +19,7 @@ export interface Reel {
  */
 export const mainShowreel: HostedVideo = {
   title: "GLOWL Showreel",
-  poster: publicAsset("/images/header_02.png"),
+  poster: publicAsset("/images/showreel-poster.png"),
   provider: "youtube",
   id: "-cdiXSJczdU",
   // provider: "vimeo",

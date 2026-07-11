@@ -6,7 +6,7 @@ export default function EstimateCTA() {
       <div className="mx-auto max-w-[920px]">
         <article className="how-ios-card">
           <div className="how-ios-card-inner text-center md:text-left">
-            <h2 className="font-display text-2xl font-light tracking-[0.06em] text-white md:text-3xl">Have a project in mind?</h2>
+            <h2 className="section-heading">Have a project in mind?</h2>
             <p className="mt-3 text-sm font-light leading-relaxed text-text-secondary md:text-[15px]">
               Send us your brief, references or even an early idea. We'll review it and propose the most effective
               production approach.
@@ -16,13 +16,13 @@ export default function EstimateCTA() {
               <button
                 type="button"
                 onClick={() => scrollToSection(sectionIds.contact)}
-                className="gradient-button w-full rounded-full px-6 py-3 text-sm font-medium text-white sm:w-auto"
+                  className="gradient-button btn-on-accent w-full rounded-full px-6 py-3 text-sm font-medium sm:w-auto"
               >
                 Get a Project Estimate
               </button>
               <a
                 href={`mailto:${site.email}`}
-                className="text-sm font-light text-text-secondary underline-offset-4 transition-colors hover:text-white hover:underline"
+                className="text-sm font-light text-text-secondary underline-offset-4 transition-colors hover:text-text-primary hover:underline"
               >
                 Email Us Directly
               </a>

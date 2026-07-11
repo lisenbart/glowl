@@ -29,7 +29,7 @@ export default function VideoModal({ reel, onClose }: VideoModalProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-black/85 p-4 backdrop-blur-sm"
+      className="modal-overlay fixed inset-0 z-[100] flex items-center justify-center p-4 backdrop-blur-sm"
       role="dialog"
       aria-modal="true"
       aria-label={`${reel.title} video player`}
@@ -39,20 +39,20 @@ export default function VideoModal({ reel, onClose }: VideoModalProps) {
         initial={{ scale: 0.95, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ duration: 0.25 }}
-        className="relative w-full max-w-[420px] overflow-hidden rounded-[24px] border border-white/15 bg-black shadow-2xl"
+        className="modal-panel relative w-full max-w-[420px] overflow-hidden rounded-[24px]"
         onClick={(e) => e.stopPropagation()}
       >
         <button
           ref={closeRef}
           type="button"
           onClick={onClose}
-          className="absolute right-3 top-3 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-white/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-cyan-400"
+          className="modal-close-btn absolute right-3 top-3 z-10 h-10 w-10 rounded-full backdrop-blur-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-[var(--link-accent)]"
           aria-label="Close video"
         >
           <X size={20} />
         </button>
 
-        <div className="relative aspect-[9/16] w-full bg-black">
+        <div className="video-stage relative aspect-[9/16] w-full">
           <video
             ref={videoRef}
             src={reel.video}
@@ -66,8 +66,8 @@ export default function VideoModal({ reel, onClose }: VideoModalProps) {
           </video>
         </div>
 
-        <div className="border-t border-white/10 px-5 py-4">
-          <h3 className="font-display text-base font-light tracking-[0.04em] text-white">{reel.title}</h3>
+        <div className="modal-header px-5 py-4">
+          <h3 className="font-display text-base font-light tracking-[0.04em] text-text-primary">{reel.title}</h3>
           <p className="mt-1 text-sm font-light text-text-secondary">{reel.description}</p>
         </div>
       </motion.div>

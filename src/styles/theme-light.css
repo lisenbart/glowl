@@ -1,0 +1,379 @@
+/* iOS-inspired light theme */
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --background: #f2f2f7;
+  --surface: #ffffff;
+  --surface-strong: #ffffff;
+  --text-primary: #1c1c1e;
+  --text-secondary: #8e8e93;
+  --text-tertiary: #aeaeb2;
+  --glass-border: rgba(60, 60, 67, 0.2);
+  --separator: rgba(60, 60, 67, 0.12);
+  --header-bg: rgba(242, 242, 247, 0.78);
+  --header-bg-scrolled: rgba(242, 242, 247, 0.94);
+  --header-border: rgba(60, 60, 67, 0.12);
+  --mobile-bar-bg: rgba(242, 242, 247, 0.92);
+  --overlay-scrim: rgba(0, 0, 0, 0.35);
+  --modal-bg: #ffffff;
+  --modal-border: rgba(60, 60, 67, 0.16);
+  --inset-surface: #f2f2f7;
+  --how-ios-bg: #ffffff;
+  --how-ios-group-bg: #f2f2f7;
+  --card-shadow: 0 1px 2px rgba(0, 0, 0, 0.04), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --card-radius: 16px;
+  --blue: #007aff;
+  --cyan: #32ade6;
+  --violet: #5856d6;
+  --magenta: #af52de;
+  --pink: #ff2d55;
+  --orange: #ff9500;
+  --link-accent: #007aff;
+  --error: #ff3b30;
+  --ios-card-border: transparent;
+  --ios-card-shadow: var(--card-shadow);
+  --ios-card-border-emerald: transparent;
+  --ios-card-shadow-emerald: var(--card-shadow);
+  --ios-card-border-cyan: transparent;
+  --ios-card-shadow-cyan: var(--card-shadow);
+  --ios-card-border-experience: transparent;
+  --ios-card-shadow-experience: var(--card-shadow);
+  --stat-surface: var(--how-ios-group-bg);
+  --stat-border: transparent;
+  --stat-accent-text: var(--blue);
+  --stat-icon-bg: #ffffff;
+  --stat-icon-border: rgba(0, 122, 255, 0.22);
+  --stat-icon-color: var(--blue);
+  --stat-shadow: none;
+  --stat-top-line: transparent;
+  --stat-icon-shadow: none;
+  --produce-cell-border: transparent;
+  --produce-active-bg: #ffffff;
+  --produce-active-border: rgba(0, 122, 255, 0.22);
+  --produce-active-color: var(--text-primary);
+  --produce-active-shadow: 0 0 0 1px rgba(0, 122, 255, 0.22), 0 2px 8px rgba(0, 122, 255, 0.08);
+  --produce-icon-color: var(--blue);
+  --produce-icon-active-color: #34c759;
+  --produce-icon-active-filter: none;
+  --title-emerald-gradient: linear-gradient(90deg, #30d158 0%, #34c759 100%);
+  --title-experience-gradient: none;
+  --cta-bg: var(--blue);
+  --cta-border: transparent;
+  --cta-shadow: none;
+  --cta-text-color: #fff;
+  --process-line-bg: var(--separator);
+  --process-line-active-bg: color-mix(in srgb, var(--blue) 55%, var(--separator));
+  --process-line-active-bg-vertical: color-mix(in srgb, var(--blue) 55%, var(--separator));
+  --process-dot-bg: var(--text-tertiary);
+  --process-dot-shadow: none;
+  --process-dot-active-bg: var(--blue);
+  --process-dot-active-shadow: none;
+  --process-icon-mix: #1c1c1e;
+  --showreel-fade: linear-gradient(to bottom, transparent 55%, rgba(242, 242, 247, 0.35) 82%, #f2f2f7 100%);
+  --showreel-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0.08) 0%, rgba(0, 0, 0, 0.28) 100%);
+  --showreel-play-bg: rgba(255, 255, 255, 0.92);
+  --showreel-play-color: #1c1c1e;
+  --showreel-play-shadow: 0 4px 24px rgba(0, 0, 0, 0.18);
+  --btn-on-accent-color: #fff;
+  --theme-toggle-bg: rgba(118, 118, 128, 0.12);
+  --theme-toggle-bg-hover: rgba(118, 118, 128, 0.18);
+  --modal-panel-shadow: 0 16px 48px rgba(0, 0, 0, 0.14);
+  --form-spinner-border: rgba(60, 60, 67, 0.18);
+  --form-spinner-top: var(--text-primary);
+  --gradient-button-hover-shadow: 0 2px 8px rgba(0, 122, 255, 0.28);
+  --emerald-button-color: #fff;
+  --emerald-button-border: transparent;
+  --emerald-button-bg: #34c759;
+  --emerald-button-shadow: none;
+  --emerald-button-shadow-hover: 0 2px 8px rgba(52, 199, 89, 0.28);
+
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", var(--font-sans);
+}
+
+[data-theme="light"] .cosmic-bg {
+  background: var(--background);
+}
+
+[data-theme="light"] .cosmic-bg::after {
+  opacity: 0;
+}
+
+[data-theme="light"] .glass-panel {
+  background: var(--surface-strong);
+  border-color: var(--glass-border);
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme="light"] .glass-panel-glow::before {
+  opacity: 0;
+}
+
+[data-theme="light"] .gradient-button {
+  background: var(--blue);
+  box-shadow: none;
+}
+
+[data-theme="light"] .gradient-button:hover:not(:disabled) {
+  opacity: 0.88;
+  box-shadow: 0 2px 8px rgba(0, 122, 255, 0.28);
+}
+
+[data-theme="light"] .gradient-button-emerald {
+  background: #34c759;
+  border: none;
+  box-shadow: none;
+  animation: none;
+}
+
+[data-theme="light"] .gradient-button-emerald:hover:not(:disabled) {
+  opacity: 0.88;
+  box-shadow: 0 2px 8px rgba(52, 199, 89, 0.28);
+}
+
+[data-theme="light"] .how-ios-card,
+[data-theme="light"] .how-ios-card-emerald,
+[data-theme="light"] .how-ios-card-cyan,
+[data-theme="light"] .how-experience-card {
+  border-radius: var(--card-radius);
+  border: none;
+  background: var(--how-ios-bg);
+  box-shadow: var(--card-shadow);
+}
+
+[data-theme="light"] .how-col-title {
+  color: var(--text-primary);
+  background: none;
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+[data-theme="light"] .how-col-title-cyan {
+  color: #007aff;
+}
+
+[data-theme="light"] .how-col-title-emerald {
+  background-image: none;
+  color: #34c759;
+}
+
+[data-theme="light"] .accent-emerald {
+  background-image: var(--title-emerald-gradient);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme="light"] .how-col-title-experience {
+  background-image: none;
+  color: var(--text-primary);
+  -webkit-background-clip: unset;
+  background-clip: unset;
+}
+
+[data-theme="light"] .how-process-card {
+  border-radius: 14px;
+  box-shadow: none;
+}
+
+[data-theme="light"] .how-process-card--pending {
+  opacity: 0.72;
+}
+
+[data-theme="light"] .how-process-card--active {
+  transform: none;
+  border-color: color-mix(in srgb, var(--step-accent) 45%, var(--separator));
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--step-accent) 12%, transparent);
+  animation: none;
+}
+
+[data-theme="light"] .how-process-card--active::after,
+[data-theme="light"] .how-process-card--active .how-process-icon {
+  animation: none;
+  opacity: 0;
+}
+
+[data-theme="light"] .how-process--complete .how-process-card--active {
+  animation: none;
+}
+
+[data-theme="light"] .how-process-icon {
+  color: color-mix(in srgb, var(--step-accent) 82%, #1c1c1e);
+}
+
+[data-theme="light"] .how-process-connector .how-process-line,
+[data-theme="light"] .how-process-line {
+  background: var(--separator);
+}
+
+[data-theme="light"] .how-process-connector-active .how-process-line {
+  background: color-mix(in srgb, var(--blue) 55%, var(--separator));
+  animation: none;
+  opacity: 1;
+}
+
+[data-theme="light"] .how-process-dot {
+  background: var(--text-tertiary);
+  box-shadow: none;
+}
+
+[data-theme="light"] .how-process-connector-active .how-process-dot {
+  animation: none;
+  background: var(--blue);
+  box-shadow: none;
+}
+
+[data-theme="dark"] .how-produce-cell {
+  border-color: var(--produce-cell-border);
+}
+
+[data-theme="light"] .how-produce-cell {
+  opacity: 1;
+  border-radius: 14px;
+  border: none;
+  color: var(--text-secondary);
+  box-shadow: none;
+}
+
+[data-theme="light"] .how-produce-cell-active {
+  background: var(--produce-active-bg);
+  color: var(--produce-active-color);
+  box-shadow: var(--produce-active-shadow);
+}
+
+[data-theme="light"] .how-produce-icon {
+  color: var(--produce-icon-color);
+}
+
+[data-theme="light"] .how-produce-cell-active .how-produce-icon {
+  color: var(--produce-icon-active-color);
+  filter: var(--produce-icon-active-filter);
+}
+
+[data-theme="light"] .how-talk-cta {
+  color: var(--cta-text-color);
+  background: var(--cta-bg);
+  border: none;
+  box-shadow: var(--cta-shadow);
+}
+
+[data-theme="light"] .how-talk-cta:hover {
+  opacity: 0.88;
+  transform: none;
+  box-shadow: var(--gradient-button-hover-shadow);
+}
+
+[data-theme="light"] .how-talk-cta-pulse {
+  animation: none;
+}
+
+[data-theme="light"] .how-experience-stat {
+  background: var(--how-ios-group-bg);
+  border: none;
+  border-radius: 14px;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+[data-theme="light"] .how-experience-stat::before,
+[data-theme="light"] .how-experience-stat::after {
+  display: none;
+}
+
+[data-theme="light"] .how-experience-stat-icon-wrap {
+  border-color: var(--stat-icon-border);
+  background: var(--stat-icon-bg);
+  box-shadow: var(--stat-icon-shadow);
+}
+
+[data-theme="light"] .how-experience-stat-icon {
+  color: var(--stat-icon-color);
+}
+
+[data-theme="light"] .how-experience-stat-accent {
+  color: var(--stat-accent-text);
+}
+
+[data-theme="light"] .showreel-hero-fade {
+  background: var(--showreel-fade);
+}
+
+[data-theme="light"] .showreel-stage-overlay {
+  background: var(--showreel-overlay);
+}
+
+[data-theme="light"] .showreel-stage-play,
+[data-theme="light"] .showreel-stage-play.gradient-button {
+  background: var(--showreel-play-bg);
+  color: var(--showreel-play-color);
+  box-shadow: var(--showreel-play-shadow);
+}
+
+[data-theme="light"] .inquiry-input:focus,
+[data-theme="light"] .inquiry-textarea:focus {
+  box-shadow: none;
+}
+
+[data-theme="light"] .inquiry-input--error,
+[data-theme="light"] .inquiry-textarea.inquiry-input--error:focus {
+  box-shadow: none;
+}
+
+[data-theme="light"] .modal-panel {
+  box-shadow: var(--modal-panel-shadow);
+}
+
+[data-theme="light"] .modal-close-btn {
+  background: var(--inset-surface);
+}
+
+[data-theme="light"] .site-header-nav {
+  background: var(--header-bg);
+  border-bottom-color: var(--header-border);
+}
+
+[data-theme="light"] .site-header-nav--scrolled {
+  background: var(--header-bg-scrolled);
+}
+
+[data-theme="light"] .site-header-mobile-menu {
+  background: var(--header-bg-scrolled);
+  border-top-color: var(--header-border);
+}
+
+[data-theme="light"] .site-header-link {
+  color: var(--text-secondary);
+}
+
+[data-theme="light"] .site-header-link:hover {
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .site-header-tagline {
+  color: var(--text-tertiary);
+}
+
+[data-theme="light"] .theme-toggle {
+  color: var(--text-secondary);
+  background: var(--theme-toggle-bg);
+}
+
+[data-theme="light"] .theme-toggle:hover {
+  color: var(--text-primary);
+  background: var(--theme-toggle-bg-hover);
+}
+
+[data-theme="light"] .mobile-estimate-bar {
+  background: var(--mobile-bar-bg);
+  border-top-color: var(--header-border);
+}
+
+[data-theme="light"] .footer-section-label {
+  color: var(--text-tertiary);
+}
+
+[data-theme="light"] .form-spinner {
+  border-color: var(--form-spinner-border);
+  border-top-color: var(--form-spinner-top);
+}

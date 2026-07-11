@@ -4,7 +4,7 @@ function ServiceItem({ label, icon: Icon, accent }: (typeof stripServices)[0]) {
   return (
     <div className="flex shrink-0 items-center gap-2.5 px-1">
       <Icon size={15} strokeWidth={1.5} style={{ color: accent }} aria-hidden="true" />
-      <span className="whitespace-nowrap text-[13px] font-light tracking-wide text-white/90 md:text-sm">
+      <span className="whitespace-nowrap text-[13px] font-light tracking-wide text-text-primary md:text-sm">
         {label}
       </span>
     </div>
@@ -12,7 +12,7 @@ function ServiceItem({ label, icon: Icon, accent }: (typeof stripServices)[0]) {
 }
 
 function ServiceDot() {
-  return <span className="mx-3 h-1 w-1 shrink-0 rounded-full bg-white/25 md:mx-4" aria-hidden="true" />;
+  return <span className="strip-service-dot mx-3 h-1 w-1 shrink-0 rounded-full md:mx-4" aria-hidden="true" />;
 }
 
 function ServiceRow({ groupId }: { groupId: string }) {

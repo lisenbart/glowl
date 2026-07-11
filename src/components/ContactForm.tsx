@@ -43,7 +43,7 @@ function Field({
       </label>
       {children}
       {error && (
-        <p className="mt-1.5 text-xs text-pink" role="alert">
+        <p className="mt-1.5 text-xs text-error" role="alert">
           {error}
         </p>
       )}
@@ -113,8 +113,8 @@ export default function ContactForm() {
     <section id={sectionIds.contact} className="scroll-mt-24 px-[var(--page-padding)] pb-[var(--section-spacing)]" aria-label="Contact form">
       <div className="mx-auto max-w-[920px]">
         <div className="mb-8 text-center md:mb-10">
-          <h2 className="font-display text-[1.625rem] font-normal tracking-[0.06em] text-white md:text-[2rem]">Request an estimate</h2>
-          <p className="mx-auto mt-3 max-w-md text-[0.9375rem] font-light leading-relaxed text-[#c8cce4] md:text-base">
+          <h2 className="section-heading">Request an estimate</h2>
+          <p className="mx-auto mt-3 max-w-md text-[0.9375rem] font-light leading-relaxed text-text-secondary md:text-base">
             No commitment. We respond within 24 hours.
           </p>
         </div>
@@ -123,11 +123,11 @@ export default function ContactForm() {
           <div className="how-ios-card-inner">
             {status === "success" ? (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-10 text-center" role="status">
-                <CheckCircle2 size={44} className="mx-auto text-cyan" />
-                <p className="mt-4 text-base font-light text-white">
+                <CheckCircle2 size={44} className="mx-auto link-accent" />
+                <p className="mt-4 text-base font-light text-text-primary">
                   Thank you. We've received your request and will review it shortly.
                 </p>
-                <button type="button" onClick={() => setStatus("idle")} className="mt-4 text-sm text-cyan hover:underline">
+                <button type="button" onClick={() => setStatus("idle")} className="mt-4 text-sm link-accent hover:underline">
                   Send another request
                 </button>
               </motion.div>
@@ -186,7 +186,7 @@ export default function ContactForm() {
                       >
                         <option value="">Select type</option>
                         {projectTypes.map((t) => (
-                          <option key={t} value={t} className="bg-[#0d0f26]">
+                          <option key={t} value={t}>
                             {t}
                           </option>
                         ))}
@@ -228,7 +228,7 @@ export default function ContactForm() {
                     className="inquiry-file-input"
                   />
                   {file && (
-                    <div className="mt-2 flex items-center gap-2 text-sm text-white">
+                    <div className="mt-2 flex items-center gap-2 text-sm text-text-primary">
                       <span className="flex-1 truncate">{file.name}</span>
                       <button
                         type="button"
@@ -236,7 +236,7 @@ export default function ContactForm() {
                           handleFile(null);
                           if (fileRef.current) fileRef.current.value = "";
                         }}
-                        className="text-text-secondary hover:text-white"
+                        className="text-text-secondary hover:text-text-primary"
                         aria-label="Remove file"
                       >
                         <X size={14} />
@@ -246,7 +246,7 @@ export default function ContactForm() {
                 </Field>
 
                 {status === "error" && serverMsg && (
-                  <p className="rounded-xl border border-pink/30 bg-pink/10 px-4 py-3 text-sm text-pink" role="alert">
+                  <p className="alert-error rounded-xl px-4 py-3 text-sm" role="alert">
                     {serverMsg}
                   </p>
                 )}
@@ -254,11 +254,11 @@ export default function ContactForm() {
                 <button
                   type="submit"
                   disabled={status === "loading"}
-                  className="gradient-button-emerald flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-sm font-medium uppercase tracking-[0.14em] text-white"
+                  className="gradient-button-emerald btn-on-accent flex w-full items-center justify-center gap-2 rounded-2xl py-4 text-sm font-medium uppercase tracking-[0.14em]"
                 >
                   {status === "loading" ? (
                     <>
-                      <span className="h-4 w-4 animate-spin rounded-full border-2 border-white/30 border-t-white" />
+                      <span className="form-spinner h-4 w-4 animate-spin rounded-full border-2" />
                       Sending...
                     </>
                   ) : (

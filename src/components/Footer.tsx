@@ -18,7 +18,7 @@ function FooterLink({ id, label }: { id: string; label: string }) {
   return (
     <a
       href={`#${id}`}
-      className="text-sm font-light text-text-secondary transition-colors hover:text-white"
+      className="text-sm font-light text-text-secondary transition-colors hover:text-text-primary"
       onClick={(e) => {
         e.preventDefault();
         scrollToSection(id);
@@ -47,13 +47,13 @@ export default function Footer() {
                   }}
                 >
                   <span
-                    className="font-display font-extralight uppercase leading-none tracking-[0.1em] text-white"
+                    className="font-display font-extralight uppercase leading-none tracking-[0.1em] text-text-primary"
                     style={{ fontSize: "clamp(1.35rem, 3vw, 2rem)" }}
                   >
                     GLOWL
                   </span>
                   <span
-                    className="font-sans uppercase leading-snug text-white/50"
+                    className="font-sans uppercase leading-snug text-text-tertiary"
                     style={{ fontSize: "clamp(8px, 1vw, 11px)", letterSpacing: "0.14em" }}
                   >
                     Creative partner for AI-era moving image
@@ -66,7 +66,7 @@ export default function Footer() {
                 <button
                   type="button"
                   onClick={() => scrollToSection(sectionIds.contact)}
-                  className="gradient-button mt-4 hidden rounded-full px-5 py-2.5 text-xs font-medium tracking-wide text-white sm:inline-flex md:mt-6 md:text-sm"
+                  className="gradient-button btn-on-accent mt-4 hidden rounded-full px-5 py-2.5 text-xs font-medium tracking-wide sm:inline-flex md:mt-6 md:text-sm"
                 >
                   Get a Project Estimate
                 </button>
@@ -74,7 +74,7 @@ export default function Footer() {
 
               <div className="grid grid-cols-2 gap-x-4 gap-y-0 md:contents">
                 <nav aria-label="Footer navigation">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45 md:text-[11px]">Navigate</p>
+                  <p className="footer-section-label text-[10px] font-medium uppercase tracking-[0.14em] md:text-[11px]">Navigate</p>
                   <ul className="mt-2 flex flex-col gap-1.5 md:mt-4 md:gap-3">
                     {navLinks.map((link) => (
                       <li key={link.id}>
@@ -85,13 +85,13 @@ export default function Footer() {
                 </nav>
 
                 <nav aria-label="Social links">
-                  <p className="text-[10px] font-medium uppercase tracking-[0.14em] text-white/45 md:text-[11px]">Connect</p>
+                  <p className="footer-section-label text-[10px] font-medium uppercase tracking-[0.14em] md:text-[11px]">Connect</p>
                   <ul className="mt-2 flex flex-col gap-1.5 md:mt-4 md:gap-3">
                     {socialLinks.map((link) => (
                       <li key={link.label}>
                         <a
                           href={link.href}
-                          className="text-sm font-light text-text-secondary transition-colors hover:text-white"
+                          className="text-sm font-light text-text-secondary transition-colors hover:text-text-primary"
                           {...(link.external
                             ? { target: "_blank", rel: "noopener noreferrer" }
                             : {})}
@@ -105,7 +105,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-5 flex flex-row items-center justify-between gap-3 border-t border-white/8 pt-4 text-[10px] font-light text-text-secondary/60 md:mt-10 md:flex-row md:pt-6 md:text-[11px]">
+            <div className="mt-5 flex flex-row items-center justify-between gap-3 border-t border-[var(--separator)] pt-4 text-[10px] font-light text-text-secondary/80 md:mt-10 md:pt-6 md:text-[11px]">
               <span className="truncate">{site.locations}</span>
               <span className="shrink-0">© {new Date().getFullYear()} {site.name}</span>
             </div>
