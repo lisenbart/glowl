@@ -51,51 +51,74 @@ const produceItems: { id: string; label: string; icon: LucideIcon }[] = [
   { id: "ai", label: "AI-assisted Visual Production", icon: Brain },
 ];
 
-type ExperiencePart = { value: string; bold?: boolean };
+type ExperienceStat = {
+  id: string;
+  icon: LucideIcon;
+  lines: { text: string; tone?: "primary" | "accent" | "muted" }[];
+  subtext: string;
+  glow: "purple-right" | "purple-top" | "blue-bottom" | "purple-mix";
+};
 
-const experienceItems: { icon: LucideIcon; parts: ExperiencePart[] }[] = [
+const experienceStats: ExperienceStat[] = [
   {
+    id: "projects",
     icon: Rocket,
-    parts: [
-      { value: "1000+", bold: true },
-      { value: " projects delivered" },
-    ],
+    lines: [{ text: "1000+", tone: "accent" }],
+    subtext: "projects delivered",
+    glow: "purple-right",
   },
   {
+    id: "awards",
     icon: Trophy,
-    parts: [
-      { value: "15", bold: true },
-      { value: " winners and " },
-      { value: "45", bold: true },
-      { value: " selections at World Festivals Class A" },
+    lines: [
+      { text: "15 awards", tone: "accent" },
+      { text: "45 selections", tone: "primary" },
     ],
+    subtext: "international festival recognition",
+    glow: "purple-top",
   },
   {
+    id: "timeline",
     icon: Calendar,
-    parts: [
-      { value: "Production experience since " },
-      { value: "2006", bold: true },
-    ],
+    lines: [{ text: "Since 2006", tone: "accent" }],
+    subtext: "production experience",
+    glow: "blue-bottom",
   },
   {
+    id: "teams",
     icon: Users,
-    parts: [{ value: "Creative & production teams across Canada, Ukraine & Poland" }],
+    lines: [{ text: "Canada · Ukraine · Poland", tone: "primary" }],
+    subtext: "creative & production teams",
+    glow: "purple-mix",
   },
 ];
 
-function ExperienceText({ parts }: { parts: ExperiencePart[] }) {
+function ExperienceStatCard({ stat }: { stat: ExperienceStat }) {
   return (
-    <>
-      {parts.map((part, index) =>
-        part.bold ? (
-          <strong key={index} className="how-exp-bold">
-            {part.value}
-          </strong>
-        ) : (
-          <span key={index}>{part.value}</span>
-        ),
-      )}
-    </>
+    <li className={`how-experience-stat how-experience-stat--${stat.glow}`}>
+      <span className="how-experience-stat-icon-wrap" aria-hidden="true">
+        <stat.icon className="how-experience-stat-icon" strokeWidth={1.5} />
+      </span>
+      <div className="how-experience-stat-copy">
+        <div className="how-experience-stat-lines">
+          {stat.lines.map((line) => (
+            <span
+              key={line.text}
+              className={
+                line.tone === "accent"
+                  ? "how-experience-stat-accent"
+                  : line.tone === "muted"
+                    ? "how-experience-stat-muted"
+                    : "how-experience-stat-primary"
+              }
+            >
+              {line.text}
+            </span>
+          ))}
+        </div>
+        <p className="how-experience-stat-sub">{stat.subtext}</p>
+      </div>
+    </li>
   );
 }
 
@@ -203,22 +226,20 @@ export default function HowWeWorkSection() {
 
         <WhatWeProduceCard />
 
-        <article className="how-ios-card" aria-label="Experience">
-          <div className="how-ios-card-inner">
-            <h2 className="how-col-title how-col-title-magenta">Experience</h2>
-            <ul className="how-ios-group how-experience-group">
-              {experienceItems.map((item, index) => (
-                <li
-                  key={item.parts.map((p) => p.value).join("")}
-                  className={index < experienceItems.length - 1 ? "how-ios-row how-experience-row" : "how-ios-row how-ios-row-last how-experience-row"}
-                >
-                  <span className="how-experience-icon-wrap">
-                    <item.icon className="how-experience-icon" strokeWidth={1.5} aria-hidden="true" />
-                  </span>
-                  <span className="how-experience-copy">
-                    <ExperienceText parts={item.parts} />
-                  </span>
-                </li>
+        <article className="how-ios-card how-experience-card" aria-label="Experience">
+          <div className="how-ios-card-inner how-experience-inner">
+            <div className="how-experience-header">
+              <h2 className="how-col-title how-col-title-experience">
+                Experience
+                <Sparkles className="how-experience-sparkle" strokeWidth={1.5} aria-hidden="true" />
+              </h2>
+              <p className="how-experience-lead">
+                Proven production experience, built across commercial and cinematic work.
+              </p>
+            </div>
+            <ul className="how-experience-grid">
+              {experienceStats.map((stat) => (
+                <ExperienceStatCard key={stat.id} stat={stat} />
               ))}
             </ul>
           </div>
