@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 1280" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="720" y2="1280" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0a1628"/>
+      <stop offset="40%" stop-color="#1a0a3e"/>
+      <stop offset="70%" stop-color="#2d1055"/>
+      <stop offset="100%" stop-color="#0d2847"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="50%">
+      <stop offset="0%" stop-color="#42D9FF" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#7B42FF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="water" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#42D9FF" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#7B42FF" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="1280" fill="url(#bg)"/>
+  <rect width="720" height="1280" fill="url(#glow)"/>
+  <!-- Water splash arcs -->
+  <ellipse cx="360" cy="520" rx="280" ry="180" fill="url(#water)" opacity="0.25"/>
+  <path d="M120 680 Q200 580 360 620 Q520 660 600 560" stroke="#42D9FF" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M80 720 Q240 640 360 680 Q480 720 640 640" stroke="#7B42FF" stroke-width="2" fill="none" opacity="0.35"/>
+  <!-- Bottle silhouette -->
+  <rect x="310" y="380" width="100" height="280" rx="20" fill="rgba(20,30,60,0.8)" stroke="rgba(66,217,255,0.3)" stroke-width="1"/>
+  <rect x="325" y="360" width="70" height="30" rx="8" fill="rgba(20,30,60,0.9)" stroke="rgba(66,217,255,0.2)" stroke-width="1"/>
+  <text x="360" y="520" text-anchor="middle" fill="rgba(247,248,255,0.15)" font-family="system-ui,sans-serif" font-size="14" letter-spacing="4">LUMORA</text>
+  <!-- Bokeh particles -->
+  <circle cx="180" cy="400" r="4" fill="#42D9FF" opacity="0.5"/>
+  <circle cx="540" cy="450" r="3" fill="#EF3DD2" opacity="0.4"/>
+  <circle cx="420" cy="750" r="5" fill="#7B42FF" opacity="0.35"/>
+  <circle cx="250" cy="850" r="3" fill="#42D9FF" opacity="0.3"/>
+</svg>
