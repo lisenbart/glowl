@@ -15,7 +15,7 @@ Open [http://localhost:5173](http://localhost:5173)
 
 Pushes to `main` deploy automatically via GitHub Actions.
 
-Live URL: `https://smartbabies.github.io/glowl/`
+Live URL: `https://lisenbart.github.io/glowl/`
 
 To enable the first deploy, open the repo on GitHub → **Settings** → **Pages** → set **Source** to **GitHub Actions**.
 
