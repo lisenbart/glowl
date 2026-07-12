@@ -1341,11 +1341,15 @@ body.header-connect-open {
 }
 
 .how-process-card--active .how-process-icon {
-  animation: how-process-icon-float 3.8s ease-in-out infinite;
+  animation: how-process-icon-float 4.2s cubic-bezier(0.34, 1.18, 0.42, 1) infinite;
 }
 
 .how-process--complete .how-process-card--active {
   animation: how-process-card-breathe 2.8s ease-in-out infinite;
+}
+
+.how-process--complete .how-process-card--active .how-process-icon {
+  animation-duration: 3.1s;
 }
 
 .how-process--complete .how-process-connector-active .how-process-dot {
@@ -1385,13 +1389,28 @@ body.header-connect-open {
 @keyframes how-process-icon-float {
   0%,
   100% {
-    transform: translateY(0);
-    opacity: 0.88;
+    transform: scale(1) rotate(0deg);
+    opacity: 0.92;
   }
 
-  50% {
-    transform: translateY(-2px);
+  18% {
+    transform: scale(1.07) rotate(-2.75deg);
     opacity: 1;
+  }
+
+  42% {
+    transform: scale(0.98) rotate(1.85deg);
+    opacity: 0.98;
+  }
+
+  62% {
+    transform: scale(1.03) rotate(-1.1deg);
+    opacity: 1;
+  }
+
+  78% {
+    transform: scale(0.995) rotate(0.45deg);
+    opacity: 0.96;
   }
 }
 
@@ -1451,9 +1470,17 @@ body.header-connect-open {
 
 .how-process-card-top {
   display: flex;
+  flex-direction: column;
   align-items: flex-start;
-  justify-content: space-between;
-  gap: 0.75rem;
+  gap: clamp(0.65rem, 1.2vw, 0.85rem);
+}
+
+.how-process-card-heading {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(0.45rem, 1vw, 0.65rem);
+  width: 100%;
+  min-width: 0;
 }
 
 .how-process-num {
@@ -1463,23 +1490,29 @@ body.header-connect-open {
   letter-spacing: 0.06em;
   color: var(--step-accent);
   transition: opacity 0.7s ease;
+  flex-shrink: 0;
 }
 
 .how-process-icon {
-  width: 1.35rem;
-  height: 1.35rem;
+  align-self: center;
+  width: clamp(6.75rem, 42%, 8.1rem);
+  height: clamp(6.75rem, 42%, 8.1rem);
   shrink: 0;
+  transform-origin: center center;
   color: color-mix(in srgb, var(--step-accent) 75%, var(--process-icon-mix));
   transition: opacity 0.7s ease;
 }
 
 .how-process-card-title {
-  margin-top: 0.9rem;
+  margin: 0;
+  min-width: 0;
   font-family: var(--font-display);
   font-size: clamp(1.125rem, 1.55vw, 1.375rem);
   font-weight: 400;
   letter-spacing: 0.03em;
+  line-height: 1.15;
   color: var(--text-primary);
+  white-space: nowrap;
 }
 
 .how-process-card-text {

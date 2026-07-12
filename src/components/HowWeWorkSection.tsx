@@ -139,10 +139,12 @@ function ProductionProcessFlow() {
             style={{ ["--step-accent" as string]: step.accent }}
           >
             <div className="how-process-card-top">
-              <span className="how-process-num">{step.num}</span>
+              <div className="how-process-card-heading">
+                <span className="how-process-num">{step.num}</span>
+                <h3 className="how-process-card-title">{step.title}</h3>
+              </div>
               <step.icon className="how-process-icon" strokeWidth={1.5} aria-hidden="true" />
             </div>
-            <h3 className="how-process-card-title">{step.title}</h3>
             <p className="how-process-card-text">{step.text}</p>
           </div>
           {index < steps.length - 1 && (

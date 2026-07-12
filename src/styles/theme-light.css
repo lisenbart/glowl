@@ -312,18 +312,22 @@
   animation: none;
 }
 
-[data-theme="light"] .how-process-card--active::after,
-[data-theme="light"] .how-process-card--active .how-process-icon {
+[data-theme="light"] .how-process-card--active::after {
   animation: none;
   opacity: 0;
 }
 
-[data-theme="light"] .how-process--complete .how-process-card--active {
-  animation: none;
+[data-theme="light"] .how-process-card--active .how-process-icon {
+  opacity: 1;
+  animation: how-process-icon-float 4.2s cubic-bezier(0.34, 1.18, 0.42, 1) infinite;
+}
+
+[data-theme="light"] .how-process--complete .how-process-card--active .how-process-icon {
+  animation-duration: 3.1s;
 }
 
 [data-theme="light"] .how-process-num {
-  color: color-mix(in srgb, var(--step-accent) 75%, var(--text-primary));
+  color: var(--step-accent);
   font-weight: 500;
 }
 
@@ -333,11 +337,15 @@
 }
 
 [data-theme="light"] .how-process-icon {
-  color: color-mix(in srgb, var(--step-accent) 55%, var(--text-tertiary));
+  color: var(--step-accent);
+  opacity: 0.62;
+  filter: saturate(1.15) contrast(1.05);
 }
 
 [data-theme="light"] .how-process-card--active .how-process-icon {
   color: var(--step-accent);
+  opacity: 1;
+  filter: saturate(1.22) contrast(1.1);
 }
 
 [data-theme="light"] .how-process-connector .how-process-line,
