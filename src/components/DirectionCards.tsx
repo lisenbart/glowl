@@ -16,36 +16,37 @@ export default function DirectionCards() {
     <>
       <section
         id={sectionIds.work}
-        className="showreel-hero scroll-mt-24 pt-16 md:pt-[4.5rem]"
+        className="showreel-hero scroll-mt-24 px-[var(--page-padding)] pt-16 md:pt-[4.5rem]"
         aria-label="Showreel"
       >
-        <div className="video-stage relative aspect-video w-full overflow-hidden">
-          {isPlaying ? (
-            <VideoEmbed
-              provider={mainShowreel.provider}
-              videoId={mainShowreel.id}
-              title={mainShowreel.title}
-            />
-          ) : (
-            <>
-              <img
-                src={mainShowreel.poster}
-                alt=""
-                className="h-full w-full object-cover object-center"
-                fetchPriority="high"
+        <div className="showreel-card mx-auto w-full min-w-0 max-w-[1440px]">
+          <div className="video-stage relative aspect-video w-full overflow-hidden">
+            {isPlaying ? (
+              <VideoEmbed
+                provider={mainShowreel.provider}
+                videoId={mainShowreel.id}
+                title={mainShowreel.title}
               />
-              <div className="showreel-stage-overlay" aria-hidden="true" />
-              <button
-                type="button"
-                onClick={startPlayback}
-                className="showreel-stage-play gradient-button"
-                aria-label="Watch reel"
-              >
-                <Play fill="currentColor" className="showreel-stage-play-icon" aria-hidden="true" />
-              </button>
-            </>
-          )}
-          <div className="showreel-hero-fade" aria-hidden="true" />
+            ) : (
+              <>
+                <img
+                  src={mainShowreel.poster}
+                  alt=""
+                  className="h-full w-full object-cover object-center"
+                  fetchPriority="high"
+                />
+                <div className="showreel-stage-overlay" aria-hidden="true" />
+                <button
+                  type="button"
+                  onClick={startPlayback}
+                  className="showreel-stage-play gradient-button"
+                  aria-label="Watch reel"
+                >
+                  <Play fill="currentColor" className="showreel-stage-play-icon" aria-hidden="true" />
+                </button>
+              </>
+            )}
+          </div>
         </div>
       </section>
 

@@ -87,14 +87,7 @@
   --process-dot-active-shadow: 0 0 8px rgba(0, 136, 184, 0.35);
   --process-icon-mix: #121214;
 
-  /* Cinematic showreel — film haze, not white fog */
-  --showreel-fade: linear-gradient(
-    to bottom,
-    transparent 62%,
-    rgba(243, 242, 237, 0.22) 84%,
-    rgba(243, 242, 237, 0.88) 96%,
-    #f3f2ed 100%
-  );
+  /* Cinematic showreel */
   --showreel-overlay: linear-gradient(
     180deg,
     rgba(0, 0, 0, 0.04) 0%,
@@ -478,8 +471,10 @@
 }
 
 /* Showreel */
-[data-theme="light"] .showreel-hero-fade {
-  background: var(--showreel-fade);
+[data-theme="light"] .showreel-card {
+  border: 1px solid var(--ios-card-border);
+  box-shadow: var(--card-shadow);
+  background: #000;
 }
 
 [data-theme="light"] .showreel-stage-overlay {

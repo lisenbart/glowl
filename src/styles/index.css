@@ -104,7 +104,6 @@
   --process-dot-bg: var(--violet);
   --process-dot-shadow: 0 0 14px rgba(123, 66, 255, 0.85);
   --process-icon-mix: white;
-  --showreel-fade: linear-gradient(to bottom, transparent 55%, rgba(3, 5, 16, 0.35) 82%, #030510 100%);
   --showreel-overlay: linear-gradient(180deg, rgba(3, 5, 16, 0.35) 0%, rgba(3, 5, 16, 0.5) 45%, rgba(3, 5, 16, 0.72) 100%);
   --showreel-play-bg: transparent;
   --showreel-play-color: #fff;
@@ -462,11 +461,12 @@ html {
   }
 }
 
-.showreel-hero-fade {
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-  background: var(--showreel-fade);
+.showreel-card {
+  overflow: hidden;
+  border-radius: var(--card-radius);
+  border: 1px solid var(--ios-card-border);
+  box-shadow: var(--ios-card-shadow);
+  background: var(--video-stage-bg);
 }
 
 .showreel-stage-overlay {
