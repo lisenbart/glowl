@@ -1,12 +1,13 @@
 import type { LucideIcon } from "lucide-react";
 import {
+  Box,
+  Brain,
   Clapperboard,
   Film,
   Gamepad2,
+  Megaphone,
   Music,
-  Sparkles,
-  Tv,
-  Wand2,
+  Type,
 } from "lucide-react";
 
 export interface StripService {
@@ -17,11 +18,12 @@ export interface StripService {
 }
 
 export const stripServices: StripService[] = [
-  { id: "commercial", label: "Commercial Animation", icon: Sparkles, accent: "var(--cyan)" },
-  { id: "gaming", label: "Gaming Videos", icon: Gamepad2, accent: "var(--violet)" },
-  { id: "gambling", label: "Gambling Videos", icon: Tv, accent: "var(--magenta)" },
-  { id: "cinema", label: "Cinema", icon: Clapperboard, accent: "var(--pink)" },
-  { id: "music", label: "Music Videos", icon: Music, accent: "var(--cyan)" },
-  { id: "motion", label: "Motion Design", icon: Wand2, accent: "var(--magenta)" },
-  { id: "brand", label: "Brand Films", icon: Film, accent: "var(--orange)" },
+  { id: "commercials", label: "Commercials", icon: Megaphone, accent: "var(--cyan)" },
+  { id: "brand-films", label: "Brand Films", icon: Film, accent: "var(--orange)" },
+  { id: "game-trailers", label: "Game Trailers", icon: Gamepad2, accent: "var(--violet)" },
+  { id: "cinematics", label: "Cinematics", icon: Clapperboard, accent: "var(--pink)" },
+  { id: "product", label: "Product Animation", icon: Box, accent: "var(--magenta)" },
+  { id: "titles", label: "Title Sequences", icon: Type, accent: "var(--cyan)" },
+  { id: "music", label: "Music Videos", icon: Music, accent: "var(--violet)" },
+  { id: "ai", label: "AI-assisted Production", icon: Brain, accent: "var(--magenta)" },
 ];

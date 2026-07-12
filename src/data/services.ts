@@ -9,7 +9,7 @@ export const deliverables: Deliverable[] = [
   { id: "product", label: "Product animation" },
   { id: "trailers", label: "Game trailers and cinematics", featured: true },
   { id: "gameplay", label: "Gameplay and performance creatives", featured: true },
-  { id: "gambling", label: "Gambling videos" },
+  { id: "playable", label: "Game trailers and playable ads" },
   { id: "social", label: "Social campaign assets" },
   { id: "music", label: "Music videos" },
   { id: "titles", label: "Title sequences" },
@@ -19,8 +19,10 @@ export const deliverables: Deliverable[] = [
 
 export const projectTypes = [
   "Commercial Animation",
-  "Gaming Video",
-  "Gambling Video",
+  "Gaming & Interactive",
+  "Game Trailers & Playable Ads",
+  "Gameplay Creatives",
+  "Performance Creatives",
   "Film & Entertainment",
   "Music Video",
   "Motion Design",

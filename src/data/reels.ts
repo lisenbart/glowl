@@ -38,7 +38,7 @@ export const reels: Reel[] = [
   },
   {
     id: "gaming",
-    title: "Gaming & Gambling",
+    title: "Gaming & Interactive",
     poster: publicAsset("/images/reels/gaming.svg"),
     video: publicAsset("/videos/gaming.mp4"),
     accent: "var(--magenta)",

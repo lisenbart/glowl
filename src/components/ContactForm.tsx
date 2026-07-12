@@ -4,6 +4,7 @@ import { CheckCircle2, ChevronDown, ChevronRight, X } from "lucide-react";
 import { projectTypes } from "@/data/services";
 import { sectionIds, site } from "@/data/site";
 import { submitContact, validateContact } from "@/lib/contactSubmit";
+import SocialIconLinks from "./SocialIconLinks";
 
 interface FormState {
   name: string;
@@ -110,16 +111,17 @@ export default function ContactForm() {
   };
 
   return (
-    <section id={sectionIds.contact} className="scroll-mt-24 px-[var(--page-padding)] pb-[var(--section-spacing)]" aria-label="Contact form">
-      <div className="mx-auto max-w-[920px]">
+    <section id={sectionIds.contact} className="scroll-mt-24 w-full max-w-full min-w-0 px-[var(--page-padding)] pb-[var(--section-spacing)]" aria-label="Contact form">
+      <div className="mx-auto w-full min-w-0 max-w-[920px]">
         <div className="mb-8 text-center md:mb-10">
           <h2 className="section-heading">Request an estimate</h2>
           <p className="mx-auto mt-3 max-w-md text-[0.9375rem] font-light leading-relaxed text-text-secondary md:text-base">
             No commitment. We respond within 24 hours.
           </p>
+          <SocialIconLinks className="mx-auto mt-5 justify-center md:mt-6" size="md" />
         </div>
 
-        <article className="how-ios-card">
+        <article className="how-ios-card inquiry-panel">
           <div className="how-ios-card-inner">
             {status === "success" ? (
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-10 text-center" role="status">

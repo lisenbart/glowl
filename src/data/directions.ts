@@ -27,7 +27,7 @@ export const directions: Direction[] = [
     reelId: "gaming",
     label: "Gaming",
     title: "Gaming",
-    description: "Trailers, gameplay ads, cinematics, UA creatives and gambling content.",
+    description: "Trailers, gameplay ads, cinematics, UA creatives and playable content.",
     cta: "View Gaming Work",
     image: publicAsset("/images/reels/gaming.svg"),
     accent: "var(--magenta)",

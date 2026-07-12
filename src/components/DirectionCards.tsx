@@ -1,7 +1,7 @@
 import { useState, useCallback } from "react";
 import { Play } from "lucide-react";
 import { mainShowreel } from "@/data/reels";
-import { sectionIds } from "@/data/site";
+import { sectionIds, site } from "@/data/site";
 import ServicesStrip from "./ServicesStrip";
 import VideoEmbed from "./VideoEmbed";
 
@@ -49,27 +49,26 @@ export default function DirectionCards() {
         </div>
       </section>
 
-      <ServicesStrip />
-
-      <section className="px-[var(--page-padding)] pb-4 pt-5 md:pb-5 md:pt-6" aria-label="Introduction">
-        <div className="mx-auto max-w-[1440px] text-center">
-          <h1
-            className="mx-auto max-w-4xl whitespace-nowrap font-display font-normal uppercase leading-[0.92] tracking-[0.04em] text-text-primary"
-            style={{
-              fontSize: "clamp(0.85rem, 2.85vw, 2.65rem)",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Experience-led. <span className="accent-emerald">AI</span>-enhanced. Production-ready.
+      <section className="px-[var(--page-padding)]" aria-label="Introduction">
+        <div className="mx-auto w-full min-w-0 max-w-[1440px] text-center">
+          <h1 className="hero-headline mx-auto w-full min-w-0 max-w-5xl font-display font-normal uppercase tracking-[0.04em] text-text-primary">
+            <span className="hero-headline-row">{site.hero.headlineLine1}</span>{" "}
+            <span className="hero-headline-row">
+              {site.hero.headlineLine2BeforeAccent}
+              <span className="accent-emerald">{site.hero.headlineAccent}</span>.
+            </span>
           </h1>
           <p
             className="mx-auto mt-3 max-w-2xl font-sans text-text-secondary"
             style={{ fontSize: 16, lineHeight: 1.75, fontWeight: 300 }}
           >
-            Commercials, game creatives and cinematic content, produced through a complete expert-led process supported by AI.
+            {site.hero.paragraph}
           </p>
+          <p className="hero-audience-line mx-auto mt-2.5 max-w-2xl">{site.hero.audienceLine}</p>
         </div>
       </section>
+
+      <ServicesStrip />
     </>
   );
 }

@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
 import {
-  Brain,
   Calendar,
   Clapperboard,
   FileText,
-  Gamepad2,
   MessageSquare,
-  Megaphone,
   Rocket,
-  Sparkles,
-  Target,
-  Box,
   Trophy,
   Users,
-  ArrowRight,
 } from "lucide-react";
-import { sectionIds, scrollToSection } from "@/data/site";
+import { selectedWork } from "@/data/selectedWork";
+import { sectionIds, scrollToSection, site } from "@/data/site";
 import type { LucideIcon } from "lucide-react";
 
 const steps = [
@@ -41,15 +35,6 @@ const steps = [
     accent: "var(--magenta)",
   },
 ] as const;
-
-const produceItems: { id: string; label: string; icon: LucideIcon }[] = [
-  { id: "commercials", label: "Commercials & Brand Films", icon: Megaphone },
-  { id: "trailers", label: "Game Trailers & Cinematics", icon: Gamepad2 },
-  { id: "product", label: "Product Animation", icon: Box },
-  { id: "gameplay", label: "Gameplay Creatives", icon: Target },
-  { id: "motion", label: "Motion Design / VFX", icon: Sparkles },
-  { id: "ai", label: "AI-assisted Visual Production", icon: Brain },
-];
 
 type ExperienceStat = {
   id: string;
@@ -175,72 +160,42 @@ function ProductionProcessFlow() {
   );
 }
 
-function shuffleIndices(count: number) {
-  const indices = Array.from({ length: count }, (_, i) => i);
-  for (let i = indices.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [indices[i], indices[j]] = [indices[j], indices[i]];
-  }
-  return indices;
-}
-
-function WhatWeProduceCard() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [ctaPulse, setCtaPulse] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
-    setReducedMotion(motionQuery.matches);
-
-    if (motionQuery.matches) return;
-
-    let queue = shuffleIndices(produceItems.length);
-    let position = 0;
-
-    const advance = () => {
-      if (position >= queue.length) {
-        setCtaPulse(true);
-        window.setTimeout(() => setCtaPulse(false), 2200);
-        queue = shuffleIndices(produceItems.length);
-        position = 0;
-      }
-      setActiveIndex(queue[position]);
-      position += 1;
-    };
-
-    advance();
-    const id = window.setInterval(advance, 2200);
-
-    return () => window.clearInterval(id);
-  }, []);
-
+function ProductionCapabilitiesCard() {
   return (
-    <article className="how-ios-card how-ios-card-cyan">
+    <article className="how-ios-card how-ios-card-cyan" aria-label="Production capabilities">
       <div className="how-ios-card-inner">
-        <h2 className="how-col-title how-col-title-cyan">What we produce</h2>
-        <ul className="how-produce-grid">
-          {produceItems.map((item, index) => (
-            <li
-              key={item.id}
-              className={`how-produce-cell${
-                reducedMotion || index === activeIndex ? " how-produce-cell-active" : ""
-              }`}
-            >
-              <item.icon className="how-produce-icon" strokeWidth={1.5} aria-hidden="true" />
-              <span>{item.label}</span>
+        <h2 className="how-col-title how-col-title-cyan">Production capabilities</h2>
+        <p className="how-support-line">{site.aiPositioningLine}</p>
+
+        <ul className="capability-grid">
+          {selectedWork.map((item) => (
+            <li key={item.id} className="capability-card">
+              <h3 className="capability-title">{item.title}</h3>
+              <p className="capability-category">{item.category}</p>
+              <p className="capability-deliverable">{item.deliverable}</p>
             </li>
           ))}
         </ul>
-        <div className="how-talk-cta-wrap">
-          <button
-            type="button"
-            onClick={() => scrollToSection(sectionIds.contact)}
-            className={`how-talk-cta${ctaPulse ? " how-talk-cta-pulse" : ""}`}
-          >
-            Need something else? Let&apos;s talk
-            <ArrowRight size={16} strokeWidth={1.5} aria-hidden="true" />
-          </button>
+
+        <div id={sectionIds.estimate} className="capability-cta scroll-mt-24" aria-label="Get an estimate">
+          <h3 className="capability-cta-title">Have a project in mind?</h3>
+          <p className="capability-cta-text">
+            Send us your brief, references or even an early idea. We'll review it and propose the most effective
+            production approach.
+          </p>
+
+          <div className="estimate-cta-actions mt-7 flex w-full min-w-0 max-w-full flex-col items-stretch justify-center gap-3 md:flex-row md:items-center md:justify-center md:gap-4">
+            <button
+              type="button"
+              onClick={() => scrollToSection(sectionIds.contact)}
+              className="gradient-button btn-on-accent w-full min-w-0 max-w-full rounded-full px-5 py-3 text-sm font-medium md:w-auto md:px-6"
+            >
+              Get a Project Estimate
+            </button>
+            <a href={`mailto:${site.email}`} className="estimate-cta-secondary w-full min-w-0 max-w-full md:w-auto">
+              Email Us Directly
+            </a>
+          </div>
         </div>
       </div>
     </article>
@@ -251,13 +206,15 @@ export default function HowWeWorkSection() {
   return (
     <section
       id={sectionIds.services}
-      className="how-section scroll-mt-24 px-[var(--page-padding)] pt-6 pb-[var(--section-spacing)] md:pt-8"
+      className="how-section scroll-mt-24 px-[var(--page-padding)] pb-[var(--section-spacing)]"
       aria-label="How we work"
     >
-      <div className="mx-auto flex max-w-[920px] flex-col gap-4 md:gap-5">
+      <div className="mx-auto flex w-full min-w-0 max-w-[920px] flex-col gap-[var(--block-stack-gap)]">
+        <ProductionCapabilitiesCard />
+
         <article className="how-ios-card how-ios-card-emerald">
           <div className="how-ios-card-inner">
-            <h2 className="how-col-title how-col-title-emerald">Production, end to end</h2>
+            <h2 className="how-col-title how-col-title-emerald">End-to-end production</h2>
             <p className="how-lead">
               A clear, collaborative process from first brief to final delivery.
             </p>
@@ -265,8 +222,6 @@ export default function HowWeWorkSection() {
             <ProductionProcessFlow />
           </div>
         </article>
-
-        <WhatWeProduceCard />
 
         <article className="how-ios-card how-experience-card" aria-label="Experience">
           <div className="how-ios-card-inner how-experience-inner">

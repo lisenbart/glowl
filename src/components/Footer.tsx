@@ -1,4 +1,5 @@
 import { site, scrollToSection, sectionIds } from "@/data/site";
+import SocialIconLinks from "./SocialIconLinks";
 
 const navLinks = [
   { id: sectionIds.work, label: "Work" },
@@ -9,7 +10,6 @@ const navLinks = [
 
 const socialLinks = [
   { label: "Email", href: `mailto:${site.email}` },
-  { label: "LinkedIn", href: site.linkedin, external: true },
   { label: "Vimeo", href: site.vimeo, external: true },
   { label: "YouTube", href: site.youtube, external: true },
 ];
@@ -31,8 +31,8 @@ function FooterLink({ id, label }: { id: string; label: string }) {
 
 export default function Footer() {
   return (
-    <footer className="px-[var(--page-padding)] pb-24 pt-7 md:pb-12 md:pt-14">
-      <div className="mx-auto max-w-[920px]">
+    <footer className="w-full max-w-full min-w-0 overflow-x-clip px-[var(--page-padding)] pb-24 pt-7 md:pb-12 md:pt-14">
+      <div className="mx-auto w-full min-w-0 max-w-[920px]">
         <article className="how-ios-card">
           <div className="how-ios-card-inner">
             <div className="grid gap-5 md:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)_minmax(0,0.8fr)] md:gap-8 lg:gap-12">
@@ -56,9 +56,11 @@ export default function Footer() {
                     className="font-sans uppercase leading-snug text-text-tertiary"
                     style={{ fontSize: "clamp(8px, 1vw, 11px)", letterSpacing: "0.14em" }}
                   >
-                    Creative partner for AI-era moving image
+                    <span className="block">{site.tagline.line1}</span>
+                    <span className="block">{site.tagline.line2}</span>
                   </span>
                 </a>
+                <SocialIconLinks className="mt-4 md:mt-5" size="md" />
                 <p className="mt-3 hidden max-w-sm text-sm font-light leading-relaxed text-text-secondary md:block">
                   Commercials, gaming creatives and cinematic content — produced through an expert-led process
                   supported by AI.

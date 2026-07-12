@@ -14,7 +14,7 @@ export const projectsByCategory: Record<string, Project[]> = {
   gaming: [
     { id: "g1", title: "Game Launch Trailer", type: "Cinematic Trailer", year: "2025" },
     { id: "g2", title: "UA Performance Creatives", type: "Gameplay Ads", year: "2024" },
-    { id: "g3", title: "Casino Campaign Pack", type: "Gambling Video", year: "2024" },
+    { id: "g3", title: "Mobile Performance Pack", type: "Performance Creatives", year: "2024" },
   ],
   film: [
     { id: "f1", title: "Short Film — Neon District", type: "Concept Film", year: "2025" },
@@ -25,6 +25,6 @@ export const projectsByCategory: Record<string, Project[]> = {
 
 export const categoryLabels: Record<string, string> = {
   commercial: "Commercial Animation",
-  gaming: "Gaming & Gambling",
+  gaming: "Gaming & Interactive",
   film: "Film & Entertainment",
 };

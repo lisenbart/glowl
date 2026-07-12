@@ -2,18 +2,61 @@ import { publicAsset } from "@/lib/publicAsset";
 
 export const site = {
   name: "GLOWL WORKS",
+  brand: "GLOWL",
+  tagline: {
+    line1: "Creative partner for",
+    line2: "brands, games and new worlds",
+  },
+  hero: {
+    headlineLine1: "Films, games and brand worlds",
+    headlineLine2BeforeAccent: "brought to ",
+    headlineAccent: "light",
+    paragraph:
+      "Commercials, game trailers and cinematic content shaped by experienced artists, directors and producers — with AI used where it helps the work move faster without losing the eye.",
+    audienceLine: "For brands, agencies, game teams, producers and entertainment projects.",
+  },
+  aiPositioningLine: "AI helps us move faster. Directors, artists and producers keep the work sharp.",
   email: "hello@glowlworks.com",
   linkedin: "https://linkedin.com/company/glowlworks",
   vimeo: "https://vimeo.com/glowlworks",
   youtube: "https://youtube.com/@glowlworks",
+  social: {
+    linkedin: {
+      href: "https://linkedin.com/company/glowlworks",
+      active: true,
+    },
+    whatsapp: {
+      href: "",
+      active: false,
+    },
+    facebook: {
+      href: "",
+      active: false,
+    },
+    instagram: {
+      href: "",
+      active: false,
+    },
+    tiktok: {
+      href: "",
+      active: false,
+    },
+  },
+  socialComingSoon: {
+    title: "Almost there",
+    body: "Sorry — this channel is still in the works. For now, drop us a line and we'll get back to you.",
+    cta: "Email Us",
+    closeLabel: "Close",
+  },
   locations: "Warsaw · Ukraine · Canada",
   canonical: "https://glowlworks.com",
   meta: {
-    title: "GLOWL WORKS — Commercial, Gaming and Cinematic Video Production",
+    title: "GLOWL — Cinematic Production for Brands, Games and New Worlds",
     description:
-      "GLOWL WORKS creates commercials, product animation, game trailers, gameplay creatives and cinematic content for brands, agencies, game teams and producers.",
+      "GLOWL creates commercials, brand films, game trailers, cinematics and AI-assisted visual production for brands, agencies, game teams and producers.",
     ogImage: publicAsset("/images/header_01.png"),
   },
+  organizationDescription: "Cinematic production studio for commercials, games and new worlds.",
   /** Set to your Formspree endpoint or backend URL for live submissions */
   contactEndpoint: "",
   maxUploadBytes: 10 * 1024 * 1024,
