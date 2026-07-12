@@ -122,7 +122,7 @@ export default function Header() {
           </ul>
 
           <div className="ml-auto flex shrink-0 items-center gap-1.5 md:gap-2">
-            <div className="hidden min-w-0 items-center gap-1.5 lg:flex lg:gap-2">
+            <div className="header-desktop-social hidden min-w-0 items-center gap-1.5 lg:flex lg:gap-2">
               <SocialIconLinks className="min-w-0" />
               <a
                 href={`mailto:${site.email}`}

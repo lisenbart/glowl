@@ -9,6 +9,7 @@ import {
   Users,
 } from "lucide-react";
 import { selectedWork } from "@/data/selectedWork";
+import { publicAsset } from "@/lib/publicAsset";
 import { sectionIds, scrollToSection, site } from "@/data/site";
 import type { LucideIcon } from "lucide-react";
 
@@ -170,9 +171,16 @@ function ProductionCapabilitiesCard() {
         <ul className="capability-grid">
           {selectedWork.map((item) => (
             <li key={item.id} className="capability-card">
-              <h3 className="capability-title">{item.title}</h3>
-              <p className="capability-category">{item.category}</p>
-              <p className="capability-deliverable">{item.deliverable}</p>
+              <div className="capability-media">
+                <img
+                  src={publicAsset(item.image)}
+                  alt=""
+                  className="capability-image"
+                  loading="lazy"
+                />
+                <div className="capability-scrim" aria-hidden="true" />
+                <h3 className="capability-title">{item.title}</h3>
+              </div>
             </li>
           ))}
         </ul>
