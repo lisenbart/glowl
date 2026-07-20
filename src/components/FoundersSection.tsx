@@ -1,12 +1,14 @@
+/**
+ * Standalone Team section — not mounted on Home after the Hero/Contact redistribution.
+ * Retained so founder profile data, cards and popovers can be reused later.
+ */
 import { useState, type MouseEvent } from "react";
 import { AnimatePresence } from "framer-motion";
-import { founders, foundersSection, proofStrip, type FounderPerson } from "@/data/founders";
+import { founders, foundersSection, type FounderPerson } from "@/data/founders";
 import { sectionIds } from "@/data/site";
 import type { ClickPoint } from "@/lib/popoverCoords";
 import { publicAsset } from "@/lib/publicAsset";
-import ClientsModal from "./ClientsModal";
 import PersonPopover from "./PersonPopover";
-import TrustedBySection from "./TrustedBySection";
 
 type ActivePerson = {
   person: FounderPerson;
@@ -25,10 +27,7 @@ function FounderCard({
   };
 
   const avatar = (
-    <span
-      className={`founder-card-avatar founder-card-avatar--large${person.placeholder ? " founder-card-avatar--open-role" : ""}`}
-      aria-hidden="true"
-    >
+    <span className="founder-card-avatar founder-card-avatar--large" aria-hidden="true">
       {person.photo ? (
         <img
           src={publicAsset(person.photo)}
@@ -36,40 +35,11 @@ function FounderCard({
           className="founder-card-photo"
           loading="lazy"
         />
-      ) : person.initials ? (
-        <span className="founder-card-initials">{person.initials}</span>
-      ) : person.placeholder ? (
-        <img
-          src={publicAsset("/logos/O.png")}
-          alt=""
-          className="founder-card-mark"
-          loading="lazy"
-          draggable={false}
-        />
       ) : (
-        <span className="founder-card-silhouette" />
+        <span className="founder-card-initials">{person.initials}</span>
       )}
     </span>
   );
-
-  const body = (
-    <>
-      {avatar}
-      <span className="founder-card-name">{person.name}</span>
-      {person.role ? <span className="founder-card-role">{person.role}</span> : null}
-      <span className="founder-card-fact">{person.fact}</span>
-    </>
-  );
-
-  if (person.placeholder) {
-    return (
-      <li className="how-experience-stat founder-profile-card founder-profile-card--vertical founder-profile-card--open-role">
-        <div className="founder-profile-button founder-profile-button--static">
-          {body}
-        </div>
-      </li>
-    );
-  }
 
   return (
     <li className="how-experience-stat how-experience-stat--interactive founder-profile-card founder-profile-card--vertical">
@@ -80,7 +50,10 @@ function FounderCard({
         aria-haspopup="dialog"
         aria-label={`${person.name}, ${person.role}. ${person.fact}. More.`}
       >
-        {body}
+        {avatar}
+        <span className="founder-card-name">{person.name}</span>
+        {person.role ? <span className="founder-card-role">{person.role}</span> : null}
+        <span className="founder-card-fact">{person.fact}</span>
         <span className="founder-card-about gradient-button-emerald btn-on-accent" aria-hidden="true">
           More
         </span>
@@ -91,13 +64,12 @@ function FounderCard({
 
 export default function FoundersSection() {
   const [activePerson, setActivePerson] = useState<ActivePerson | null>(null);
-  const [clientsOpen, setClientsOpen] = useState(false);
 
   return (
     <section
       id={sectionIds.founders}
       className="founders-section scroll-mt-24 px-[var(--page-padding)]"
-      aria-label="The people behind it"
+      aria-label={foundersSection.title}
     >
       <div className="mx-auto w-full min-w-0 max-w-[920px]">
         <article className="how-ios-card">
@@ -117,28 +89,6 @@ export default function FoundersSection() {
                 />
               ))}
             </ul>
-
-            <div className="proof-strip" aria-label="Studio proof">
-              <button
-                type="button"
-                className="proof-strip__link"
-                onClick={() => setClientsOpen(true)}
-                aria-haspopup="dialog"
-                aria-label={`${proofStrip.projectsLabel}. View clients.`}
-              >
-                {proofStrip.projectsLabel}
-              </button>
-              <span className="proof-strip__sep" aria-hidden="true">
-                ·
-              </span>
-              <span>{proofStrip.awardsLabel}</span>
-              <span className="proof-strip__sep" aria-hidden="true">
-                ·
-              </span>
-              <span>{proofStrip.locationsLabel}</span>
-            </div>
-
-            <TrustedBySection />
           </div>
         </article>
       </div>
@@ -152,7 +102,6 @@ export default function FoundersSection() {
             onClose={() => setActivePerson(null)}
           />
         ) : null}
-        {clientsOpen ? <ClientsModal onClose={() => setClientsOpen(false)} /> : null}
       </AnimatePresence>
     </section>
   );

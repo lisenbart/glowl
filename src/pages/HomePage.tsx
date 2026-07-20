@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import DirectionCards from "@/components/DirectionCards";
+import HeroSection from "@/components/HeroSection";
+import ShowreelSection from "@/components/ShowreelSection";
 import AiPositioningSection from "@/components/AiPositioningSection";
 import ContactForm from "@/components/ContactForm";
 import { scrollToSection } from "@/data/site";
@@ -23,7 +24,8 @@ export default function HomePage() {
 
   return (
     <main className="site-main site-main-stack">
-      <DirectionCards />
+      <HeroSection />
+      <ShowreelSection />
       <AiPositioningSection />
       <ContactForm />
     </main>

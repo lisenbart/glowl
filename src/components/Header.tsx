@@ -70,7 +70,7 @@ export default function Header() {
           <div className="site-header-bar__start flex shrink-0 items-center gap-2 md:gap-3">
             <button
               type="button"
-              className="theme-toggle shrink-0"
+              className="theme-toggle site-header-desktop-only shrink-0"
               onClick={toggleTheme}
               aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
             >
@@ -90,7 +90,7 @@ export default function Header() {
                 height={795}
               />
               <span
-                className="site-header-tagline font-sans hidden flex-col justify-center gap-px leading-none uppercase sm:flex"
+                className="site-header-tagline site-header-desktop-only font-sans flex-col justify-center gap-px leading-none uppercase"
                 style={{
                   fontSize: "clamp(7px, 1.05vw, 10px)",
                   letterSpacing: "0.14em",
@@ -103,7 +103,7 @@ export default function Header() {
             </AppLink>
           </div>
 
-          <div className="site-header-bar__free">
+          <div className="site-header-bar__free site-header-desktop-only">
             <ul className="site-header-capsules site-header-capsules--bar flex items-center gap-0.5 sm:gap-1 xl:gap-1.5">
               <li>
                 <AppLink

@@ -1,18 +1,28 @@
 # GLOWL — Full copy export
 
-**Date:** 2026-07-20  
-**Scope:** User-facing copy currently in code after: tenure unified to 20+, hiring placeholders, standalone AI section (no emoji), synced Header/Footer nav, End-to-end production section removed.  
+**Date:** 2026-07-20 (evening snapshot)  
+**Scope:** Literal user-facing copy currently in code — after hero rewrite (“Every Process. One Standard.”), contact tone update, CTA unification, hiring placeholders, standalone AI section (no Process block), synced Header/Footer nav.  
 **Pages:** Home (`/`), Services (`/services`)  
-**Method:** Literal export from source — no rewrite, no quality judgment.
+**Method:** Exact text from source — no rewrite, no quality judgment.
 
 ---
 
 ## Consistency check: tenure
 
-| String | Occurrences in `src/` (user-facing) | Locations |
-|--------|-------------------------------------|-----------|
-| `20+ years` | Yes — consistent | Hero lead (`site.ts`); Adrian fact + modalBody; Dmytro fact + modalBody (`founders.ts`) |
-| `35+ years` | **None** in `src/` | — |
+| String | In live `src/` UI? | Locations |
+|--------|--------------------|-----------|
+| `20+ years` | Yes | Adrian fact + modalBody; Dmytro fact + modalBody (`src/data/founders.ts`). **Not** in current hero (hero no longer states years). |
+| `35+ years` | **None** | — |
+
+---
+
+## Page structure (live)
+
+**Home:** Header → Hero → Founders (+ Trusted by) → Showreel → AI → Contact → Footer  
+
+**Services:** Header → Production capabilities → Contact → Footer  
+
+**Removed / not live:** End-to-end production (Brief → Proposal → Production).
 
 ---
 
@@ -29,10 +39,10 @@
 | og:title | GLOWL — Cinematic Production for Brands, Games and New Worlds | `index.html` |
 | og:description | GLOWL creates commercials, brand films, game trailers, cinematics and AI-assisted visual production for brands, agencies, game teams and producers. | `index.html` |
 | og:image | `%BASE_URL%images/header_01.png` | `index.html` |
-| site.meta.title | GLOWL — Cinematic Production for Brands, Games and New Worlds | `src/data/site.ts` → `site.meta.title` |
-| site.meta.description | GLOWL creates commercials, brand films, game trailers, cinematics and AI-assisted visual production for brands, agencies, game teams and producers. | `src/data/site.ts` → `site.meta.description` |
+| site.meta.title | GLOWL — Cinematic Production for Brands, Games and New Worlds | `src/data/site.ts` |
+| site.meta.description | GLOWL creates commercials, brand films, game trailers, cinematics and AI-assisted visual production for brands, agencies, game teams and producers. | `src/data/site.ts` |
 
-**Note:** Home and `/services` share the same document meta (SPA; no per-route title/description override in code).
+**Note:** Home and `/services` share the same document meta (SPA; no per-route title/description override).
 
 ### JSON-LD (`index.html`)
 
@@ -49,7 +59,7 @@
 }
 ```
 
-Also mirrored: `site.organizationDescription` = `Cinematic production studio for commercials, games and new worlds.` (`src/data/site.ts`).
+Also: `site.organizationDescription` = `Cinematic production studio for commercials, games and new worlds.` (`src/data/site.ts`).
 
 ---
 
@@ -76,7 +86,7 @@ Also mirrored: `site.organizationDescription` = `Cinematic production studio for
 | aria-label (closed) | Open connect menu | `HeaderConnectMenu.tsx` |
 | aria-label (open) | Close connect menu | `HeaderConnectMenu.tsx` |
 | aria-label (panel) | Connect with GLOWL | `HeaderConnectMenu.tsx` |
-| eyebrow / label | Connect | `HeaderConnectMenu.tsx` |
+| label | Connect | `HeaderConnectMenu.tsx` |
 | item title | Email | `HeaderConnectMenu.tsx` |
 | item sub | hello@glowlworks.com | `site.email` |
 
@@ -102,7 +112,7 @@ Also mirrored: `site.organizationDescription` = `Cinematic production studio for
 | aria-label (logo) | GLOWL home | `Footer.tsx` |
 | tagline line 1 | Creative partner for | `site.tagline.line1` |
 | tagline line 2 | brands, games and new worlds | `site.tagline.line2` |
-| body (md+) | Commercials, gaming creatives and cinematic content — produced through an expert-led process supported by AI. | `Footer.tsx` |
+| body (md+) | Shaped by people, sped up by AI — commercials, game content and cinematic work. | `Footer.tsx` |
 | CTA button | Get a Project Estimate | `Footer.tsx` |
 | nav label | Navigate | `Footer.tsx` |
 | aria-label | Footer navigation | `Footer.tsx` |
@@ -124,7 +134,7 @@ Also mirrored: `site.organizationDescription` = `Cinematic production studio for
 
 | Type | Exact text | Source |
 |------|------------|--------|
-| button | Get an Estimate | `MobileEstimateCTA.tsx` |
+| button | Get a Project Estimate | `MobileEstimateCTA.tsx` |
 
 ---
 
@@ -132,7 +142,7 @@ Also mirrored: `site.organizationDescription` = `Cinematic production studio for
 
 | Type | Exact text | Source |
 |------|------------|--------|
-| eyebrow | {channelLabel} (e.g. WhatsApp / Facebook / Instagram / TikTok) | prop from `SocialIconLinks` |
+| eyebrow | {channelLabel} (WhatsApp / Facebook / Instagram / TikTok when inactive) | prop |
 | H2 | Almost there | `site.socialComingSoon.title` |
 | body | Sorry — this channel is still in the works. For now, drop us a line and we'll get back to you. | `site.socialComingSoon.body` |
 | CTA | Email Us | `site.socialComingSoon.cta` |
@@ -149,8 +159,8 @@ Order top → bottom (after Header): Hero → Founders → Showreel → AI → C
 | Type | Exact text | Source |
 |------|------------|--------|
 | aria-label | Introduction | `DirectionCards.tsx` |
-| H1 | AI-Native Production Studio | `site.hero.headline` |
-| body | Films, games and brand worlds — 20+ years of craft, now at the speed of AI. | `site.hero.paragraph` |
+| H1 | Every Process. One Standard. | `site.hero.headline` |
+| body | Whether handcrafted, fully AI-generated, or somewhere in between, every project is shaped by experienced directors and producers from first idea to final frame. | `site.hero.paragraph` |
 
 ---
 
@@ -172,7 +182,7 @@ Order top → bottom (after Header): Hero → Founders → Showreel → AI → C
 | aria-label | Adrian Sakhaltuev, Head Director. 20+ years in animation · 1000+ projects delivered. More. | composed in `FoundersSection.tsx` |
 | popover role | Head Director | `founders[0].role` |
 | popover H2 | Adrian Sakhaltuev | `founders[0].modalTitle` |
-| popover body | 20+ years in animation, film and commercial production — with 1000+ projects delivered across his career. GLOWL is a new studio built on that experience: producers and directors who know what good looks like, now working at the speed of AI. | `founders[0].modalBody` |
+| popover body | 20+ years in animation, film and commercial production — with 1000+ projects delivered across his career. At GLOWL he leads creative direction: the final call on what looks right before anything ships. | `founders[0].modalBody` |
 | popover close aria | Close | `site.clientsModal.closeLabel` via `PersonPopover.tsx` |
 
 #### Card 2 — Dmytro Lisenbart
@@ -186,25 +196,25 @@ Order top → bottom (after Header): Hero → Founders → Showreel → AI → C
 | aria-label | Dmytro Lisenbart, General Producer. 20+ years in producing · 1000+ projects delivered. More. | composed in `FoundersSection.tsx` |
 | popover role | General Producer | `founders[1].role` |
 | popover H2 | Dmytro Lisenbart | `founders[1].modalTitle` |
-| popover body | 20+ years in producing across film and commercial production — with 1000+ projects delivered and 15 awards & 45 selections across his career. GLOWL is a new studio built on that experience: producers and directors who know what good looks like, now working at the speed of AI. | `founders[1].modalBody` |
+| popover body | 20+ years in producing across film and commercial production — with 1000+ projects delivered and 15 awards & 45 selections across his career. At GLOWL he runs production: turning briefs into delivered work, not just ideas. | `founders[1].modalBody` |
 
-#### Card 3 — hiring placeholder
+#### Card 3 — hiring placeholder (O mark avatar, not clickable)
 
 | Type | Exact text | Source |
 |------|------------|--------|
 | name / title | Line Producer | `founders[2].name` |
 | role | _(empty — not rendered)_ | `founders[2].role` |
 | fact | We're hiring for this role. | `founders[2].fact` |
-| modalTitle / modalBody (data only; card not clickable) | Line Producer / We're hiring for this role. | `founders[2]` |
+| modalTitle / modalBody (data only) | Line Producer / We're hiring for this role. | `founders[2]` |
 
-#### Card 4 — hiring placeholder
+#### Card 4 — hiring placeholder (O mark avatar, not clickable)
 
 | Type | Exact text | Source |
 |------|------------|--------|
 | name / title | Client Manager | `founders[3].name` |
 | role | _(empty — not rendered)_ | `founders[3].role` |
 | fact | We're hiring for this role. | `founders[3].fact` |
-| modalTitle / modalBody (data only; card not clickable) | Client Manager / We're hiring for this role. | `founders[3]` |
+| modalTitle / modalBody (data only) | Client Manager / We're hiring for this role. | `founders[3]` |
 
 #### Proof strip
 
@@ -220,8 +230,8 @@ Order top → bottom (after Header): Hero → Founders → Showreel → AI → C
 
 | Type | Exact text | Source |
 |------|------------|--------|
-| label / aria-label | Trusted by : | `site.trustedBy.label` |
-| brands (marquee) | Nestlé · Playtika · MasterCard · Voodoo · Samsung · Plarium · McDonald's · Moon Active | `src/data/clients.ts` → `clients` |
+| label / aria-label | Trusted by: | `site.trustedBy.label` |
+| brands (marquee) | Nestlé · Playtika · MasterCard · Voodoo · Samsung · Plarium · McDonald's · Moon Active | `src/data/clients.ts` |
 
 #### Clients modal (`ClientsModal.tsx` + `site.clientsModal`)
 
@@ -231,7 +241,7 @@ Order top → bottom (after Header): Hero → Founders → Showreel → AI → C
 | body | Brands our producers, Adrian Sakhaltuev and Dmytro Lisenbart, have delivered for across commercial and gaming work. | `site.clientsModal.body` |
 | list aria | Selected clients | `ClientsModal.tsx` |
 | list items | Nestlé, Playtika, MasterCard, Voodoo, Samsung, Plarium, McDonald's, Moon Active | `clients.ts` |
-| CTA | Get an Estimate | `site.clientsModal.cta` |
+| CTA | Get a Project Estimate | `site.clientsModal.cta` |
 | button / aria-label | Close | `site.clientsModal.closeLabel` |
 
 ---
@@ -242,7 +252,7 @@ Order top → bottom (after Header): Hero → Founders → Showreel → AI → C
 |------|------------|--------|
 | aria-label | Showreel | `DirectionCards.tsx` |
 | H2 | Showreel | `DirectionCards.tsx` |
-| video title (embed) | GLOWL Showreel | `mainShowreel.title` (`reels.ts`) |
+| video title (embed) | GLOWL Showreel | `mainShowreel.title` (`src/data/reels.ts`) |
 | aria-label (play) | Watch reel | `DirectionCards.tsx` |
 
 #### Showreel CTA (“What we make”)
@@ -252,7 +262,7 @@ Order top → bottom (after Header): Hero → Founders → Showreel → AI → C
 | aria-label | What we make | `DirectionCards.tsx` |
 | H3 | What we make | `DirectionCards.tsx` |
 | body | Work by direction — advertising, gaming, film, and social. | `DirectionCards.tsx` |
-| CTA link | Explore by direction → | `DirectionCards.tsx` |
+| CTA link | See what we make → | `DirectionCards.tsx` |
 
 ---
 
@@ -268,54 +278,32 @@ Order top → bottom (after Header): Hero → Founders → Showreel → AI → C
 
 ---
 
-### 5. Contact form (`ContactForm.tsx` + `services.ts` + `contactSubmit.ts`)
+### 5. Contact form (`ContactForm.tsx` + `contactSubmit.ts`)
 
 | Type | Exact text | Source |
 |------|------------|--------|
 | aria-label | Contact form | `ContactForm.tsx` |
-| H2 | Request an estimate | `ContactForm.tsx` |
-| lead | No commitment. We respond within 24 hours. | `ContactForm.tsx` |
+| H2 | Let's talk about your project. | `ContactForm.tsx` |
+| lead | No commitment — just a real answer within 24 hours. | `ContactForm.tsx` |
 | label | Name | `ContactForm.tsx` |
 | label | Work email | `ContactForm.tsx` |
-| label | Company | `ContactForm.tsx` |
-| microcopy | optional | `OPTIONAL_HINT` in `ContactForm.tsx` |
-| label | Project type | `ContactForm.tsx` |
-| select placeholder | Select type | `ContactForm.tsx` |
-| option | Commercial Animation | `projectTypes` (`services.ts`) |
-| option | Gaming & Interactive | `projectTypes` |
-| option | Game Trailers & Playable Ads | `projectTypes` |
-| option | Gameplay Creatives | `projectTypes` |
-| option | Performance Creatives | `projectTypes` |
-| option | Film & Entertainment | `projectTypes` |
-| option | Music Video | `projectTypes` |
-| option | Motion Design | `projectTypes` |
-| option | Other | `projectTypes` |
-| label | Deadline | `ContactForm.tsx` |
-| placeholder | e.g. March 2026 | `ContactForm.tsx` |
 | label | Brief | `ContactForm.tsx` |
-| placeholder | Deliverables, references, timeline... | `ContactForm.tsx` |
-| label | Attach file | `ContactForm.tsx` |
-| aria-label | Remove file | `ContactForm.tsx` |
-| submit (idle) | Request an Estimate | `ContactForm.tsx` |
+| placeholder | What are you working on? | `ContactForm.tsx` |
+| submit (idle) | Send it over | `ContactForm.tsx` |
 | submit (loading) | Sending... | `ContactForm.tsx` |
-| success body | Thank you. We've received your request and will review it shortly. | `ContactForm.tsx` / `contactSubmit.ts` |
-| success link | Send another request | `ContactForm.tsx` |
+| secondary CTA | Email Us Directly | `ContactForm.tsx` (`mailto:` + `site.email`) |
+| success body | Got it — thank you. We'll take a proper look and get back to you soon. | `ContactForm.tsx` / `contactSubmit.ts` |
+| success link | Send another message | `ContactForm.tsx` |
 | validation | Name is required | `contactSubmit.ts` |
 | validation | Work email is required | `contactSubmit.ts` |
 | validation | Enter a valid email | `contactSubmit.ts` |
-| validation | Select a project type | `contactSubmit.ts` |
-| validation | Project description is required | `contactSubmit.ts` |
-| validation | File must be under 10MB | `contactSubmit.ts` + `site.maxUploadBytes` |
-| validation | Unsupported file type | `contactSubmit.ts` |
+| validation | Brief is required | `contactSubmit.ts` |
+| validation | File must be under 10MB | `contactSubmit.ts` (if file present) |
+| validation | Unsupported file type | `contactSubmit.ts` (if file present) |
 | validation | Submission blocked. | `contactSubmit.ts` (honeypot) |
 | server error | Could not send your request. Please try again. | `contactSubmit.ts` |
 
----
-
-### Removed from Home (not present)
-
-- **End-to-end production** / Brief → Proposal → Production — component deleted (`HowWeWorkSection.tsx`); `sectionIds.process` removed from `site.ts`.
-- Process-step copy is **not** in the live UI.
+**Note:** Company, Project type, Deadline, Attach file fields were removed from the live form UI.
 
 ---
 
@@ -370,7 +358,7 @@ Order: Production capabilities → Contact → Footer.
 |------|------------|--------|
 | aria-label | Get an estimate | `ProductionCapabilitiesCard.tsx` |
 | H3 | Have a project in mind? | `ProductionCapabilitiesCard.tsx` |
-| body | Send us your brief, references or even an early idea. We'll review it and propose the most effective production approach. | `ProductionCapabilitiesCard.tsx` |
+| body | Send us your brief, references or even an early idea. We'll read it and come back with a clear plan. | `ProductionCapabilitiesCard.tsx` |
 | CTA | Get a Project Estimate | `ProductionCapabilitiesCard.tsx` |
 | secondary CTA | Email Us Directly | `ProductionCapabilitiesCard.tsx` |
 
@@ -387,45 +375,38 @@ Same copy as Home Contact (`ContactForm.tsx`) — see above.
 | Home | Header nav; Footer nav |
 | Services | Header nav; Footer nav |
 | Contact | Header nav; Footer nav |
-| Explore by direction → | Home Showreel CTA → `/services` |
+| See what we make → | Home Showreel CTA → `/services` |
 | More | Founders cards (Adrian, Dmytro) |
-| 2000+ projects | Proof strip → opens Clients modal |
-| Get an Estimate | Clients modal CTA; Mobile sticky bar |
-| Close | Clients modal; Social coming-soon; Person popover (aria + button) |
+| 2000+ projects | Proof strip → Clients modal |
+| Get a Project Estimate | Clients modal; Mobile sticky; Footer; Services estimate block |
+| Close | Clients modal; Social coming-soon; Person popover |
 | Email Us | Social coming-soon modal |
-| Get a Project Estimate | Footer; Services capabilities estimate block |
-| Email Us Directly | Services capabilities estimate block |
-| Watch reel | Showreel play control (aria-label) |
-| Request an Estimate | Contact form submit |
+| Email Us Directly | Contact form; Services estimate block |
+| Send it over | Contact form submit |
 | Sending... | Contact form submit (loading) |
-| Send another request | Contact form success state |
-| Email | Header connect menu; Footer Connect |
+| Send another message | Contact form success |
+| Watch reel | Showreel play (aria-label) |
+| Email | Header connect; Footer Connect |
 | Vimeo | Footer Connect |
 | YouTube | Footer Connect |
 | Open connect menu / Close connect menu | Header connect trigger (aria) |
 | Switch to light mode / Switch to dark mode | Header theme toggle (aria) |
-| Remove file | Contact attach field (aria) |
 
 ---
 
-## Data present in code but not rendered in current UI
-
-(For editors: not on page; do not treat as live copy.)
+## Data in code but not rendered in current UI
 
 | Text | Source |
 |------|--------|
-| `deliverables[]` labels | `src/data/services.ts` |
+| `deliverables[]` | `src/data/services.ts` |
+| `projectTypes[]` | `src/data/services.ts` (form no longer uses select) |
 | `credentials[]`, `trustTagline` | `src/data/clients.ts` |
-| `directions[]` (Commercials / Gaming / Film CTAs) | `src/data/directions.ts` |
-| `EstimateCTA` section copy (“Have a project in mind?” etc.) | `src/components/EstimateCTA.tsx` — **not mounted** (duplicate of capabilities CTA) |
+| `directions[]` | `src/data/directions.ts` |
+| `EstimateCTA` section | `src/components/EstimateCTA.tsx` — **not mounted** |
 | `SelectedWorkSection` | `src/components/SelectedWorkSection.tsx` — **not mounted** |
 
 ---
 
-## Page structure snapshot (post-removal)
+## Process section
 
-**Home:** Header → Hero → Founders (+ Trusted by) → Showreel → AI (“People still call the shots.”) → Contact → Footer  
-
-**Services:** Header → Production capabilities → Contact → Footer  
-
-Spacing between Home sections uses `.site-main-stack { gap: var(--block-stack-gap) }` — removing End-to-end production leaves no empty placeholder section; Showreel → AI → Contact remain adjacent siblings in the stack.
+**Status:** Removed. No Brief / Proposal / Production step copy on the live site.

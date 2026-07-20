@@ -12,7 +12,7 @@ export default function AiPositioningSection() {
           <div className="how-ios-card-inner">
             <div className="section-card-header">
               <h2 className="how-col-title how-col-title-cyan section-card-header__title">
-                People still call the shots.
+                The Process Follows the Idea.
               </h2>
               <p className="section-card-header__lead section-card-header__lead--secondary how-support-line">
                 {site.aiPositioningLine}

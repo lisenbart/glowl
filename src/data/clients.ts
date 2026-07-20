@@ -1,4 +1,4 @@
-/** Selected brands — Trusted by marquee + clients modal (mixed order). */
+/** Selected brands — Client Experience marquee + modal (mixed order). */
 export const clients = [
   "Nestlé",
   "Playtika",

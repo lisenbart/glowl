@@ -53,7 +53,7 @@ export default function Footer() {
                 </AppLink>
                 <SocialIconLinks className="mt-4 md:mt-5" size="md" />
                 <p className="mt-3 hidden max-w-sm text-sm font-light leading-relaxed text-text-secondary md:block">
-                  Shaped by people, sped up by AI — commercials, game content and cinematic work.
+                  Commercials, game content and films — from creative development to final delivery.
                 </p>
                 <button
                   type="button"

@@ -2,35 +2,31 @@ export type FounderPerson = {
   id: string;
   name: string;
   role: string;
-  /** Visible trust fact under the role — always shown, no click needed */
+  /** Visible trust fact — used in profiles/popovers, not repeated as competing Hero lines */
   fact: string;
   initials: string;
   /** Optional portrait path under /public; when absent, initials avatar is used */
   photo?: string;
   modalTitle: string;
   modalBody: string;
-  /** True when copy is a temporary TODO placeholder */
-  placeholder?: boolean;
+};
+
+export type ProjectSupportRole = {
+  id: string;
+  title: string;
+  description: string;
 };
 
 export const foundersSection = {
-  title: "The People Behind It",
+  title: "The Team Behind the Work",
 } as const;
 
-export const proofStrip = {
-  projectsLabel: "2000+ projects",
-  awardsLabel: "15 awards & 45 selections",
-  locationsLabel: "Canada · Ukraine · Poland",
-} as const;
-
-/**
- * Order: Adrian, Dmytro, then open-role hiring cards.
- */
-export const founders: FounderPerson[] = [
+/** Co-founders shown in the Hero composition. */
+export const heroFounders: FounderPerson[] = [
   {
     id: "adrian-sakhaltuev",
     name: "Adrian Sakhaltuev",
-    role: "Head Director",
+    role: "Director & Co-Founder",
     fact: "20+ years in animation · 1000+ projects delivered",
     initials: "AS",
     photo: "/images/founders/adrian-sakhaltuev.png",
@@ -41,7 +37,7 @@ export const founders: FounderPerson[] = [
   {
     id: "dmytro-lisenbart",
     name: "Dmytro Lisenbart",
-    role: "General Producer",
+    role: "Executive Producer & Co-Founder",
     fact: "20+ years in producing · 1000+ projects delivered",
     initials: "DL",
     photo: "/images/founders/dmytro-lisenbart.png",
@@ -49,24 +45,29 @@ export const founders: FounderPerson[] = [
     modalBody:
       "20+ years in producing across film and commercial production — with 1000+ projects delivered and 15 awards & 45 selections across his career. At GLOWL he runs production: turning briefs into delivered work, not just ideas.",
   },
+];
+
+/**
+ * Production support functions for the Contact section.
+ * Unfilled roles — no invented names or portraits.
+ */
+export const projectSupportRoles: ProjectSupportRole[] = [
   {
     id: "line-producer",
-    name: "Line Producer",
-    role: "",
-    fact: "We're hiring for this role.",
-    initials: "",
-    modalTitle: "Line Producer",
-    modalBody: "We're hiring for this role.",
-    placeholder: true,
+    title: "Line Producer",
+    description: "Production planning, coordination and delivery.",
   },
   {
     id: "client-manager",
-    name: "Client Manager",
-    role: "",
-    fact: "We're hiring for this role.",
-    initials: "",
-    modalTitle: "Client Manager",
-    modalBody: "We're hiring for this role.",
-    placeholder: true,
+    title: "Client Manager",
+    description: "Clear communication from brief to final delivery.",
   },
 ];
+
+export const contactSupportCopy = {
+  heading: "Your Project Team",
+  lead: "Tell us what you're making. Our production team will review the brief and come back with a clear next step.",
+} as const;
+
+/** @deprecated Prefer heroFounders — full list retained for profile tooling. */
+export const founders: FounderPerson[] = heroFounders;

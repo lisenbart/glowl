@@ -1,8 +1,10 @@
 import { useState, FormEvent, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight } from "lucide-react";
+import { contactSupportCopy, projectSupportRoles } from "@/data/founders";
 import { sectionIds, site } from "@/data/site";
 import { submitContact, validateContact } from "@/lib/contactSubmit";
+import { publicAsset } from "@/lib/publicAsset";
 
 interface FormState {
   name: string;
@@ -39,6 +41,35 @@ function Field({
         </p>
       )}
     </div>
+  );
+}
+
+function ProjectTeamCard() {
+  return (
+    <article className="how-ios-card project-team-card" aria-label={contactSupportCopy.heading}>
+      <div className="how-ios-card-inner project-team-card__inner">
+        <h3 className="project-team-panel__title">{contactSupportCopy.heading}</h3>
+        <ul className="project-team-panel__list">
+          {projectSupportRoles.map((role) => (
+            <li key={role.id} className="project-team-panel__item">
+              <span className="project-team-panel__icon" aria-hidden="true">
+                <img
+                  src={publicAsset("/logos/O.png")}
+                  alt=""
+                  className="project-team-panel__mark"
+                  loading="lazy"
+                  draggable={false}
+                />
+              </span>
+              <span className="project-team-panel__copy">
+                <span className="project-team-panel__role">{role.title}</span>
+                <span className="project-team-panel__desc">{role.description}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </article>
   );
 }
 
@@ -97,8 +128,14 @@ export default function ContactForm() {
   };
 
   return (
-    <section id={sectionIds.contact} className="scroll-mt-24 w-full max-w-full min-w-0 px-[var(--page-padding)] pb-[var(--section-spacing)]" aria-label="Contact form">
-      <div className="mx-auto w-full min-w-0 max-w-[920px]">
+    <section
+      id={sectionIds.contact}
+      className="scroll-mt-24 w-full max-w-full min-w-0 px-[var(--page-padding)] pb-[var(--section-spacing)]"
+      aria-label="Contact form"
+    >
+      <div className="inquiry-split mx-auto w-full min-w-0 max-w-[920px]">
+        <ProjectTeamCard />
+
         <article className="how-ios-card inquiry-panel">
           <div className="how-ios-card-inner">
             <div className="section-card-header inquiry-panel__header">
@@ -106,17 +143,26 @@ export default function ContactForm() {
                 Let's talk about your project.
               </h2>
               <p className="section-card-header__lead how-support-line">
-                No commitment — just a real answer within 24 hours.
+                {contactSupportCopy.lead}
               </p>
             </div>
 
             {status === "success" ? (
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="py-10 text-center" role="status">
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="py-10 text-center"
+                role="status"
+              >
                 <CheckCircle2 size={44} className="mx-auto link-accent" />
                 <p className="mt-4 text-base font-light text-text-primary">
                   Got it — thank you. We'll take a proper look and get back to you soon.
                 </p>
-                <button type="button" onClick={() => setStatus("idle")} className="mt-4 text-sm link-accent hover:underline">
+                <button
+                  type="button"
+                  onClick={() => setStatus("idle")}
+                  className="mt-4 text-sm link-accent hover:underline"
+                >
                   Send another message
                 </button>
               </motion.div>

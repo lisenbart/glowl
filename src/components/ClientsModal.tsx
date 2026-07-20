@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { X } from "lucide-react";
-import { clients } from "@/data/clients";
-import { sectionIds, site } from "@/data/site";
+import { clientExperienceBrands, clientsModalCopy } from "@/data/clientExperience";
+import { sectionIds } from "@/data/site";
 import { navigateToSection } from "@/lib/routing";
 
 interface ClientsModalProps {
@@ -11,7 +11,7 @@ interface ClientsModalProps {
 
 export default function ClientsModal({ onClose }: ClientsModalProps) {
   const closeRef = useRef<HTMLButtonElement>(null);
-  const copy = site.clientsModal;
+  const copy = clientsModalCopy;
 
   useEffect(() => {
     closeRef.current?.focus();
@@ -70,8 +70,8 @@ export default function ClientsModal({ onClose }: ClientsModalProps) {
             {copy.body}
           </p>
 
-          <ul className="clients-modal-list" aria-label="Selected clients">
-            {clients.map((brand) => (
+          <ul className="clients-modal-list" aria-label="Selected client experience">
+            {clientExperienceBrands.map((brand) => (
               <li key={brand} className="clients-modal-item">
                 {brand}
               </li>

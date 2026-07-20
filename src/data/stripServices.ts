@@ -25,5 +25,5 @@ export const stripServices: StripService[] = [
   { id: "product", label: "Product Animation", icon: Box, accent: "var(--magenta)" },
   { id: "titles", label: "Title Sequences", icon: Type, accent: "var(--cyan)" },
   { id: "music", label: "Music Videos", icon: Music, accent: "var(--violet)" },
-  { id: "ai", label: "AI-assisted Production", icon: Brain, accent: "var(--magenta)" },
+  { id: "ai", label: "AI Production", icon: Brain, accent: "var(--magenta)" },
 ];

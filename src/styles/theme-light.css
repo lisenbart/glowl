@@ -787,15 +787,15 @@
 }
 
 [data-theme="light"] .header-connect-backdrop {
-  background: color-mix(in srgb, var(--text-primary) 18%, transparent);
+  background: rgba(18, 18, 20, 0.52);
 }
 
 [data-theme="light"] .header-connect-panel {
-  background: var(--header-bg-scrolled);
+  background: #f3f2ed;
   border-color: var(--header-border);
   box-shadow:
     var(--card-shadow),
-    0 18px 42px color-mix(in srgb, var(--text-primary) 10%, transparent);
+    0 18px 42px color-mix(in srgb, var(--text-primary) 12%, transparent);
 }
 
 [data-theme="light"] .header-connect-item:hover,

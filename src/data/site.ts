@@ -1,4 +1,3 @@
-import { clients } from "@/data/clients";
 import { publicAsset } from "@/lib/publicAsset";
 
 export const site = {
@@ -9,19 +8,16 @@ export const site = {
     line2: "brands, games and new worlds",
   },
   hero: {
-    headline: "AI-Native Production Studio",
+    eyebrow: "Cinematic production for brands, games and entertainment.",
+    headline: "Every Process. One Standard.",
     paragraph:
-      "20+ years of craft — now working at the speed of AI, for brands, games and everything in between.",
+      "Whether handcrafted, fully AI-generated, or somewhere in between, every project is shaped by experienced directors and producers from first idea to final frame.",
   },
   aiPositioningLine:
-    "AI is still a young technology — powerful, but not yet predictable enough to run on its own. That's why this studio is led by people, not prompts: every frame gets a human check before it's called finished.",
-  trustedBy: {
-    label: "Trusted by:",
-    brands: clients,
-  },
+    "AI can expand visual development, build worlds, create individual sequences, or produce a complete film. For each brief, experienced directors and producers define its role and lead every creative and production decision.",
   clientsModal: {
-    title: "Selected clients",
-    body: "Brands our producers, Adrian Sakhaltuev and Dmytro Lisenbart, have delivered for across commercial and gaming work.",
+    title: "Selected Client Experience",
+    body: "Brands our founders have delivered for across commercial and gaming work.",
     closeLabel: "Close",
     cta: "Get a Project Estimate",
   },
