@@ -1,4 +1,14 @@
-export const clients = ["Playtika", "Moon Active", "Plarium", "Voodoo"] as const;
+/** Selected brands — Trusted by marquee + clients modal (mixed order). */
+export const clients = [
+  "Nestlé",
+  "Playtika",
+  "MasterCard",
+  "Voodoo",
+  "Samsung",
+  "Plarium",
+  "McDonald's",
+  "Moon Active",
+] as const;
 
 export const credentials = [
   "1000+ commercial projects",

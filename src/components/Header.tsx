@@ -1,28 +1,19 @@
-import { useState, useEffect } from "react";
-import { Menu, Moon, Send, Sun, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { sectionIds, scrollToSection, site } from "@/data/site";
+import { useEffect, useState } from "react";
+import { Moon, Send, Sun } from "lucide-react";
+import { sectionIds, site } from "@/data/site";
 import { useTheme } from "@/hooks/useTheme";
 import { publicAsset } from "@/lib/publicAsset";
+import { AppLink, navigateToSection, useAppPathname } from "@/lib/routing";
 import HeaderConnectMenu from "./HeaderConnectMenu";
 import SocialIconLinks from "./SocialIconLinks";
 
-const navLinks = [
-  { id: sectionIds.work, label: "Work" },
-  { id: sectionIds.services, label: "Services" },
-  { id: sectionIds.process, label: "Process" },
-  { id: sectionIds.contact, label: "Contact" },
-];
-
-function NavLink({
+function SectionNavLink({
   id,
   label,
-  onNavigate,
   className,
 }: {
   id: string;
   label: string;
-  onNavigate?: () => void;
   className?: string;
 }) {
   return (
@@ -31,7 +22,7 @@ function NavLink({
       className={className}
       onClick={(e) => {
         e.preventDefault();
-        scrollToSection(id, onNavigate);
+        navigateToSection(id);
       }}
     >
       {label}
@@ -39,10 +30,21 @@ function NavLink({
   );
 }
 
+function navCapsuleClass(active: boolean, page = false) {
+  const activeClass = !active
+    ? ""
+    : page
+      ? " site-header-capsule--active site-header-capsule--page"
+      : " site-header-capsule--active";
+  return `site-header-capsule${activeClass}`;
+}
+
 export default function Header() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { theme, toggleTheme } = useTheme();
+  const pathname = useAppPathname();
+  const isHome = pathname === "/";
+  const isServices = pathname === "/services";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 30);
@@ -50,14 +52,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = menuOpen ? "hidden" : "";
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [menuOpen]);
-
-  const closeMenu = () => setMenuOpen(false);
+  const goHomeTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
   const logoSrc =
     theme === "light"
       ? publicAsset("/logos/glowl-logo-black.png")
@@ -69,8 +66,8 @@ export default function Header() {
         className={`site-header-nav transition-all duration-300${scrolled ? " site-header-nav--scrolled" : ""}`}
         aria-label="Main navigation"
       >
-        <div className="mx-auto flex min-h-[4.25rem] w-full min-w-0 max-w-[1440px] items-center gap-2 px-[var(--page-padding)] py-2.5 md:min-h-16 md:gap-4 md:py-3">
-          <div className="flex min-w-0 flex-1 items-center gap-2 md:gap-3">
+        <div className="site-header-bar mx-auto min-h-[4.25rem] w-full min-w-0 max-w-[1440px] px-[var(--page-padding)] py-2.5 md:min-h-16 md:py-3">
+          <div className="site-header-bar__start flex shrink-0 items-center gap-2 md:gap-3">
             <button
               type="button"
               className="theme-toggle shrink-0"
@@ -79,14 +76,11 @@ export default function Header() {
             >
               {theme === "dark" ? <Sun size={18} strokeWidth={1.75} /> : <Moon size={18} strokeWidth={1.75} />}
             </button>
-            <a
-              href="#top"
+            <AppLink
+              to="/"
               className="relative z-10 flex min-w-0 shrink items-center gap-2.5 md:gap-4"
-              aria-label="GLOWL home"
-              onClick={(e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: "smooth" });
-              }}
+              ariaLabel="GLOWL home"
+              onNavigate={goHomeTop}
             >
               <img
                 src={logoSrc}
@@ -106,23 +100,43 @@ export default function Header() {
                 <span className="whitespace-nowrap">{site.tagline.line1}</span>
                 <span className="whitespace-nowrap">{site.tagline.line2}</span>
               </span>
-            </a>
+            </AppLink>
           </div>
 
-          <ul className="hidden min-w-0 flex-1 items-center justify-center gap-1 lg:flex xl:gap-2">
-            {navLinks.map((link) => (
-              <li key={link.id}>
-                <NavLink
-                  id={link.id}
-                  label={link.label}
-                  className="site-header-link whitespace-nowrap rounded-full px-3 py-2 text-[11px] font-medium uppercase tracking-[0.1em] xl:px-4 xl:text-[13px]"
+          <div className="site-header-bar__free">
+            <ul className="site-header-capsules site-header-capsules--bar flex items-center gap-0.5 sm:gap-1 xl:gap-1.5">
+              <li>
+                <AppLink
+                  to="/"
+                  className={navCapsuleClass(isHome)}
+                  ariaCurrent={isHome ? "page" : undefined}
+                  onNavigate={goHomeTop}
+                >
+                  Home
+                </AppLink>
+              </li>
+              <li>
+                <AppLink
+                  to="/services"
+                  className={navCapsuleClass(isServices, true)}
+                  ariaCurrent={isServices ? "page" : undefined}
+                  onNavigate={() => window.scrollTo({ top: 0 })}
+                >
+                  Services
+                </AppLink>
+              </li>
+              <li>
+                <SectionNavLink
+                  id={sectionIds.contact}
+                  label="Contact"
+                  className={navCapsuleClass(false)}
                 />
               </li>
-            ))}
-          </ul>
+            </ul>
+          </div>
 
-          <div className="ml-auto flex shrink-0 items-center gap-1.5 md:gap-2">
-            <div className="header-desktop-social hidden min-w-0 items-center gap-1.5 lg:flex lg:gap-2">
+          <div className="site-header-bar__end header-contacts flex shrink-0 items-center justify-end gap-1.5 md:gap-2">
+            <div className="header-desktop-social flex min-w-0 items-center gap-1.5 lg:gap-2">
               <SocialIconLinks className="min-w-0" />
               <a
                 href={`mailto:${site.email}`}
@@ -133,42 +147,8 @@ export default function Header() {
               </a>
             </div>
             <HeaderConnectMenu />
-            <button
-              type="button"
-              className="site-header-link flex h-9 w-9 shrink-0 items-center justify-center lg:hidden"
-              onClick={() => setMenuOpen((v) => !v)}
-              aria-expanded={menuOpen}
-              aria-label={menuOpen ? "Close menu" : "Open menu"}
-            >
-              {menuOpen ? <X size={22} /> : <Menu size={22} />}
-            </button>
           </div>
         </div>
-
-        <AnimatePresence>
-          {menuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              transition={{ duration: 0.2 }}
-              className="site-header-mobile-menu overflow-hidden lg:hidden"
-            >
-              <ul className="site-header-mobile-nav flex flex-col items-stretch gap-1 px-[var(--page-padding)] py-5">
-                {navLinks.map((link) => (
-                  <li key={link.id}>
-                    <NavLink
-                      id={link.id}
-                      label={link.label}
-                      onNavigate={closeMenu}
-                      className="site-header-link site-header-mobile-link block py-3 text-[13px] font-medium uppercase tracking-[0.14em]"
-                    />
-                  </li>
-                ))}
-              </ul>
-            </motion.div>
-          )}
-        </AnimatePresence>
       </nav>
     </header>
   );

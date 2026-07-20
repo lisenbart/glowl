@@ -18,7 +18,7 @@ function ServiceDot() {
 function ServiceRow({ groupId }: { groupId: string }) {
   return (
     <div className="flex shrink-0 items-center">
-      {stripServices.map((service, i) => (
+      {stripServices.map((service) => (
         <div key={`${groupId}-${service.id}`} className="flex shrink-0 items-center">
           <ServiceItem {...service} />
           <ServiceDot />
@@ -28,26 +28,19 @@ function ServiceRow({ groupId }: { groupId: string }) {
   );
 }
 
-export default function ServicesStrip() {
+/** Marquee track — embed inside another card (e.g. Craft over automation). */
+export function ServicesMarquee({ className = "" }: { className?: string }) {
   return (
-    <section
-      className="services-strip relative z-10 -mt-8 px-[var(--page-padding)] md:-mt-10"
+    <div
+      className={`strip-marquee-viewport overflow-hidden${className ? ` ${className}` : ""}`}
       aria-label="Production types"
     >
-      <div className="mx-auto w-full min-w-0 max-w-[1440px]">
-        <article className="how-ios-card services-strip-panel min-w-0 max-w-full">
-          <div className="how-ios-card-inner how-ios-card-inner--compact min-w-0">
-            <div className="strip-marquee-viewport overflow-hidden">
-              <div className="strip-marquee-clip">
-                <div className="strip-marquee-track">
-                  <ServiceRow groupId="a" />
-                  <ServiceRow groupId="b" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
+      <div className="strip-marquee-clip">
+        <div className="strip-marquee-track">
+          <ServiceRow groupId="a" />
+          <ServiceRow groupId="b" />
+        </div>
       </div>
-    </section>
+    </div>
   );
 }

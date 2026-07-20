@@ -11,8 +11,7 @@ export default function SelectedWorkSection() {
           {selectedWork.map((item) => (
             <li key={item.id} className="selected-work-card">
               <h3 className="selected-work-title">{item.title}</h3>
-              <p className="selected-work-category">{item.category}</p>
-              <p className="selected-work-deliverable">{item.deliverable}</p>
+              <p className="selected-work-category">{item.description}</p>
             </li>
           ))}
         </ul>

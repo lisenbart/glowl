@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { sectionIds, scrollToSection } from "@/data/site";
+import { sectionIds } from "@/data/site";
+import { navigateToSection } from "@/lib/routing";
 
 export default function MobileEstimateCTA() {
   const [visible, setVisible] = useState(false);
@@ -22,10 +23,10 @@ export default function MobileEstimateCTA() {
     >
       <button
         type="button"
-        onClick={() => scrollToSection(sectionIds.contact)}
+        onClick={() => navigateToSection(sectionIds.contact)}
         className="gradient-button btn-on-accent w-full rounded-full py-3 text-sm font-medium"
       >
-        Get an Estimate
+        Get a Project Estimate
       </button>
     </div>
   );

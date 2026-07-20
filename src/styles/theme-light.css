@@ -157,7 +157,7 @@
 }
 
 [data-theme="light"] .how-ios-card-inner {
-  padding: clamp(1.85rem, 3.2vw, 2.5rem) clamp(1.65rem, 3vw, 2.35rem);
+  padding: clamp(1.5rem, 2.8vw, 2.15rem) clamp(1.35rem, 2.6vw, 2rem);
 }
 
 [data-theme="light"] .how-ios-card-inner--compact {
@@ -269,8 +269,19 @@
 }
 
 [data-theme="light"] [aria-label="Introduction"] h1 {
-  color: var(--text-primary);
   font-weight: 500;
+}
+
+[data-theme="light"] .hero-headline--primary {
+  color: transparent;
+  background-image: linear-gradient(
+    105deg,
+    color-mix(in srgb, var(--cyan) 55%, #0a0a0c) 0%,
+    var(--cyan) 48%,
+    color-mix(in srgb, var(--violet) 40%, var(--cyan)) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
 }
 
 @media (max-width: 767px) {
@@ -470,10 +481,120 @@
   font-weight: 400;
 }
 
+[data-theme="light"] .how-experience-stat--interactive {
+  animation: none;
+  border-color: color-mix(in srgb, var(--cyan) 28%, var(--stat-border));
+  box-shadow:
+    var(--stat-shadow),
+    0 0 0 1px color-mix(in srgb, var(--cyan) 8%, transparent);
+}
+
+[data-theme="light"] .how-experience-stat--interactive::after {
+  display: none;
+}
+
+[data-theme="light"] .how-experience-stat-hint {
+  color: color-mix(in srgb, var(--cyan) 55%, var(--text-secondary));
+}
+
+[data-theme="light"] .how-experience-stat-action {
+  animation: none;
+  color: var(--cyan);
+  background: color-mix(in srgb, var(--cyan) 8%, #fff);
+  border-color: color-mix(in srgb, var(--cyan) 32%, var(--stat-border));
+  box-shadow: 0 4px 16px rgba(18, 18, 20, 0.06);
+}
+
+@media (hover: hover) {
+  [data-theme="light"] .how-experience-stat--interactive:hover {
+    border-color: color-mix(in srgb, var(--cyan) 42%, var(--stat-border));
+    box-shadow:
+      var(--stat-shadow),
+      0 0 0 1px color-mix(in srgb, var(--cyan) 14%, transparent);
+  }
+
+  [data-theme="light"] .how-experience-stat--interactive:hover .how-experience-stat-action {
+    border-color: color-mix(in srgb, var(--cyan) 48%, var(--stat-border));
+    box-shadow: 0 6px 18px rgba(18, 18, 20, 0.08);
+  }
+}
+
+[data-theme="light"] .capability-body {
+  background: rgba(255, 255, 255, 0.55);
+  border-top-color: rgba(18, 18, 20, 0.08);
+}
+
+[data-theme="light"] .capability-description {
+  color: var(--text-secondary);
+  font-weight: 400;
+}
+
+[data-theme="light"] .capability-format-tag {
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.72);
+  border-color: rgba(18, 18, 20, 0.1);
+}
+
+[data-theme="light"] .capability-card--secondary {
+  opacity: 0.92;
+}
+
+[data-theme="light"] .trusted-by__label {
+  color: var(--text-tertiary);
+}
+
+[data-theme="light"] .founders-eyebrow,
+[data-theme="light"] .person-modal-role,
+[data-theme="light"] .founder-card-role {
+  color: var(--text-tertiary);
+}
+
+[data-theme="light"] .proof-strip {
+  color: color-mix(in srgb, var(--text-secondary) 88%, var(--text-primary));
+  border-top-color: var(--separator);
+}
+
+[data-theme="light"] .proof-strip__link {
+  color: var(--link-accent);
+}
+
+[data-theme="light"] .hero-media {
+  background: var(--inset-surface);
+  border-color: var(--separator);
+}
+
+[data-theme="light"] .person-popover {
+  background: var(--modal-bg);
+  border-color: var(--modal-border);
+  box-shadow: var(--modal-panel-shadow);
+}
+
+[data-theme="light"] .founder-card-avatar {
+  border-color: color-mix(in srgb, var(--cyan) 24%, var(--separator));
+  background:
+    radial-gradient(circle at 30% 25%, color-mix(in srgb, var(--cyan) 16%, transparent), transparent 55%),
+    color-mix(in srgb, var(--text-primary) 4%, #fff);
+}
+
+[data-theme="light"] .trusted-by__item {
+  color: color-mix(in srgb, var(--text-secondary) 88%, var(--text-primary));
+  font-weight: 400;
+}
+
+[data-theme="light"] .clients-modal-item {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.82);
+  border-color: rgba(18, 18, 20, 0.1);
+}
+
 /* Showreel */
 [data-theme="light"] .showreel-card {
   border: 1px solid var(--ios-card-border);
   box-shadow: var(--card-shadow);
+  background: var(--how-ios-bg);
+}
+
+[data-theme="light"] .showreel-section__frame .video-stage {
   background: #000;
 }
 
@@ -499,12 +620,7 @@
     0 1px 0 rgba(255, 255, 255, 0.9) inset;
 }
 
-/* Services strip — film slate */
-[data-theme="light"] .services-strip-panel {
-  background: rgba(255, 255, 255, 0.42);
-  border-color: rgba(18, 18, 20, 0.12);
-}
-
+/* Services strip — same shell as other cards */
 [data-theme="light"] .services-strip-item span {
   color: var(--text-primary);
   font-weight: 400;
@@ -518,10 +634,6 @@
 }
 
 /* Premium inquiry form */
-[data-theme="light"] .inquiry-panel {
-  background: rgba(255, 255, 255, 0.58);
-}
-
 [data-theme="light"] .inquiry-input,
 [data-theme="light"] .inquiry-textarea {
   border-bottom-color: rgba(18, 18, 20, 0.14);
@@ -603,6 +715,47 @@
 
 [data-theme="light"] .site-header-link:hover {
   color: var(--text-primary);
+}
+
+[data-theme="light"] .site-header-capsules {
+  background: color-mix(in srgb, var(--text-primary) 4%, #fff);
+  border-color: color-mix(in srgb, var(--text-primary) 10%, transparent);
+}
+
+[data-theme="light"] .site-header-capsule {
+  color: color-mix(in srgb, var(--text-primary) 55%, transparent);
+  font-weight: 500;
+}
+
+[data-theme="light"] .site-header-capsule:hover {
+  color: var(--text-primary);
+  background: color-mix(in srgb, var(--text-primary) 6%, transparent);
+}
+
+[data-theme="light"] .site-header-capsule--active {
+  color: var(--text-primary);
+  background: #fff;
+  border-color: color-mix(in srgb, var(--text-primary) 12%, transparent);
+  box-shadow: 0 1px 3px color-mix(in srgb, #000 8%, transparent);
+}
+
+[data-theme="light"] .site-header-capsule--active:hover {
+  background: #fff;
+}
+
+[data-theme="light"] .site-header-capsule--page {
+  color: var(--cyan);
+  background: color-mix(in srgb, var(--cyan) 10%, #fff);
+  border-color: color-mix(in srgb, var(--cyan) 34%, transparent);
+  box-shadow:
+    0 0 0 1px color-mix(in srgb, var(--cyan) 8%, transparent),
+    0 1px 3px color-mix(in srgb, #000 6%, transparent);
+}
+
+[data-theme="light"] .site-header-capsule--page:hover {
+  color: var(--cyan);
+  background: color-mix(in srgb, var(--cyan) 14%, #fff);
+  border-color: color-mix(in srgb, var(--cyan) 42%, transparent);
 }
 
 [data-theme="light"] .site-header-tagline {

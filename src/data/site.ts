@@ -1,3 +1,4 @@
+import { clients } from "@/data/clients";
 import { publicAsset } from "@/lib/publicAsset";
 
 export const site = {
@@ -8,14 +9,22 @@ export const site = {
     line2: "brands, games and new worlds",
   },
   hero: {
-    headlineLine1: "Films, games and brand worlds",
-    headlineLine2BeforeAccent: "brought to ",
-    headlineAccent: "light",
+    headline: "AI-Native Production Studio",
     paragraph:
-      "Commercials, game trailers and cinematic content shaped by experienced artists, directors and producers — with AI used where it helps the work move faster without losing the eye.",
-    audienceLine: "For brands, agencies, game teams, producers and entertainment projects.",
+      "20+ years of craft — now working at the speed of AI, for brands, games and everything in between.",
   },
-  aiPositioningLine: "AI helps us move faster. Directors, artists and producers keep the work sharp.",
+  aiPositioningLine:
+    "AI is still a young technology — powerful, but not yet predictable enough to run on its own. That's why this studio is led by people, not prompts: every frame gets a human check before it's called finished.",
+  trustedBy: {
+    label: "Trusted by:",
+    brands: clients,
+  },
+  clientsModal: {
+    title: "Selected clients",
+    body: "Brands our producers, Adrian Sakhaltuev and Dmytro Lisenbart, have delivered for across commercial and gaming work.",
+    closeLabel: "Close",
+    cta: "Get a Project Estimate",
+  },
   email: "hello@glowlworks.com",
   linkedin: "https://linkedin.com/company/glowlworks",
   vimeo: "https://vimeo.com/glowlworks",
@@ -48,7 +57,7 @@ export const site = {
     cta: "Email Us",
     closeLabel: "Close",
   },
-  locations: "Warsaw · Ukraine · Canada",
+  locations: "Canada · Ukraine · Poland",
   canonical: "https://glowlworks.com",
   meta: {
     title: "GLOWL — Cinematic Production for Brands, Games and New Worlds",
@@ -74,9 +83,11 @@ export const site = {
 export const sectionIds = {
   work: "work",
   services: "services",
-  process: "process",
   contact: "contact",
   estimate: "estimate",
+  trusted: "trusted",
+  founders: "founders",
+  experience: "experience",
 } as const;
 
 export function scrollToSection(id: string, onDone?: () => void) {

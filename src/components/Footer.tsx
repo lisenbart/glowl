@@ -1,12 +1,6 @@
-import { site, scrollToSection, sectionIds } from "@/data/site";
+import { site, sectionIds } from "@/data/site";
+import { AppLink, navigateToSection } from "@/lib/routing";
 import SocialIconLinks from "./SocialIconLinks";
-
-const navLinks = [
-  { id: sectionIds.work, label: "Work" },
-  { id: sectionIds.services, label: "Services" },
-  { id: sectionIds.process, label: "Process" },
-  { id: sectionIds.contact, label: "Contact" },
-];
 
 const socialLinks = [
   { label: "Email", href: `mailto:${site.email}` },
@@ -14,14 +8,14 @@ const socialLinks = [
   { label: "YouTube", href: site.youtube, external: true },
 ];
 
-function FooterLink({ id, label }: { id: string; label: string }) {
+function SectionFooterLink({ id, label }: { id: string; label: string }) {
   return (
     <a
       href={`#${id}`}
       className="text-sm font-light text-text-secondary transition-colors hover:text-text-primary"
       onClick={(e) => {
         e.preventDefault();
-        scrollToSection(id);
+        navigateToSection(id);
       }}
     >
       {label}
@@ -37,14 +31,11 @@ export default function Footer() {
           <div className="how-ios-card-inner">
             <div className="grid gap-5 md:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)_minmax(0,0.8fr)] md:gap-8 lg:gap-12">
               <div className="min-w-0">
-                <a
-                  href="#top"
+                <AppLink
+                  to="/"
                   className="inline-flex min-w-0 flex-col gap-1 md:gap-2"
-                  aria-label="GLOWL home"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: "smooth" });
-                  }}
+                  ariaLabel="GLOWL home"
+                  onNavigate={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 >
                   <span
                     className="font-display font-extralight uppercase leading-none tracking-[0.1em] text-text-primary"
@@ -59,15 +50,14 @@ export default function Footer() {
                     <span className="block">{site.tagline.line1}</span>
                     <span className="block">{site.tagline.line2}</span>
                   </span>
-                </a>
+                </AppLink>
                 <SocialIconLinks className="mt-4 md:mt-5" size="md" />
                 <p className="mt-3 hidden max-w-sm text-sm font-light leading-relaxed text-text-secondary md:block">
-                  Commercials, gaming creatives and cinematic content — produced through an expert-led process
-                  supported by AI.
+                  Shaped by people, sped up by AI — commercials, game content and cinematic work.
                 </p>
                 <button
                   type="button"
-                  onClick={() => scrollToSection(sectionIds.contact)}
+                  onClick={() => navigateToSection(sectionIds.contact)}
                   className="gradient-button btn-on-accent mt-4 hidden rounded-full px-5 py-2.5 text-xs font-medium tracking-wide sm:inline-flex md:mt-6 md:text-sm"
                 >
                   Get a Project Estimate
@@ -78,11 +68,27 @@ export default function Footer() {
                 <nav aria-label="Footer navigation">
                   <p className="footer-section-label text-[10px] font-medium uppercase tracking-[0.14em] md:text-[11px]">Navigate</p>
                   <ul className="mt-2 flex flex-col gap-1.5 md:mt-4 md:gap-3">
-                    {navLinks.map((link) => (
-                      <li key={link.id}>
-                        <FooterLink id={link.id} label={link.label} />
-                      </li>
-                    ))}
+                    <li>
+                      <AppLink
+                        to="/"
+                        className="text-sm font-light text-text-secondary transition-colors hover:text-text-primary"
+                        onNavigate={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+                      >
+                        Home
+                      </AppLink>
+                    </li>
+                    <li>
+                      <AppLink
+                        to="/services"
+                        className="text-sm font-light text-text-secondary transition-colors hover:text-text-primary"
+                        onNavigate={() => window.scrollTo({ top: 0 })}
+                      >
+                        Services
+                      </AppLink>
+                    </li>
+                    <li>
+                      <SectionFooterLink id={sectionIds.contact} label="Contact" />
+                    </li>
                   </ul>
                 </nav>
 
@@ -107,9 +113,16 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className="mt-5 flex flex-row items-center justify-between gap-3 border-t border-[var(--separator)] pt-4 text-[10px] font-light text-text-secondary/80 md:mt-10 md:pt-6 md:text-[11px]">
-              <span className="truncate">{site.locations}</span>
-              <span className="shrink-0">© {new Date().getFullYear()} {site.name}</span>
+            <div className="mt-5 flex flex-col gap-2 border-t border-[var(--separator)] pt-4 md:mt-10 md:pt-6">
+              <div className="flex flex-row items-center justify-between gap-3 text-[10px] font-light text-text-secondary/80 md:text-[11px]">
+                <span className="truncate">{site.locations}</span>
+                <span className="shrink-0">
+                  © {new Date().getFullYear()} {site.name}
+                </span>
+              </div>
+              <p className="text-[10px] font-light text-text-tertiary md:text-[11px]">
+                Co-founded by Adrian Sakhaltuev (Director) and Dmytro Lisenbart (Producer).
+              </p>
             </div>
           </div>
         </article>
