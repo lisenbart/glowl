@@ -1,11 +1,8 @@
-import { useState } from "react";
-import { AnimatePresence } from "framer-motion";
 import {
   clientExperienceBrands,
   clientExperienceCopy,
 } from "@/data/clientExperience";
 import { sectionIds } from "@/data/site";
-import ClientsModal from "./ClientsModal";
 
 function BrandRow({ groupId, brands }: { groupId: string; brands: readonly string[] }) {
   return (
@@ -22,47 +19,32 @@ function BrandRow({ groupId, brands }: { groupId: string; brands: readonly strin
 
 /** Client experience label + marquee — used under the Hero. */
 export function ClientExperienceBlock({ compact = false }: { compact?: boolean }) {
-  const [clientsOpen, setClientsOpen] = useState(false);
   const brands = clientExperienceBrands;
 
   return (
-    <>
-      <div
-        className={`client-experience-block${compact ? " client-experience-block--hero" : ""}`}
-      >
-        <div className="client-experience-block__header">
-          <button
-            type="button"
-            className="trusted-by__label trusted-by__label--button"
-            onClick={() => setClientsOpen(true)}
-            aria-haspopup="dialog"
-            aria-label={`${clientExperienceCopy.title}. View brand list.`}
-          >
-            {clientExperienceCopy.title}
-          </button>
-          <p className="client-experience-block__lead how-support-line">{clientExperienceCopy.lead}</p>
-        </div>
+    <div
+      className={`client-experience-block${compact ? " client-experience-block--hero" : ""}`}
+    >
+      <div className="client-experience-block__header">
+        <p className="trusted-by__label">{clientExperienceCopy.title}</p>
+        <p className="client-experience-block__lead how-support-line">{clientExperienceCopy.lead}</p>
+      </div>
 
-        <div
-          id={sectionIds.trusted}
-          className="trusted-by trusted-by--in-card trusted-by--marquee scroll-mt-24"
-          aria-label={clientExperienceCopy.title}
-        >
-          <div className="trusted-by__marquee strip-marquee-viewport overflow-hidden">
-            <div className="strip-marquee-clip">
-              <div className="strip-marquee-track">
-                <BrandRow groupId="a" brands={brands} />
-                <BrandRow groupId="b" brands={brands} />
-              </div>
+      <div
+        id={sectionIds.trusted}
+        className="trusted-by trusted-by--in-card trusted-by--marquee scroll-mt-24"
+        aria-label={clientExperienceCopy.title}
+      >
+        <div className="trusted-by__marquee strip-marquee-viewport overflow-hidden">
+          <div className="strip-marquee-clip">
+            <div className="strip-marquee-track">
+              <BrandRow groupId="a" brands={brands} />
+              <BrandRow groupId="b" brands={brands} />
             </div>
           </div>
         </div>
       </div>
-
-      <AnimatePresence>
-        {clientsOpen ? <ClientsModal onClose={() => setClientsOpen(false)} /> : null}
-      </AnimatePresence>
-    </>
+    </div>
   );
 }
 

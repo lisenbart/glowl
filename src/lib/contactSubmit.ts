@@ -70,7 +70,7 @@ export async function submitContact(data: ContactPayload): Promise<ContactResult
     }
     return {
       success: true,
-      message: "Got it — thank you. We'll take a proper look and get back to you soon.",
+      message: "Thank you — your brief is with us. We'll review it and get back to you soon.",
     };
   }
 
@@ -82,6 +82,6 @@ export async function submitContact(data: ContactPayload): Promise<ContactResult
   await new Promise((r) => setTimeout(r, 600));
   return {
     success: true,
-    message: "Got it — thank you. We'll take a proper look and get back to you soon.",
+    message: "Thank you — your brief is with us. We'll review it and get back to you soon.",
   };
 }

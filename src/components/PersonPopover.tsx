@@ -14,11 +14,16 @@ interface PersonPopoverProps {
 
 const POPOVER_MAX_WIDTH = 360;
 
+function firstName(fullName: string) {
+  return fullName.trim().split(/\s+/)[0] || fullName;
+}
+
 export default function PersonPopover({ person, clickPoint, onClose }: PersonPopoverProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
   const closeLabel = site.clientsModal.closeLabel;
   const [coords, setCoords] = useState<ReturnType<typeof clampPopoverCoords> | null>(null);
+  const noteLabel = `A note from ${firstName(person.name)}`;
 
   useLayoutEffect(() => {
     const panel = panelRef.current;
@@ -90,19 +95,21 @@ export default function PersonPopover({ person, clickPoint, onClose }: PersonPop
       </button>
 
       <div className="person-popover__body px-5 pb-5 pt-6 text-left">
-        <p className="person-modal-role">{person.role}</p>
-        <h2
-          id="person-popover-title"
-          className="font-display text-lg font-medium tracking-[0.02em] text-text-primary md:text-xl"
-        >
-          {person.modalTitle}
-        </h2>
-        <p
-          id="person-popover-body"
-          className="mt-2.5 text-sm font-light leading-relaxed text-text-secondary md:text-[15px]"
-        >
-          {person.modalBody}
+        <p id="person-popover-title" className="person-popover__note">
+          {noteLabel}
         </p>
+
+        <blockquote id="person-popover-body" className="person-popover__quote">
+          <span className="person-popover__mark" aria-hidden="true">
+            “
+          </span>
+          <p className="person-popover__quote-text">{person.modalBody}</p>
+        </blockquote>
+
+        <footer className="person-popover__attribution">
+          <cite className="person-popover__name">{person.name}</cite>
+          <span className="person-popover__role">{person.role}</span>
+        </footer>
       </div>
     </motion.div>,
     document.body,

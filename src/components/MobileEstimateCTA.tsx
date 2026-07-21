@@ -26,7 +26,7 @@ export default function MobileEstimateCTA() {
         onClick={() => navigateToSection(sectionIds.contact)}
         className="gradient-button btn-on-accent w-full rounded-full py-3 text-sm font-medium"
       >
-        Get a Project Estimate
+        Start a Project
       </button>
     </div>
   );

@@ -149,7 +149,7 @@ export default function ContactForm() {
               >
                 <CheckCircle2 size={44} className="mx-auto link-accent" />
                 <p className="mt-4 text-base font-light text-text-primary">
-                  Got it — thank you. We'll take a proper look and get back to you soon.
+                  Thank you — your brief is with us. We'll review it and get back to you soon.
                 </p>
                 <button
                   type="button"
@@ -199,7 +199,7 @@ export default function ContactForm() {
                     id="contact-message"
                     value={form.message}
                     onChange={(e) => update("message", e.target.value)}
-                    placeholder="What are you working on?"
+                    placeholder="Tell us about the idea, audience and deliverables."
                     rows={4}
                     className={`inquiry-input inquiry-textarea resize-none ${errors.message ? "inquiry-input--error" : ""}`}
                   />

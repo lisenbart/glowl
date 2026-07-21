@@ -38,7 +38,7 @@ export const heroFounders: FounderPerson[] = [
     accent: "cyan",
     modalTitle: "Adrian Sakhaltuev",
     modalBody:
-      "20+ years in animation, film and commercial production — with 1000+ projects delivered across his career. At GLOWL he leads creative direction: the final call on what looks right before anything ships.",
+      "I usually know we’ve found the right direction when every choice starts belonging to the same world. My job is to find that visual language early and protect it through to the final frame.",
   },
   {
     id: "dmytro-lisenbart",
@@ -51,7 +51,7 @@ export const heroFounders: FounderPerson[] = [
     accent: "green",
     modalTitle: "Dmytro Lisenbart",
     modalBody:
-      "20+ years in producing across film and commercial production — with 1000+ projects delivered and 15 awards & 45 selections across his career. At GLOWL he runs production: turning briefs into delivered work, not just ideas.",
+      "A good production gives an idea room to become real. I shape the route, bring in the right people, and make sure the ambition carries through every practical decision all the way to delivery.",
   },
 ];
 
@@ -59,24 +59,24 @@ export const heroFounders: FounderPerson[] = [
 export const contactNextSteps: ContactNextStep[] = [
   {
     id: "review-brief",
-    title: "We review the brief.",
-    description: "We look at your goals, references and deliverables.",
+    title: "Your brief comes first.",
+    description: "Goals, references and deliverables give the idea a clear foundation.",
   },
   {
     id: "shape-approach",
-    title: "We shape the approach.",
-    description: "We define the right production route and the specialists the project requires.",
+    title: "The approach takes shape.",
+    description: "The project determines its production route and the specialists it needs.",
   },
   {
     id: "clear-proposal",
-    title: "You receive a clear proposal.",
-    description: "Scope, schedule and estimate — with a clear next step.",
+    title: "A clear proposal follows.",
+    description: "You receive the scope, schedule, estimate and a clear way forward.",
   },
 ];
 
 export const contactSupportCopy = {
   heading: "What Happens Next",
-  lead: "Tell us what you're making. Our production team will review the brief and come back with a clear next step.",
+  lead: "Tell us where the idea stands today. A brief is enough to begin.",
 } as const;
 
 /** @deprecated Prefer heroFounders — full list retained for profile tooling. */

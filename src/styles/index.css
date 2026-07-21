@@ -2871,6 +2871,81 @@ body.header-connect-open {
   overscroll-behavior: contain;
 }
 
+.person-popover__note {
+  margin: 0 2.25rem 0.85rem 0;
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+.person-popover__quote {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.person-popover__mark {
+  display: block;
+  margin: 0 0 0.15rem;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 3.25rem;
+  font-weight: 700;
+  line-height: 0.7;
+  color: var(--link-accent);
+  user-select: none;
+}
+
+.person-popover--cyan .person-popover__mark {
+  color: var(--g-cyan, var(--cyan, #00c2ff));
+}
+
+.person-popover--green .person-popover__mark {
+  color: var(--g-green, #2fbf71);
+}
+
+.person-popover--magenta .person-popover__mark {
+  color: var(--g-magenta, var(--magenta, #e11d8f));
+}
+
+.person-popover--coral .person-popover__mark {
+  color: var(--g-coral, #ff6b4a);
+}
+
+.person-popover__quote-text {
+  margin: 0;
+  font-size: 0.9375rem;
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.person-popover__attribution {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  margin-top: 1rem;
+  padding-top: 0.85rem;
+  border-top: 1px solid var(--separator);
+}
+
+.person-popover__name {
+  font-style: normal;
+  font-family: var(--font-display, inherit);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+}
+
+.person-popover__role {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: var(--text-tertiary);
+}
+
 .proof-strip {
   display: flex;
   flex-wrap: wrap;
