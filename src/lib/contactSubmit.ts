@@ -74,7 +74,7 @@ export async function submitContact(data: ContactPayload): Promise<ContactResult
     };
   }
 
-  console.info("[GLOWL WORKS] Estimate request:", {
+  console.info("[GLOWL] Estimate request:", {
     name: data.name,
     email: data.email,
     message: data.message,

@@ -1,7 +1,7 @@
 import { publicAsset } from "@/lib/publicAsset";
 
 export const site = {
-  name: "GLOWL WORKS",
+  name: "GLOWL",
   brand: "GLOWL",
   tagline: {
     line1: "Creative partner for",

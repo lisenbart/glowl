@@ -15,7 +15,7 @@ export default function ShowreelSection() {
   return (
     <section
       id={sectionIds.work}
-      className="showreel-hero scroll-mt-24 px-[var(--page-padding)]"
+      className="showreel-hero scroll-mt-24"
       aria-label="Showreel"
     >
       <div className="showreel-card mx-auto w-full min-w-0 max-w-[920px]">
@@ -23,8 +23,9 @@ export default function ShowreelSection() {
           <div className="showreel-section__header">
             <h2 className="how-col-title how-col-title-cyan showreel-section__title">Showreel</h2>
           </div>
-          <div className="showreel-section__body">
-            <div className="showreel-section__media">
+
+          <div className="showreel-compose showreel-section__body">
+            <div className="showreel-stage-wrap showreel-section__media">
               <div className="video-stage relative aspect-video w-full overflow-hidden">
                 {isPlaying ? (
                   <VideoEmbed
@@ -45,7 +46,7 @@ export default function ShowreelSection() {
                     <button
                       type="button"
                       onClick={startPlayback}
-                      className="showreel-stage-play gradient-button"
+                      className="showreel-stage-play"
                       aria-label="Watch reel"
                     >
                       <Play fill="currentColor" className="showreel-stage-play-icon" aria-hidden="true" />
@@ -55,23 +56,28 @@ export default function ShowreelSection() {
               </div>
             </div>
 
-            <div className="capabilities-cta capabilities-cta--in-showreel" aria-label="What we make">
-              <div className="capabilities-cta__copy">
-                <h3 className="capabilities-cta__title how-col-title how-col-title-cyan">
-                  What We Make
-                </h3>
-                <p className="capabilities-cta__text">
-                  Advertising, gaming and cinematic work — shaped around the idea, the audience and the
-                  brief.
-                </p>
+            <div
+              className="showreel-companion how-ios-card"
+              aria-label="What we make"
+            >
+              <div className="showreel-companion__inner how-ios-card-inner">
+                <div className="capabilities-cta__copy">
+                  <h3 className="capabilities-cta__title how-col-title">
+                    What We Make
+                  </h3>
+                  <p className="capabilities-cta__text">
+                    Advertising, gaming and cinematic work — shaped around the idea, the audience and the
+                    brief.
+                  </p>
+                </div>
+                <AppLink
+                  to="/services"
+                  className="gradient-button-emerald capabilities-cta__button inline-flex items-center justify-center px-5 py-3 text-sm font-medium"
+                  onNavigate={() => window.scrollTo({ top: 0 })}
+                >
+                  Explore Our Capabilities
+                </AppLink>
               </div>
-              <AppLink
-                to="/services"
-                className="gradient-button-emerald btn-on-accent capabilities-cta__button inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-medium"
-                onNavigate={() => window.scrollTo({ top: 0 })}
-              >
-                Explore Our Capabilities
-              </AppLink>
             </div>
           </div>
         </div>

@@ -218,11 +218,11 @@ export default function ContactForm() {
                   </p>
                 )}
 
-                <div className="estimate-cta-actions flex w-full min-w-0 max-w-full flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center">
+                <div className="estimate-cta-actions flex w-full min-w-0 max-w-full flex-row flex-wrap items-center justify-start gap-3">
                   <button
                     type="submit"
                     disabled={status === "loading"}
-                    className="gradient-button-emerald btn-on-accent flex w-full min-w-0 items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-medium sm:flex-1"
+                    className="gradient-button-emerald btn-on-accent inline-flex items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-medium"
                   >
                     {status === "loading" ? (
                       <>
@@ -238,7 +238,7 @@ export default function ContactForm() {
                   </button>
                   <a
                     href={`mailto:${site.email}`}
-                    className="estimate-cta-secondary w-full min-w-0 sm:flex-1"
+                    className="estimate-cta-secondary inline-flex items-center justify-center"
                   >
                     Email Us Directly
                   </a>

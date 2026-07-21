@@ -67,7 +67,9 @@ export default function PersonPopover({ person, clickPoint, onClose }: PersonPop
       animate={{ opacity: isReady ? 1 : 0, scale: isReady ? 1 : 0.96 }}
       exit={{ opacity: 0, scale: 0.98 }}
       transition={{ type: "spring", stiffness: 420, damping: 32, mass: 0.82 }}
-      className="person-popover modal-panel clients-modal-panel fixed z-[100] overflow-hidden rounded-[20px] outline-none"
+      className={`person-popover modal-panel clients-modal-panel fixed z-[100] overflow-hidden rounded-[20px] outline-none${
+        person.accent ? ` person-popover--${person.accent}` : ""
+      }`}
       style={{
         top: coords?.top ?? clickPoint.y,
         left: coords?.left ?? clickPoint.x,

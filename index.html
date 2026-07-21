@@ -25,7 +25,7 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "GLOWL WORKS",
+        "name": "GLOWL",
         "url": "https://glowlworks.com",
         "email": "hello@glowlworks.com",
         "description": "Cinematic production studio for commercials, games and new worlds.",
@@ -35,8 +35,10 @@
     </script>
     <script>
       (function () {
-        var t = localStorage.getItem("glowl-theme");
-        document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", "light");
+        try {
+          localStorage.setItem("glowl-theme", "light");
+        } catch (e) {}
       })();
     </script>
     <style>

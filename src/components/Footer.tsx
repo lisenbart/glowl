@@ -1,4 +1,5 @@
 import { site, sectionIds } from "@/data/site";
+import { publicAsset } from "@/lib/publicAsset";
 import { AppLink, navigateToSection } from "@/lib/routing";
 import SocialIconLinks from "./SocialIconLinks";
 
@@ -24,8 +25,10 @@ function SectionFooterLink({ id, label }: { id: string; label: string }) {
 }
 
 export default function Footer() {
+  const logoSrc = publicAsset("/logos/glowl-logo-color.png");
+
   return (
-    <footer className="w-full max-w-full min-w-0 overflow-x-clip px-[var(--page-padding)] pb-24 pt-7 md:pb-12 md:pt-14">
+    <footer className="w-full max-w-full min-w-0 px-[var(--page-padding)] pb-24 pt-7 md:pb-12 md:pt-14">
       <div className="mx-auto w-full min-w-0 max-w-[920px]">
         <article className="how-ios-card">
           <div className="how-ios-card-inner">
@@ -33,23 +36,17 @@ export default function Footer() {
               <div className="min-w-0">
                 <AppLink
                   to="/"
-                  className="inline-flex min-w-0 flex-col gap-1 md:gap-2"
+                  className="inline-flex min-w-0"
                   ariaLabel="GLOWL home"
                   onNavigate={() => window.scrollTo({ top: 0, behavior: "smooth" })}
                 >
-                  <span
-                    className="font-display font-extralight uppercase leading-none tracking-[0.1em] text-text-primary"
-                    style={{ fontSize: "clamp(1.35rem, 3vw, 2rem)" }}
-                  >
-                    GLOWL
-                  </span>
-                  <span
-                    className="font-sans uppercase leading-snug text-text-tertiary"
-                    style={{ fontSize: "clamp(8px, 1vw, 11px)", letterSpacing: "0.14em" }}
-                  >
-                    <span className="block">{site.tagline.line1}</span>
-                    <span className="block">{site.tagline.line2}</span>
-                  </span>
+                  <img
+                    src={logoSrc}
+                    alt="GLOWL"
+                    className="site-footer-logo h-8 w-auto max-w-[11.5rem] object-contain object-left sm:h-9 sm:max-w-[13rem] md:h-10 md:max-w-[14.5rem]"
+                    width={1546}
+                    height={311}
+                  />
                 </AppLink>
                 <SocialIconLinks className="mt-4 md:mt-5" size="md" />
                 <p className="mt-3 hidden max-w-sm text-sm font-light leading-relaxed text-text-secondary md:block">

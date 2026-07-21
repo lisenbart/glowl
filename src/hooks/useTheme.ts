@@ -1,17 +1,15 @@
-import { useCallback, useState } from "react";
-import { applyTheme, getStoredTheme, type Theme } from "@/lib/theme";
+import { useCallback } from "react";
+import { applyTheme, type Theme } from "@/lib/theme";
 
+/** Light-only site — theme never changes. */
 export function useTheme() {
-  const [theme, setTheme] = useState<Theme>(() => getStoredTheme());
-
-  const setThemeMode = useCallback((next: Theme) => {
-    setTheme(next);
-    applyTheme(next);
+  const setThemeMode = useCallback((_next?: Theme) => {
+    applyTheme("light");
   }, []);
 
-  const toggleTheme = useCallback(() => {
-    setThemeMode(theme === "dark" ? "light" : "dark");
-  }, [theme, setThemeMode]);
-
-  return { theme, setThemeMode, toggleTheme };
+  return {
+    theme: "light" as const,
+    setThemeMode,
+    toggleTheme: () => applyTheme("light"),
+  };
 }

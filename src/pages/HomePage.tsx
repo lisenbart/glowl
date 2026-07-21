@@ -23,7 +23,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="site-main site-main-stack">
+    <main className="site-main site-main-stack site-main--home">
       <HeroSection />
       <ShowreelSection />
       <AiPositioningSection />

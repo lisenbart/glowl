@@ -5,7 +5,7 @@ import ContactForm from "@/components/ContactForm";
 
 export default function ServicesPage() {
   return (
-    <main className="site-main site-main-stack">
+    <main className="site-main site-main-stack site-main--home">
       <ServicesHero />
       <ProductionDirectionsSection showCta={false} />
       <ProductionCapabilitiesSection />

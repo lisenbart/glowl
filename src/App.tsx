@@ -10,6 +10,13 @@ export default function App() {
   const pathname = useAppPathname();
 
   useEffect(() => {
+    document.documentElement.setAttribute("data-art", "bright-home");
+    return () => {
+      document.documentElement.removeAttribute("data-art");
+    };
+  }, []);
+
+  useEffect(() => {
     if (pathname === "/capabilities") {
       navigate("/services", { replace: true });
     }

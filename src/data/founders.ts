@@ -7,6 +7,10 @@ export type FounderPerson = {
   initials: string;
   /** Optional portrait path under /public; when absent, initials avatar is used */
   photo?: string;
+  /** Optional looping portrait video (preferred over photo in hero) */
+  video?: string;
+  /** Colour plate / popover shadow — matches hero portrait accent */
+  accent?: "cyan" | "green" | "magenta" | "coral";
   modalTitle: string;
   modalBody: string;
 };
@@ -30,6 +34,8 @@ export const heroFounders: FounderPerson[] = [
     fact: "20+ years in animation · 1000+ projects delivered",
     initials: "AS",
     photo: "/images/founders/adrian-sakhaltuev.png",
+    video: "/images/founders/adrian-sakhaltuev.mp4",
+    accent: "cyan",
     modalTitle: "Adrian Sakhaltuev",
     modalBody:
       "20+ years in animation, film and commercial production — with 1000+ projects delivered across his career. At GLOWL he leads creative direction: the final call on what looks right before anything ships.",
@@ -41,6 +47,8 @@ export const heroFounders: FounderPerson[] = [
     fact: "20+ years in producing · 1000+ projects delivered",
     initials: "DL",
     photo: "/images/founders/dmytro-lisenbart.png",
+    video: "/images/founders/dmytro-lisenbart.mp4",
+    accent: "green",
     modalTitle: "Dmytro Lisenbart",
     modalBody:
       "20+ years in producing across film and commercial production — with 1000+ projects delivered and 15 awards & 45 selections across his career. At GLOWL he runs production: turning briefs into delivered work, not just ideas.",

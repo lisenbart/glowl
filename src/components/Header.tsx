@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import { Moon, Send, Sun } from "lucide-react";
+import { Send } from "lucide-react";
 import { sectionIds, site } from "@/data/site";
-import { useTheme } from "@/hooks/useTheme";
 import { publicAsset } from "@/lib/publicAsset";
 import { AppLink, navigateToSection, useAppPathname } from "@/lib/routing";
 import HeaderConnectMenu from "./HeaderConnectMenu";
@@ -41,7 +40,6 @@ function navCapsuleClass(active: boolean, page = false) {
 
 export default function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const { theme, toggleTheme } = useTheme();
   const pathname = useAppPathname();
   const isHome = pathname === "/";
   const isServices = pathname === "/services";
@@ -55,27 +53,16 @@ export default function Header() {
   const goHomeTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-  const logoSrc =
-    theme === "light"
-      ? publicAsset("/logos/glowl-logo-black.png")
-      : publicAsset("/logos/glowl-logo-white.png");
+  const logoSrc = publicAsset("/logos/glowl-logo-color.png");
 
   return (
-    <header className="fixed top-0 inset-x-0 z-50 w-full max-w-full overflow-x-clip">
+    <header className="fixed top-0 inset-x-0 z-50 w-full max-w-full">
       <nav
         className={`site-header-nav transition-all duration-300${scrolled ? " site-header-nav--scrolled" : ""}`}
         aria-label="Main navigation"
       >
         <div className="site-header-bar mx-auto min-h-[4.25rem] w-full min-w-0 max-w-[1440px] px-[var(--page-padding)] py-2.5 md:min-h-16 md:py-3">
           <div className="site-header-bar__start flex shrink-0 items-center gap-2 md:gap-3">
-            <button
-              type="button"
-              className="theme-toggle site-header-desktop-only shrink-0"
-              onClick={toggleTheme}
-              aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            >
-              {theme === "dark" ? <Sun size={18} strokeWidth={1.75} /> : <Moon size={18} strokeWidth={1.75} />}
-            </button>
             <AppLink
               to="/"
               className="relative z-10 flex min-w-0 shrink items-center gap-2.5 md:gap-4"
@@ -85,9 +72,9 @@ export default function Header() {
               <img
                 src={logoSrc}
                 alt="GLOWL"
-                className="h-[2.65rem] w-auto max-w-[6.75rem] shrink-0 object-contain object-left md:h-[2.2rem] md:max-w-none"
-                width={2100}
-                height={795}
+                className="site-header-logo h-7 w-auto max-w-[9.5rem] shrink-0 object-contain object-left sm:h-8 sm:max-w-[11rem] md:h-[1.9rem] md:max-w-[10.75rem]"
+                width={1546}
+                height={311}
               />
               <span
                 className="site-header-tagline site-header-desktop-only font-sans flex-col justify-center gap-px leading-none uppercase"

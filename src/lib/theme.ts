@@ -1,18 +1,21 @@
-export type Theme = "dark" | "light";
+export type Theme = "light";
 
 export const THEME_STORAGE_KEY = "glowl-theme";
 
-export function getStoredTheme(): Theme {
-  if (typeof window === "undefined") return "dark";
-  const stored = localStorage.getItem(THEME_STORAGE_KEY);
-  return stored === "light" ? "light" : "dark";
-}
-
-export function applyTheme(theme: Theme) {
-  document.documentElement.setAttribute("data-theme", theme);
-  localStorage.setItem(THEME_STORAGE_KEY, theme);
+/** Site is light-only — always apply light and clear any stored dark preference. */
+export function applyTheme(_theme: Theme = "light") {
+  document.documentElement.setAttribute("data-theme", "light");
+  try {
+    localStorage.setItem(THEME_STORAGE_KEY, "light");
+  } catch {
+    /* ignore */
+  }
 }
 
 export function initTheme() {
-  applyTheme(getStoredTheme());
+  applyTheme("light");
+}
+
+export function getStoredTheme(): Theme {
+  return "light";
 }

@@ -4,14 +4,11 @@ import {
   ChevronRight,
   Linkedin,
   Menu,
-  Moon,
   Send,
-  Sun,
   X,
   Youtube,
 } from "lucide-react";
 import { sectionIds, site } from "@/data/site";
-import { useTheme } from "@/hooks/useTheme";
 import { AppLink, navigateToSection, useAppPathname } from "@/lib/routing";
 
 const panelSpring = { type: "spring" as const, stiffness: 420, damping: 34, mass: 0.85 };
@@ -31,7 +28,6 @@ export default function HeaderConnectMenu() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const panelId = useId();
   const reducedMotion = useReducedMotion();
-  const { theme, toggleTheme } = useTheme();
   const pathname = useAppPathname();
   const isHome = pathname === "/";
   const isServices = pathname === "/services";
@@ -272,25 +268,6 @@ export default function HeaderConnectMenu() {
                     </a>
                   </li>
                 </ul>
-
-                <div className="header-connect-divider" aria-hidden="true" />
-
-                <p className="header-connect-panel-label">Theme</p>
-                <button
-                  type="button"
-                  className="header-connect-item header-mobile-theme"
-                  onClick={toggleTheme}
-                  aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-                >
-                  <span className="header-connect-item-icon" aria-hidden="true">
-                    {theme === "dark" ? <Sun size={17} strokeWidth={1.75} /> : <Moon size={17} strokeWidth={1.75} />}
-                  </span>
-                  <span className="header-connect-item-copy">
-                    <span className="header-connect-item-title">
-                      {theme === "dark" ? "Light mode" : "Dark mode"}
-                    </span>
-                  </span>
-                </button>
               </div>
             </motion.div>
           </>

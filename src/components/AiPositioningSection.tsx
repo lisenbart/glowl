@@ -4,7 +4,7 @@ import { ServicesMarquee } from "./ServicesStrip";
 export default function AiPositioningSection() {
   return (
     <section
-      className="ai-positioning scroll-mt-24 px-[var(--page-padding)]"
+      className="ai-positioning scroll-mt-24"
       aria-label="How we work with AI"
     >
       <div className="mx-auto w-full min-w-0 max-w-[920px]">
