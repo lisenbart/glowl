@@ -74,12 +74,17 @@ export default function HeroSection() {
       className="hero-intro scroll-mt-24 px-[var(--page-padding)] pt-24 md:pt-[4.5rem]"
       aria-label="Introduction"
     >
-      <div className="mx-auto w-full min-w-0 max-w-[920px]">
+      <div className="mx-auto w-full min-w-0 max-w-[1100px]">
         <article className="how-ios-card">
           <div className="how-ios-card-inner">
             <div className="hero-layout hero-layout--founders">
               <div className="hero-compose hero-layout__main">
                 <div className="hero-copy">
+                  {site.hero.eyebrow ? (
+                    <p className="hero-eyebrow hero-eyebrow--banner hero-eyebrow--lead">
+                      {site.hero.eyebrow}
+                    </p>
+                  ) : null}
                   <h1 className="hero-headline hero-headline--primary w-full min-w-0 font-display">
                     <span className="hero-headline__line">Every Process.</span>
                     <span className="hero-headline__line">One Standard.</span>
@@ -118,11 +123,6 @@ export default function HeroSection() {
                         />
                       ))}
                     </ul>
-                    {site.hero.eyebrow ? (
-                      <p className="hero-eyebrow hero-eyebrow--banner hero-eyebrow--founders">
-                        {site.hero.eyebrow}
-                      </p>
-                    ) : null}
                     <p className="hero-founders__proof">{clientExperienceProof.heroExperienceLine}</p>
                   </div>
                 </div>

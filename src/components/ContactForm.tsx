@@ -1,10 +1,9 @@
 import { useState, FormEvent, type ReactNode } from "react";
 import { motion } from "framer-motion";
 import { CheckCircle2, ChevronRight } from "lucide-react";
-import { contactSupportCopy, projectSupportRoles } from "@/data/founders";
+import { contactNextSteps, contactSupportCopy } from "@/data/founders";
 import { sectionIds, site } from "@/data/site";
 import { submitContact, validateContact } from "@/lib/contactSubmit";
-import { publicAsset } from "@/lib/publicAsset";
 
 interface FormState {
   name: string;
@@ -44,30 +43,24 @@ function Field({
   );
 }
 
-function ProjectTeamCard() {
+function WhatHappensNextCard() {
   return (
     <article className="how-ios-card project-team-card" aria-label={contactSupportCopy.heading}>
       <div className="how-ios-card-inner project-team-card__inner">
         <h3 className="project-team-panel__title">{contactSupportCopy.heading}</h3>
-        <ul className="project-team-panel__list">
-          {projectSupportRoles.map((role) => (
-            <li key={role.id} className="project-team-panel__item">
-              <span className="project-team-panel__icon" aria-hidden="true">
-                <img
-                  src={publicAsset("/logos/O.png")}
-                  alt=""
-                  className="project-team-panel__mark"
-                  loading="lazy"
-                  draggable={false}
-                />
+        <ol className="project-team-panel__list contact-next-steps">
+          {contactNextSteps.map((step, index) => (
+            <li key={step.id} className="project-team-panel__item contact-next-step">
+              <span className="project-team-panel__icon contact-next-step__num" aria-hidden="true">
+                {String(index + 1).padStart(2, "0")}
               </span>
               <span className="project-team-panel__copy">
-                <span className="project-team-panel__role">{role.title}</span>
-                <span className="project-team-panel__desc">{role.description}</span>
+                <span className="project-team-panel__role">{step.title}</span>
+                <span className="project-team-panel__desc">{step.description}</span>
               </span>
             </li>
           ))}
-        </ul>
+        </ol>
       </div>
     </article>
   );
@@ -133,8 +126,8 @@ export default function ContactForm() {
       className="scroll-mt-24 w-full max-w-full min-w-0 px-[var(--page-padding)] pb-[var(--section-spacing)]"
       aria-label="Contact form"
     >
-      <div className="inquiry-split mx-auto w-full min-w-0 max-w-[920px]">
-        <ProjectTeamCard />
+      <div className="inquiry-split mx-auto w-full min-w-0 max-w-[1100px]">
+        <WhatHappensNextCard />
 
         <article className="how-ios-card inquiry-panel">
           <div className="how-ios-card-inner">

@@ -15,7 +15,7 @@ export type FounderPerson = {
   modalBody: string;
 };
 
-export type ProjectSupportRole = {
+export type ContactNextStep = {
   id: string;
   title: string;
   description: string;
@@ -55,25 +55,27 @@ export const heroFounders: FounderPerson[] = [
   },
 ];
 
-/**
- * Production support functions for the Contact section.
- * Unfilled roles — no invented names or portraits.
- */
-export const projectSupportRoles: ProjectSupportRole[] = [
+/** Contact left panel — what happens after a brief is submitted. */
+export const contactNextSteps: ContactNextStep[] = [
   {
-    id: "line-producer",
-    title: "Line Producer",
-    description: "Production planning, coordination and delivery.",
+    id: "review-brief",
+    title: "We review the brief.",
+    description: "We look at your goals, references and deliverables.",
   },
   {
-    id: "client-manager",
-    title: "Client Manager",
-    description: "Clear communication from brief to final delivery.",
+    id: "shape-approach",
+    title: "We shape the approach.",
+    description: "We define the right production route and the specialists the project requires.",
+  },
+  {
+    id: "clear-proposal",
+    title: "You receive a clear proposal.",
+    description: "Scope, schedule and estimate — with a clear next step.",
   },
 ];
 
 export const contactSupportCopy = {
-  heading: "Your Project Team",
+  heading: "What Happens Next",
   lead: "Tell us what you're making. Our production team will review the brief and come back with a clear next step.",
 } as const;
 

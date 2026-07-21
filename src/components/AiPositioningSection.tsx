@@ -7,7 +7,7 @@ export default function AiPositioningSection() {
       className="ai-positioning scroll-mt-24"
       aria-label="How we work with AI"
     >
-      <div className="mx-auto w-full min-w-0 max-w-[920px]">
+      <div className="mx-auto w-full min-w-0 max-w-[1100px]">
         <article className="how-ios-card">
           <div className="how-ios-card-inner">
             <div className="section-card-header">

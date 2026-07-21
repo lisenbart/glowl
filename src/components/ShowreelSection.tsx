@@ -18,7 +18,7 @@ export default function ShowreelSection() {
       className="showreel-hero scroll-mt-24"
       aria-label="Showreel"
     >
-      <div className="showreel-card mx-auto w-full min-w-0 max-w-[920px]">
+      <div className="showreel-card mx-auto w-full min-w-0 max-w-[1100px]">
         <div className="showreel-section__frame">
           <div className="showreel-section__header">
             <h2 className="how-col-title how-col-title-cyan showreel-section__title">Showreel</h2>

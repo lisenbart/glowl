@@ -29,7 +29,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full max-w-full min-w-0 px-[var(--page-padding)] pb-24 pt-7 md:pb-12 md:pt-14">
-      <div className="mx-auto w-full min-w-0 max-w-[920px]">
+      <div className="mx-auto w-full min-w-0 max-w-[1100px]">
         <article className="how-ios-card">
           <div className="how-ios-card-inner">
             <div className="grid gap-5 md:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)_minmax(0,0.8fr)] md:gap-8 lg:gap-12">
