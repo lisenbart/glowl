@@ -25,7 +25,7 @@
       {
         "@context": "https://schema.org",
         "@type": "Organization",
-        "name": "GLOWL WORKS",
+        "name": "GLOWL",
         "url": "https://glowlworks.com",
         "email": "hello@glowlworks.com",
         "description": "Cinematic production studio for commercials, games and new worlds.",
@@ -35,8 +35,10 @@
     </script>
     <script>
       (function () {
-        var t = localStorage.getItem("glowl-theme");
-        document.documentElement.setAttribute("data-theme", t === "light" ? "light" : "dark");
+        document.documentElement.setAttribute("data-theme", "light");
+        try {
+          localStorage.setItem("glowl-theme", "light");
+        } catch (e) {}
       })();
     </script>
     <style>
@@ -54,8 +56,8 @@
         min-width: 0;
       }
     </style>
-    <script type="module" crossorigin src="/glowl/assets/index-C4jo2JmB.js"></script>
-    <link rel="stylesheet" crossorigin href="/glowl/assets/index-Mx67sQug.css">
+    <script type="module" crossorigin src="/glowl/assets/index-LV9fVO22.js"></script>
+    <link rel="stylesheet" crossorigin href="/glowl/assets/index-B5IHUkhI.css">
   </head>
   <body>
     <div id="root"></div>
