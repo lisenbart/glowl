@@ -545,6 +545,8 @@
 
 [data-theme="light"] .founders-eyebrow,
 [data-theme="light"] .person-modal-role,
+[data-theme="light"] .person-popover__note,
+[data-theme="light"] .person-popover__role,
 [data-theme="light"] .founder-card-role {
   color: var(--text-tertiary);
 }

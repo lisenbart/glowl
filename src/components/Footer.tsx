@@ -29,7 +29,7 @@ export default function Footer() {
 
   return (
     <footer className="w-full max-w-full min-w-0 px-[var(--page-padding)] pb-24 pt-7 md:pb-12 md:pt-14">
-      <div className="mx-auto w-full min-w-0 max-w-[920px]">
+      <div className="mx-auto w-full min-w-0 max-w-[1100px]">
         <article className="how-ios-card">
           <div className="how-ios-card-inner">
             <div className="grid gap-5 md:grid-cols-[minmax(0,1.4fr)_minmax(0,0.8fr)_minmax(0,0.8fr)] md:gap-8 lg:gap-12">
@@ -50,14 +50,14 @@ export default function Footer() {
                 </AppLink>
                 <SocialIconLinks className="mt-4 md:mt-5" size="md" />
                 <p className="mt-3 hidden max-w-sm text-sm font-light leading-relaxed text-text-secondary md:block">
-                  Commercials, game content and films — from creative development to final delivery.
+                  Commercials, game content and films — from first idea to final delivery.
                 </p>
                 <button
                   type="button"
                   onClick={() => navigateToSection(sectionIds.contact)}
                   className="gradient-button btn-on-accent mt-4 hidden rounded-full px-5 py-2.5 text-xs font-medium tracking-wide sm:inline-flex md:mt-6 md:text-sm"
                 >
-                  Get a Project Estimate
+                  Start a Project
                 </button>
               </div>
 
@@ -118,7 +118,7 @@ export default function Footer() {
                 </span>
               </div>
               <p className="text-[10px] font-light text-text-tertiary md:text-[11px]">
-                Co-founded by Adrian Sakhaltuev (Director) and Dmytro Lisenbart (Producer).
+                Co-founded by Adrian Sakhaltuev (Director) and Dmytro Lisenbart (Executive Producer).
               </p>
             </div>
           </div>

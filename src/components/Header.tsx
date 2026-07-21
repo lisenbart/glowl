@@ -76,17 +76,6 @@ export default function Header() {
                 width={1546}
                 height={311}
               />
-              <span
-                className="site-header-tagline site-header-desktop-only font-sans flex-col justify-center gap-px leading-none uppercase"
-                style={{
-                  fontSize: "clamp(7px, 1.05vw, 10px)",
-                  letterSpacing: "0.14em",
-                  maxHeight: "2.2rem",
-                }}
-              >
-                <span className="whitespace-nowrap">{site.tagline.line1}</span>
-                <span className="whitespace-nowrap">{site.tagline.line2}</span>
-              </span>
             </AppLink>
           </div>
 

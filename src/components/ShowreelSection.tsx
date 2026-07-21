@@ -16,12 +16,17 @@ export default function ShowreelSection() {
     <section
       id={sectionIds.work}
       className="showreel-hero scroll-mt-24"
-      aria-label="Showreel"
+      aria-labelledby="showreel-heading"
     >
-      <div className="showreel-card mx-auto w-full min-w-0 max-w-[920px]">
+      <div className="showreel-card mx-auto w-full min-w-0 max-w-[1100px]">
         <div className="showreel-section__frame">
           <div className="showreel-section__header">
-            <h2 className="how-col-title how-col-title-cyan showreel-section__title">Showreel</h2>
+            <h2
+              id="showreel-heading"
+              className="how-col-title how-col-title-cyan showreel-section__title"
+            >
+              Showreel
+            </h2>
           </div>
 
           <div className="showreel-compose showreel-section__body">
@@ -66,8 +71,8 @@ export default function ShowreelSection() {
                     What We Make
                   </h3>
                   <p className="capabilities-cta__text">
-                    Advertising, gaming and cinematic work — shaped around the idea, the audience and the
-                    brief.
+                    The work moves across advertising, gaming and film, while each project takes the form
+                    its idea, audience and brief require.
                   </p>
                 </div>
                 <AppLink

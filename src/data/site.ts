@@ -3,23 +3,20 @@ import { publicAsset } from "@/lib/publicAsset";
 export const site = {
   name: "GLOWL",
   brand: "GLOWL",
-  tagline: {
-    line1: "Creative partner for",
-    line2: "brands, games and new worlds",
-  },
+  /** Shared Hero eyebrow / site positioning line */
+  tagline: "Cinematic production for brands, games and entertainment.",
   hero: {
-    eyebrow: "Cinematic production for brands, games and entertainment.",
     headline: "Every Process. One Standard.",
     paragraph:
-      "Whether handcrafted, fully AI-generated, or somewhere in between, every project is shaped by experienced directors and producers from first idea to final frame.",
+      "Every project begins with an idea. Bringing it to life may call for handcrafted production, a fully AI-generated film, or something in between. From first decision to final frame, experienced directors and producers hold it to one standard.",
   },
   aiPositioningLine:
-    "AI can expand visual development, build worlds, create individual sequences, or produce a complete film. For each brief, experienced directors and producers define its role and lead every creative and production decision.",
+    "Sometimes the idea calls for AI to expand visual development; sometimes to build a world, create individual sequences, or produce the complete film. The brief defines its role, and the directors and producers leading the project shape every decision.",
   clientsModal: {
     title: "Selected Client Experience",
     body: "Brands our founders have delivered for across commercial and gaming work.",
     closeLabel: "Close",
-    cta: "Get a Project Estimate",
+    cta: "Start a Project",
   },
   email: "hello@glowlworks.com",
   linkedin: "https://linkedin.com/company/glowlworks",
@@ -56,12 +53,13 @@ export const site = {
   locations: "Canada · Ukraine · Poland",
   canonical: "https://glowlworks.com",
   meta: {
-    title: "GLOWL — Cinematic Production for Brands, Games and New Worlds",
+    title: "GLOWL — Cinematic Production for Brands, Games and Entertainment",
     description:
-      "GLOWL creates commercials, brand films, game trailers, cinematics and AI-assisted visual production for brands, agencies, game teams and producers.",
+      "GLOWL is a cinematic production studio for advertising, gaming, film and entertainment, led by experienced directors and producers across handcrafted, AI-generated and hybrid production.",
     ogImage: publicAsset("/images/header_01.png"),
   },
-  organizationDescription: "Cinematic production studio for commercials, games and new worlds.",
+  organizationDescription:
+    "GLOWL is a cinematic production studio for advertising, gaming, film and entertainment, led by experienced directors and producers across handcrafted, AI-generated and hybrid production.",
   /** Set to your Formspree endpoint or backend URL for live submissions */
   contactEndpoint: "",
   maxUploadBytes: 10 * 1024 * 1024,

@@ -15,7 +15,7 @@ export type FounderPerson = {
   modalBody: string;
 };
 
-export type ProjectSupportRole = {
+export type ContactNextStep = {
   id: string;
   title: string;
   description: string;
@@ -38,7 +38,7 @@ export const heroFounders: FounderPerson[] = [
     accent: "cyan",
     modalTitle: "Adrian Sakhaltuev",
     modalBody:
-      "20+ years in animation, film and commercial production — with 1000+ projects delivered across his career. At GLOWL he leads creative direction: the final call on what looks right before anything ships.",
+      "I usually know we’ve found the right direction when every choice starts belonging to the same world. My job is to find that visual language early and protect it through to the final frame.",
   },
   {
     id: "dmytro-lisenbart",
@@ -51,30 +51,32 @@ export const heroFounders: FounderPerson[] = [
     accent: "green",
     modalTitle: "Dmytro Lisenbart",
     modalBody:
-      "20+ years in producing across film and commercial production — with 1000+ projects delivered and 15 awards & 45 selections across his career. At GLOWL he runs production: turning briefs into delivered work, not just ideas.",
+      "A good production gives an idea room to become real. I shape the route, bring in the right people, and make sure the ambition carries through every practical decision all the way to delivery.",
   },
 ];
 
-/**
- * Production support functions for the Contact section.
- * Unfilled roles — no invented names or portraits.
- */
-export const projectSupportRoles: ProjectSupportRole[] = [
+/** Contact left panel — what happens after a brief is submitted. */
+export const contactNextSteps: ContactNextStep[] = [
   {
-    id: "line-producer",
-    title: "Line Producer",
-    description: "Production planning, coordination and delivery.",
+    id: "review-brief",
+    title: "Your brief comes first.",
+    description: "Goals, references and deliverables give the idea a clear foundation.",
   },
   {
-    id: "client-manager",
-    title: "Client Manager",
-    description: "Clear communication from brief to final delivery.",
+    id: "shape-approach",
+    title: "The approach takes shape.",
+    description: "The project determines its production route and the specialists it needs.",
+  },
+  {
+    id: "clear-proposal",
+    title: "A clear proposal follows.",
+    description: "You receive the scope, schedule, estimate and a clear way forward.",
   },
 ];
 
 export const contactSupportCopy = {
-  heading: "Your Project Team",
-  lead: "Tell us what you're making. Our production team will review the brief and come back with a clear next step.",
+  heading: "What Happens Next",
+  lead: "Tell us where the idea stands today. A brief is enough to begin.",
 } as const;
 
 /** @deprecated Prefer heroFounders — full list retained for profile tooling. */
