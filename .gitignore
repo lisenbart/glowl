@@ -37,3 +37,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local junk / tooling
+/backups/
+/tmp/
+/test-results/
+/scripts/
+/glowl_audit_screenshots_*/
+/docs/
+*.md
+!README.md

@@ -21,7 +21,7 @@ function firstName(fullName: string) {
 export default function PersonPopover({ person, clickPoint, onClose }: PersonPopoverProps) {
   const panelRef = useRef<HTMLDivElement>(null);
   const closeRef = useRef<HTMLButtonElement>(null);
-  const closeLabel = site.clientsModal.closeLabel;
+  const closeLabel = site.closeLabel;
   const [coords, setCoords] = useState<ReturnType<typeof clampPopoverCoords> | null>(null);
   const noteLabel = `A note from ${firstName(person.name)}`;
 

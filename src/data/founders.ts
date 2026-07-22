@@ -2,14 +2,10 @@ export type FounderPerson = {
   id: string;
   name: string;
   role: string;
-  /** Visible trust fact — used in profiles/popovers, not repeated as competing Hero lines */
   fact: string;
   initials: string;
-  /** Optional portrait path under /public; when absent, initials avatar is used */
   photo?: string;
-  /** Optional looping portrait video (preferred over photo in hero) */
   video?: string;
-  /** Colour plate / popover shadow — matches hero portrait accent */
   accent?: "cyan" | "green" | "magenta" | "coral";
   modalTitle: string;
   modalBody: string;
@@ -20,10 +16,6 @@ export type ContactNextStep = {
   title: string;
   description: string;
 };
-
-export const foundersSection = {
-  title: "The Team Behind the Work",
-} as const;
 
 /** Co-founders shown in the Hero composition. */
 export const heroFounders: FounderPerson[] = [
@@ -78,6 +70,3 @@ export const contactSupportCopy = {
   heading: "What Happens Next",
   lead: "Tell us where the idea stands today. A brief is enough to begin.",
 } as const;
-
-/** @deprecated Prefer heroFounders — full list retained for profile tooling. */
-export const founders: FounderPerson[] = heroFounders;

@@ -47,25 +47,3 @@ export function ClientExperienceBlock({ compact = false }: { compact?: boolean }
     </div>
   );
 }
-
-/**
- * Standalone Client Experience section — not mounted on Home.
- * Retained for a future dedicated layout if needed.
- */
-export default function ClientExperienceSection() {
-  return (
-    <section
-      id={sectionIds.experience}
-      className="client-experience scroll-mt-24 px-[var(--page-padding)]"
-      aria-label={clientExperienceCopy.title}
-    >
-      <div className="mx-auto w-full min-w-0 max-w-[920px]">
-        <article className="how-ios-card">
-          <div className="how-ios-card-inner">
-            <ClientExperienceBlock />
-          </div>
-        </article>
-      </div>
-    </section>
-  );
-}

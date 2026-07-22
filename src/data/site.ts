@@ -12,12 +12,7 @@ export const site = {
   },
   aiPositioningLine:
     "Sometimes the idea calls for AI to expand visual development; sometimes to build a world, create individual sequences, or produce the complete film. The brief defines its role, and the directors and producers leading the project shape every decision.",
-  clientsModal: {
-    title: "Selected Client Experience",
-    body: "Brands our founders have delivered for across commercial and gaming work.",
-    closeLabel: "Close",
-    cta: "Start a Project",
-  },
+  closeLabel: "Close",
   email: "hello@glowlworks.com",
   linkedin: "https://linkedin.com/company/glowlworks",
   vimeo: "https://vimeo.com/glowlworks",
@@ -56,7 +51,7 @@ export const site = {
     title: "GLOWL — Cinematic Production for Brands, Games and Entertainment",
     description:
       "GLOWL is a cinematic production studio for advertising, gaming, film and entertainment, led by experienced directors and producers across handcrafted, AI-generated and hybrid production.",
-    ogImage: publicAsset("/images/header_01.png"),
+    ogImage: publicAsset("/images/Glowl_header.png"),
   },
   organizationDescription:
     "GLOWL is a cinematic production studio for advertising, gaming, film and entertainment, led by experienced directors and producers across handcrafted, AI-generated and hybrid production.",
@@ -78,10 +73,7 @@ export const sectionIds = {
   work: "work",
   services: "services",
   contact: "contact",
-  estimate: "estimate",
   trusted: "trusted",
-  founders: "founders",
-  experience: "experience",
 } as const;
 
 export function scrollToSection(id: string, onDone?: () => void) {
