@@ -2329,6 +2329,26 @@ html[data-art="bright-home"] .person-popover__role {
   color: color-mix(in srgb, var(--g-ink) 52%, transparent) !important;
 }
 
+html[data-art="bright-home"] .person-popover--cyan .person-popover__mail {
+  background: var(--g-cyan) !important;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--g-cyan) 40%, transparent) !important;
+}
+
+html[data-art="bright-home"] .person-popover--green .person-popover__mail {
+  background: var(--g-green) !important;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--g-green) 40%, transparent) !important;
+}
+
+html[data-art="bright-home"] .person-popover--magenta .person-popover__mail {
+  background: var(--g-magenta) !important;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--g-magenta) 40%, transparent) !important;
+}
+
+html[data-art="bright-home"] .person-popover--coral .person-popover__mail {
+  background: var(--g-coral) !important;
+  box-shadow: 0 6px 16px color-mix(in srgb, var(--g-coral) 40%, transparent) !important;
+}
+
 @media (max-width: 1099px) {
   .site-main--home .services-hero__title {
     font-size: clamp(2rem, 9vw, 2.75rem) !important;

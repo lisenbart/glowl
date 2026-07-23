@@ -1,7 +1,7 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { motion } from "framer-motion";
-import { X } from "lucide-react";
+import { Send, X } from "lucide-react";
 import type { FounderPerson } from "@/data/founders";
 import { site } from "@/data/site";
 import { clampPopoverCoords, getPopoverWidth, type ClickPoint } from "@/lib/popoverCoords";
@@ -107,8 +107,20 @@ export default function PersonPopover({ person, clickPoint, onClose }: PersonPop
         </blockquote>
 
         <footer className="person-popover__attribution">
-          <cite className="person-popover__name">{person.name}</cite>
-          <span className="person-popover__role">{person.role}</span>
+          <div className="person-popover__identity">
+            <cite className="person-popover__name">{person.name}</cite>
+            <span className="person-popover__role">{person.role}</span>
+          </div>
+          {site.email ? (
+            <a
+              href={`mailto:${site.email}`}
+              className="person-popover__mail"
+              aria-label={`Email ${person.name} at ${site.email}`}
+              title={site.email}
+            >
+              <Send size={18} strokeWidth={2.25} aria-hidden="true" />
+            </a>
+          ) : null}
         </footer>
       </div>
     </motion.div>,
