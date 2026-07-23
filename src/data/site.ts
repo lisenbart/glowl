@@ -1,5 +1,8 @@
 import { publicAsset } from "@/lib/publicAsset";
 
+/** Interim public URL until the final brand domain is chosen. */
+export const LIVE_SITE_URL = "https://lisenbart.github.io/glowl";
+
 export const site = {
   name: "GLOWL",
   brand: "GLOWL",
@@ -13,14 +16,15 @@ export const site = {
   aiPositioningLine:
     "Sometimes the idea calls for AI to expand visual development; sometimes to build a world, create individual sequences, or produce the complete film. The brief defines its role, and the directors and producers leading the project shape every decision.",
   closeLabel: "Close",
-  email: "hello@glowlworks.com",
-  linkedin: "https://linkedin.com/company/glowlworks",
-  vimeo: "https://vimeo.com/glowlworks",
-  youtube: "https://youtube.com/@glowlworks",
+  /** Set after the final domain is live — leave empty until then. */
+  email: "",
+  linkedin: "",
+  vimeo: "",
+  youtube: "",
   social: {
     linkedin: {
-      href: "https://linkedin.com/company/glowlworks",
-      active: true,
+      href: "",
+      active: false,
     },
     whatsapp: {
       href: "",
@@ -41,12 +45,12 @@ export const site = {
   },
   socialComingSoon: {
     title: "Almost there",
-    body: "Sorry — this channel is still in the works. For now, drop us a line and we'll get back to you.",
-    cta: "Email Us",
+    body: "Sorry — this channel is still in the works. Use the contact form and we'll get back to you.",
+    cta: "Start a Project",
     closeLabel: "Close",
   },
   locations: "Canada · Ukraine · Poland",
-  canonical: "https://glowlworks.com",
+  canonical: LIVE_SITE_URL,
   meta: {
     title: "GLOWL — Cinematic Production for Brands, Games and Entertainment",
     description:

@@ -229,12 +229,14 @@ export default function ContactForm() {
                       </>
                     )}
                   </button>
-                  <a
-                    href={`mailto:${site.email}`}
-                    className="estimate-cta-secondary inline-flex items-center justify-center"
-                  >
-                    Email Us Directly
-                  </a>
+                  {site.email ? (
+                    <a
+                      href={`mailto:${site.email}`}
+                      className="estimate-cta-secondary inline-flex items-center justify-center"
+                    >
+                      Email Us Directly
+                    </a>
+                  ) : null}
                 </div>
               </form>
             )}

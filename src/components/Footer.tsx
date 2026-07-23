@@ -4,9 +4,10 @@ import { AppLink, navigateToSection } from "@/lib/routing";
 import SocialIconLinks from "./SocialIconLinks";
 
 const socialLinks = [
-  { label: "Email", href: `mailto:${site.email}` },
-  { label: "Vimeo", href: site.vimeo, external: true },
-  { label: "YouTube", href: site.youtube, external: true },
+  ...(site.email ? [{ label: "Email", href: `mailto:${site.email}` as string }] : []),
+  ...(site.vimeo ? [{ label: "Vimeo", href: site.vimeo, external: true as const }] : []),
+  ...(site.youtube ? [{ label: "YouTube", href: site.youtube, external: true as const }] : []),
+  { label: "Contact", href: `#${sectionIds.contact}` },
 ];
 
 function SectionFooterLink({ id, label }: { id: string; label: string }) {
@@ -94,15 +95,28 @@ export default function Footer() {
                   <ul className="mt-2 flex flex-col gap-1.5 md:mt-4 md:gap-3">
                     {socialLinks.map((link) => (
                       <li key={link.label}>
-                        <a
-                          href={link.href}
-                          className="text-sm font-light text-text-secondary transition-colors hover:text-text-primary"
-                          {...(link.external
-                            ? { target: "_blank", rel: "noopener noreferrer" }
-                            : {})}
-                        >
-                          {link.label}
-                        </a>
+                        {"external" in link && link.external ? (
+                          <a
+                            href={link.href}
+                            className="text-sm font-light text-text-secondary transition-colors hover:text-text-primary"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {link.label}
+                          </a>
+                        ) : link.href.startsWith("#") ? (
+                          <SectionFooterLink
+                            id={link.href.replace(/^#/, "")}
+                            label={link.label}
+                          />
+                        ) : (
+                          <a
+                            href={link.href}
+                            className="text-sm font-light text-text-secondary transition-colors hover:text-text-primary"
+                          >
+                            {link.label}
+                          </a>
+                        )}
                       </li>
                     ))}
                   </ul>

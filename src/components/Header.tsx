@@ -114,13 +114,24 @@ export default function Header() {
           <div className="site-header-bar__end header-contacts flex shrink-0 items-center justify-end gap-1.5 md:gap-2">
             <div className="header-desktop-social flex min-w-0 items-center gap-1.5 lg:gap-2">
               <SocialIconLinks className="min-w-0" />
-              <a
-                href={`mailto:${site.email}`}
-                className="theme-toggle shrink-0"
-                aria-label={`Email us at ${site.email}`}
-              >
-                <Send size={18} strokeWidth={1.75} aria-hidden="true" />
-              </a>
+              {site.email ? (
+                <a
+                  href={`mailto:${site.email}`}
+                  className="theme-toggle shrink-0"
+                  aria-label={`Email us at ${site.email}`}
+                >
+                  <Send size={18} strokeWidth={1.75} aria-hidden="true" />
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className="theme-toggle shrink-0"
+                  aria-label="Contact"
+                  onClick={() => navigateToSection(sectionIds.contact)}
+                >
+                  <Send size={18} strokeWidth={1.75} aria-hidden="true" />
+                </button>
+              )}
             </div>
             <HeaderConnectMenu />
           </div>

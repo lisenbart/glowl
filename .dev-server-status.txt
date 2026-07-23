@@ -1,0 +1,9 @@
+lan_ip=192.168.0.224
+port=5173
+local_url=http://localhost:5173/
+network_url=http://192.168.0.224:5173/
+http_code=200
+listen_info<<EOF
+COMMAND   PID            USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+node    59365 dmytrolisenbart   16u  IPv6 0x7ac5cc7fb9eafc21      0t0  TCP *:5173 (LISTEN)
+EOF
