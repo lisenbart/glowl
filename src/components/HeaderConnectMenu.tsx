@@ -2,7 +2,6 @@ import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ChevronRight,
-  Linkedin,
   Menu,
   Send,
   X,
@@ -10,6 +9,7 @@ import {
 } from "lucide-react";
 import { sectionIds, site } from "@/data/site";
 import { AppLink, navigateToSection, useAppPathname } from "@/lib/routing";
+import SocialIconLinks from "./SocialIconLinks";
 
 const panelSpring = { type: "spring" as const, stiffness: 420, damping: 34, mass: 0.85 };
 
@@ -194,93 +194,97 @@ export default function HeaderConnectMenu() {
                   </ul>
                 </nav>
 
-                {(site.email ||
-                  (site.social.linkedin.active && site.social.linkedin.href) ||
-                  site.vimeo ||
-                  site.youtube) && (
-                  <>
-                    <div className="header-connect-divider" aria-hidden="true" />
+                <div className="header-connect-divider" aria-hidden="true" />
 
-                    <p className="header-connect-panel-label">Connect</p>
-                    <ul className="header-mobile-menu__list">
-                      {site.email ? (
-                        <li>
-                          <a
-                            href={`mailto:${site.email}`}
-                            className="header-connect-item header-connect-item--email"
-                            onClick={closeAndFocusTrigger}
-                          >
-                            <span className="header-connect-item-icon" aria-hidden="true">
-                              <Send size={17} strokeWidth={1.75} />
-                            </span>
-                            <span className="header-connect-item-copy">
-                              <span className="header-connect-item-title">Email</span>
-                              <span className="header-connect-item-sub">{site.email}</span>
-                            </span>
-                            <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
-                          </a>
-                        </li>
-                      ) : null}
-                      {site.social.linkedin.active && site.social.linkedin.href ? (
-                        <li>
-                          <a
-                            href={site.social.linkedin.href}
-                            className="header-connect-item"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={closeAndFocusTrigger}
-                          >
-                            <span className="header-connect-item-icon" aria-hidden="true">
-                              <Linkedin size={17} strokeWidth={1.75} />
-                            </span>
-                            <span className="header-connect-item-copy">
-                              <span className="header-connect-item-title">LinkedIn</span>
-                            </span>
-                            <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
-                          </a>
-                        </li>
-                      ) : null}
-                      {site.vimeo ? (
-                        <li>
-                          <a
-                            href={site.vimeo}
-                            className="header-connect-item"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={closeAndFocusTrigger}
-                          >
-                            <span className="header-connect-item-icon" aria-hidden="true">
-                              <VimeoIcon className="social-icon-link-svg" />
-                            </span>
-                            <span className="header-connect-item-copy">
-                              <span className="header-connect-item-title">Vimeo</span>
-                            </span>
-                            <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
-                          </a>
-                        </li>
-                      ) : null}
-                      {site.youtube ? (
-                        <li>
-                          <a
-                            href={site.youtube}
-                            className="header-connect-item"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            onClick={closeAndFocusTrigger}
-                          >
-                            <span className="header-connect-item-icon" aria-hidden="true">
-                              <Youtube size={17} strokeWidth={1.75} />
-                            </span>
-                            <span className="header-connect-item-copy">
-                              <span className="header-connect-item-title">YouTube</span>
-                            </span>
-                            <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
-                          </a>
-                        </li>
-                      ) : null}
-                    </ul>
-                  </>
-                )}
+                <p className="header-connect-panel-label">Connect</p>
+                <ul className="header-mobile-menu__list">
+                  {site.email ? (
+                    <li>
+                      <a
+                        href={`mailto:${site.email}`}
+                        className="header-connect-item header-connect-item--email"
+                        onClick={closeAndFocusTrigger}
+                      >
+                        <span className="header-connect-item-icon" aria-hidden="true">
+                          <Send size={17} strokeWidth={1.75} />
+                        </span>
+                        <span className="header-connect-item-copy">
+                          <span className="header-connect-item-title">Email</span>
+                          <span className="header-connect-item-sub">{site.email}</span>
+                        </span>
+                        <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
+                      </a>
+                    </li>
+                  ) : (
+                    <li>
+                      <a
+                        href={`#${sectionIds.contact}`}
+                        className="header-connect-item header-connect-item--email"
+                        onClick={(event) => {
+                          event.preventDefault();
+                          close();
+                          window.requestAnimationFrame(() => {
+                            navigateToSection(sectionIds.contact);
+                            triggerRef.current?.focus();
+                          });
+                        }}
+                      >
+                        <span className="header-connect-item-icon" aria-hidden="true">
+                          <Send size={17} strokeWidth={1.75} />
+                        </span>
+                        <span className="header-connect-item-copy">
+                          <span className="header-connect-item-title">Start a Project</span>
+                          <span className="header-connect-item-sub">Contact form</span>
+                        </span>
+                        <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
+                      </a>
+                    </li>
+                  )}
+                  {site.vimeo ? (
+                    <li>
+                      <a
+                        href={site.vimeo}
+                        className="header-connect-item"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={closeAndFocusTrigger}
+                      >
+                        <span className="header-connect-item-icon" aria-hidden="true">
+                          <VimeoIcon className="social-icon-link-svg" />
+                        </span>
+                        <span className="header-connect-item-copy">
+                          <span className="header-connect-item-title">Vimeo</span>
+                        </span>
+                        <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
+                      </a>
+                    </li>
+                  ) : null}
+                  {site.youtube ? (
+                    <li>
+                      <a
+                        href={site.youtube}
+                        className="header-connect-item"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={closeAndFocusTrigger}
+                      >
+                        <span className="header-connect-item-icon" aria-hidden="true">
+                          <Youtube size={17} strokeWidth={1.75} />
+                        </span>
+                        <span className="header-connect-item-copy">
+                          <span className="header-connect-item-title">YouTube</span>
+                        </span>
+                        <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
+                      </a>
+                    </li>
+                  ) : null}
+                </ul>
+                <SocialIconLinks
+                  className="mt-2"
+                  layout="stack"
+                  size="md"
+                  onItemClick={closeAndFocusTrigger}
+                />
               </div>
             </motion.div>
           </>

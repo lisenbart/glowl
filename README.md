@@ -11,11 +11,17 @@ npm run dev
 
 Open [http://localhost:5173](http://localhost:5173)
 
-## Deploy (GitHub Pages)
+## Deploy (Netlify)
 
-Pushes to `main` deploy automatically via GitHub Actions.
+Production: [https://glowl.direct](https://glowl.direct)
 
-Live URL: `https://lisenbart.github.io/glowl/`
+- Build: `npm run build`
+- Publish directory: `dist`
+- Node: 20
+- Config: `netlify.toml`
+- Branch: `main` → auto-deploy
+
+DNS stays at Imena.ua; hosting/CDN is Netlify (same pattern as lisenbart.com).
 
 ## Production build
 

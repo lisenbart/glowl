@@ -1,0 +1,14 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "20"
+  # Apex domain — keep Vite base at "/"
+  BASE_PATH = "/"
+
+# SPA client routes (e.g. /services)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

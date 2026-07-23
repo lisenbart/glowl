@@ -1,7 +1,6 @@
 import { publicAsset } from "@/lib/publicAsset";
 
-/** Interim public URL until the final brand domain is chosen. */
-export const LIVE_SITE_URL = "https://lisenbart.github.io/glowl";
+export const LIVE_SITE_URL = "https://glowl.direct";
 
 export const site = {
   name: "GLOWL",
