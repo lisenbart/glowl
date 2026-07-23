@@ -2318,7 +2318,25 @@ html[data-art="bright-home"] .person-popover__quote-text {
 }
 
 html[data-art="bright-home"] .person-popover__attribution {
+  display: flex !important;
+  flex-direction: row !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  justify-content: space-between !important;
   border-top-color: color-mix(in srgb, var(--g-ink) 12%, transparent) !important;
+  background: transparent !important;
+  padding: 0.85rem 0 0 !important;
+  margin-top: 1rem !important;
+}
+
+html[data-art="bright-home"] .person-popover__attribution::before {
+  content: none !important;
+  display: none !important;
+}
+
+html[data-art="bright-home"] .person-popover__identity {
+  flex: 1 1 auto !important;
+  text-align: left !important;
 }
 
 html[data-art="bright-home"] .person-popover__name {
@@ -2327,6 +2345,11 @@ html[data-art="bright-home"] .person-popover__name {
 
 html[data-art="bright-home"] .person-popover__role {
   color: color-mix(in srgb, var(--g-ink) 52%, transparent) !important;
+}
+
+html[data-art="bright-home"] .person-popover__mail {
+  margin-left: auto !important;
+  color: #fff !important;
 }
 
 html[data-art="bright-home"] .person-popover--cyan .person-popover__mail {

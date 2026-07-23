@@ -106,7 +106,7 @@ export default function PersonPopover({ person, clickPoint, onClose }: PersonPop
           <p className="person-popover__quote-text">{person.modalBody}</p>
         </blockquote>
 
-        <footer className="person-popover__attribution">
+        <div className="person-popover__attribution">
           <div className="person-popover__identity">
             <cite className="person-popover__name">{person.name}</cite>
             <span className="person-popover__role">{person.role}</span>
@@ -121,7 +121,7 @@ export default function PersonPopover({ person, clickPoint, onClose }: PersonPop
               <Send size={18} strokeWidth={2.25} aria-hidden="true" />
             </a>
           ) : null}
-        </footer>
+        </div>
       </div>
     </motion.div>,
     document.body,
