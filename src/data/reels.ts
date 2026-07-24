@@ -10,6 +10,6 @@ import type { HostedVideo } from "@/lib/videoEmbed";
 export const mainShowreel: HostedVideo = {
   title: "GLOWL Showreel",
   poster: publicAsset("/images/showreel-poster.png"),
-  provider: "youtube",
-  id: "-cdiXSJczdU",
+  provider: "vimeo",
+  id: "1212738370",
 };
