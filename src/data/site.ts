@@ -24,22 +24,6 @@ export const site = {
       href: "https://www.linkedin.com/company/glowl/",
       active: true,
     },
-    whatsapp: {
-      href: "",
-      active: false,
-    },
-    facebook: {
-      href: "",
-      active: false,
-    },
-    instagram: {
-      href: "",
-      active: false,
-    },
-    tiktok: {
-      href: "",
-      active: false,
-    },
   },
   socialComingSoon: {
     title: "Almost there",

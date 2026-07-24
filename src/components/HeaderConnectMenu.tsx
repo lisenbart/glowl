@@ -5,21 +5,12 @@ import {
   Menu,
   Send,
   X,
-  Youtube,
 } from "lucide-react";
 import { sectionIds, site } from "@/data/site";
 import { AppLink, navigateToSection, useAppPathname } from "@/lib/routing";
 import SocialIconLinks from "./SocialIconLinks";
 
 const panelSpring = { type: "spring" as const, stiffness: 420, damping: 34, mass: 0.85 };
-
-function VimeoIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
-      <path d="M22.4 7.15c-.1 2.2-1.64 5.22-4.62 9.05-3.08 4-5.68 6-7.8 6-1.32 0-2.44-1.22-3.36-3.65L5.05 12.1C4.4 9.9 3.68 8.8 2.9 8.8c-.17 0-.77.36-1.8 1.08L0 8.4C1.23 7.33 2.44 6.26 3.63 5.2c1.63-1.4 2.85-2.14 3.66-2.2 1.9-.19 3.07 1.12 3.51 3.9.48 3 1.1 4.85 1.88 5.56.7.66 1.33.98 1.88.98.53 0 1.33-.84 2.4-2.52.96-1.57 1.47-2.77 1.53-3.6.12-1.37-.4-2.06-1.54-2.06-.55 0-1.11.12-1.7.37 1.13-3.7 3.28-5.5 6.46-5.4 2.35.07 3.46 1.6 3.32 4.58z" />
-    </svg>
-  );
-}
 
 export default function HeaderConnectMenu() {
   const [open, setOpen] = useState(false);
@@ -240,44 +231,6 @@ export default function HeaderConnectMenu() {
                       </a>
                     </li>
                   )}
-                  {site.vimeo ? (
-                    <li>
-                      <a
-                        href={site.vimeo}
-                        className="header-connect-item"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={closeAndFocusTrigger}
-                      >
-                        <span className="header-connect-item-icon" aria-hidden="true">
-                          <VimeoIcon className="social-icon-link-svg" />
-                        </span>
-                        <span className="header-connect-item-copy">
-                          <span className="header-connect-item-title">Vimeo</span>
-                        </span>
-                        <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
-                      </a>
-                    </li>
-                  ) : null}
-                  {site.youtube ? (
-                    <li>
-                      <a
-                        href={site.youtube}
-                        className="header-connect-item"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={closeAndFocusTrigger}
-                      >
-                        <span className="header-connect-item-icon" aria-hidden="true">
-                          <Youtube size={17} strokeWidth={1.75} />
-                        </span>
-                        <span className="header-connect-item-copy">
-                          <span className="header-connect-item-title">YouTube</span>
-                        </span>
-                        <ChevronRight className="header-connect-item-chevron" size={16} strokeWidth={1.75} aria-hidden="true" />
-                      </a>
-                    </li>
-                  ) : null}
                 </ul>
                 <SocialIconLinks
                   className="mt-2"

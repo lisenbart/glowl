@@ -1,6 +1,6 @@
 import { site } from "@/data/site";
 
-export type SocialNetworkId = "linkedin" | "whatsapp" | "facebook" | "instagram" | "tiktok";
+export type SocialNetworkId = "linkedin" | "vimeo";
 
 export interface SocialChannel {
   href: string;
@@ -9,7 +9,13 @@ export interface SocialChannel {
 
 export type SocialChannels = Record<SocialNetworkId, SocialChannel>;
 
-export const socialChannels: SocialChannels = site.social;
+export const socialChannels: SocialChannels = {
+  linkedin: site.social.linkedin,
+  vimeo: {
+    href: site.vimeo,
+    active: Boolean(site.vimeo.trim()),
+  },
+};
 
 export interface SocialNetwork {
   id: SocialNetworkId;
@@ -18,12 +24,10 @@ export interface SocialNetwork {
   active: boolean;
 }
 
+/** Only channels shown in header / footer icon rows. */
 export const socialNetworks: SocialNetwork[] = [
   { id: "linkedin", label: "LinkedIn", ...socialChannels.linkedin },
-  { id: "whatsapp", label: "WhatsApp", ...socialChannels.whatsapp },
-  { id: "facebook", label: "Facebook", ...socialChannels.facebook },
-  { id: "instagram", label: "Instagram", ...socialChannels.instagram },
-  { id: "tiktok", label: "TikTok", ...socialChannels.tiktok },
+  { id: "vimeo", label: "Vimeo", ...socialChannels.vimeo },
 ];
 
 export function isSocialChannelActive(id: SocialNetworkId): boolean {
