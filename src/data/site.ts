@@ -16,13 +16,13 @@ export const site = {
     "Sometimes the idea calls for AI to expand visual development; sometimes to build a world, create individual sequences, or produce the complete film. The brief defines its role, and the directors and producers leading the project shape every decision.",
   closeLabel: "Close",
   email: "info@glowl.direct",
-  linkedin: "",
-  vimeo: "",
+  linkedin: "https://www.linkedin.com/company/glowl/",
+  vimeo: "https://vimeo.com/glowl",
   youtube: "",
   social: {
     linkedin: {
-      href: "",
-      active: false,
+      href: "https://www.linkedin.com/company/glowl/",
+      active: true,
     },
     whatsapp: {
       href: "",
