@@ -2938,9 +2938,117 @@ html[data-art="bright-home"] .mobile-estimate-bar {
   margin-bottom: clamp(1rem, 2.5vw, 1.5rem);
 }
 
+.site-main--home .founders-section__frame {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1rem, 2.5vw, 1.5rem);
+  align-items: stretch;
+}
+
+.site-main--home .founders-section__pair-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-areas: "adrian cta dmytro";
+  align-items: center;
+  column-gap: clamp(0.75rem, 2vw, 1.35rem);
+  width: 100%;
+}
+
 .site-main--home .founders-section__pair {
-  margin: 0 0 clamp(1.25rem, 3vw, 1.75rem) !important;
+  display: contents !important;
+  margin: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+}
+
+.site-main--home .founders-section .hero-founders__person:first-child {
+  grid-area: adrian !important;
+  justify-self: end !important;
   width: 100% !important;
+  max-width: 13.5rem !important;
+}
+
+.site-main--home .founders-section .hero-founders__person:last-child {
+  grid-area: dmytro !important;
+  justify-self: start !important;
+  width: 100% !important;
+  max-width: 13.5rem !important;
+}
+
+.site-main--home .founders-section__cta {
+  grid-area: cta;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  gap: 0.65rem !important;
+  width: min(11.5rem, 100%);
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.site-main--home .founders-section__cta .gradient-button,
+.site-main--home .founders-section__cta .estimate-cta-secondary {
+  width: 100% !important;
+  justify-content: center !important;
+  text-align: center !important;
+}
+
+.site-main--home .founders-section__proof {
+  margin: 0;
+}
+
+@media (min-width: 1100px) {
+  .site-main--home .founders-section .hero-frame__founders {
+    display: contents !important;
+  }
+
+  .site-main--home .founders-section .hero-founders__person {
+    max-width: 13.5rem !important;
+    width: 100% !important;
+  }
+
+  .site-main--home .founders-section__proof {
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 0 !important;
+    border-top: 1px solid color-mix(in srgb, var(--g-ink) 12%, transparent);
+    text-align: center;
+  }
+
+  .site-main--home .founders-section__proof .hero-proof-rail__item {
+    font-size: clamp(0.8rem, 0.95vw, 0.92rem);
+    padding: 0.95rem 0.75rem;
+    border-bottom: 0;
+    border-right: 1px solid color-mix(in srgb, var(--g-ink) 10%, transparent);
+  }
+
+  .site-main--home .founders-section__proof .hero-proof-rail__item:last-child {
+    border-right: 0;
+  }
+}
+
+@media (max-width: 699px) {
+  .site-main--home .founders-section__pair-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas:
+      "adrian dmytro"
+      "cta cta";
+    row-gap: 1rem;
+    column-gap: 0.65rem;
+  }
+
+  .site-main--home .founders-section .hero-founders__person:first-child,
+  .site-main--home .founders-section .hero-founders__person:last-child {
+    justify-self: center !important;
+    max-width: 11rem !important;
+  }
+
+  .site-main--home .founders-section__cta {
+    width: min(16rem, 100%);
+    justify-self: center;
+  }
 }
 
 @media (max-width: 1099px) {
