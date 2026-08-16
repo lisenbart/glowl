@@ -1,8 +1,10 @@
 import { useEffect } from "react";
-import HeroSection from "@/components/HeroSection";
+import LatestWorkSection from "@/components/LatestWorkSection";
+import BrandStripSection from "@/components/BrandStripSection";
 import ShowreelSection from "@/components/ShowreelSection";
 import AiPositioningSection from "@/components/AiPositioningSection";
 import ContactForm from "@/components/ContactForm";
+import FoundersSection from "@/components/FoundersSection";
 import { scrollToSection } from "@/data/site";
 
 export default function HomePage() {
@@ -24,10 +26,12 @@ export default function HomePage() {
 
   return (
     <main className="site-main site-main-stack site-main--home">
-      <HeroSection />
+      <LatestWorkSection />
+      <BrandStripSection />
       <ShowreelSection />
       <AiPositioningSection />
       <ContactForm />
+      <FoundersSection />
     </main>
   );
 }

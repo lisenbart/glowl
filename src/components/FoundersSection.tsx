@@ -1,9 +1,7 @@
 import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { AnimatePresence } from "framer-motion";
 import { Info } from "lucide-react";
-import { clientExperienceProof } from "@/data/clientExperience";
 import { heroFounders, type FounderPerson } from "@/data/founders";
-import { sectionIds, site, scrollToSection } from "@/data/site";
 import type { ClickPoint } from "@/lib/popoverCoords";
 import { publicAsset } from "@/lib/publicAsset";
 import { ClientExperienceBlock } from "./ClientExperienceSection";
@@ -33,7 +31,6 @@ function FounderPortraitVideo({
 
     let cancelled = false;
     let startTimer = 0;
-    /** True after we start (or finish) a play for the current visit into view. */
     let playedThisVisit = false;
     let isInView = false;
 
@@ -59,10 +56,9 @@ function FounderPortraitVideo({
       try {
         video.currentTime = 0;
       } catch {
-        /* ignore seek errors before metadata */
+        /* ignore */
       }
       void video.play().catch(() => {
-        // Allow a later retry only if still in view and this play never started.
         playedThisVisit = false;
       });
     };
@@ -75,7 +71,6 @@ function FounderPortraitVideo({
       ([entry]) => {
         if (!entry || cancelled) return;
 
-        // threshold 0: true while any pixel is visible; false only when fully gone.
         if (entry.isIntersecting) {
           if (isInView) return;
           isInView = true;
@@ -89,7 +84,6 @@ function FounderPortraitVideo({
           return;
         }
 
-        // Fully left the viewport — arm for a fresh single play on next entry.
         isInView = false;
         clearStartTimer();
         playedThisVisit = false;
@@ -124,13 +118,13 @@ function FounderPortraitVideo({
       poster={poster}
       muted
       playsInline
-      preload="auto"
+      preload="metadata"
       loop={false}
     />
   );
 }
 
-function HeroFounder({
+function FounderCard({
   person,
   videoStartDelayMs = 0,
   onOpen,
@@ -166,7 +160,7 @@ function HeroFounder({
                 src={publicAsset(person.photo)}
                 alt=""
                 className="hero-founders__photo"
-                fetchPriority="high"
+                loading="lazy"
               />
             ) : (
               <span className="hero-founders__initials">{person.initials}</span>
@@ -185,81 +179,53 @@ function HeroFounder({
   );
 }
 
-export default function HeroSection() {
+export default function FoundersSection() {
   const [activePerson, setActivePerson] = useState<ActivePerson | null>(null);
   const [adrian, dmytro] = heroFounders;
 
   return (
     <section
-      className="hero-intro scroll-mt-24 px-[var(--page-padding)] pt-24 md:pt-[4.5rem]"
-      aria-label="Introduction"
+      id="founders"
+      className="founders-section scroll-mt-24 px-[var(--page-padding)] pb-[var(--section-spacing)]"
+      aria-labelledby="founders-heading"
     >
       <div className="mx-auto w-full min-w-0 max-w-[1100px]">
         <article className="how-ios-card">
           <div className="how-ios-card-inner">
-            <div className="hero-frame">
-              <div className="hero-frame__copy">
-                {site.tagline ? (
-                  <p className="hero-eyebrow hero-eyebrow--banner hero-eyebrow--lead">
-                    {site.tagline}
-                  </p>
-                ) : null}
-                <h1 className="hero-headline hero-headline--primary w-full min-w-0 font-display">
-                  <span className="hero-headline__line">Every Process.</span>
-                  <span className="hero-headline__line">One Standard.</span>
-                </h1>
-                <p className="hero-subtitle mt-3 w-full min-w-0 font-sans">
-                  {site.hero.paragraph}
-                </p>
-                <div className="hero-cta-row">
-                  <button
-                    type="button"
-                    className="gradient-button btn-on-accent px-5 py-3 text-sm font-medium"
-                    onClick={() => scrollToSection(sectionIds.work)}
-                  >
-                    View Our Work
-                  </button>
-                  <button
-                    type="button"
-                    className="estimate-cta-secondary"
-                    onClick={() => scrollToSection(sectionIds.contact)}
-                  >
-                    Start a Project
-                  </button>
-                </div>
-              </div>
-
-              <ul className="hero-frame__founders" aria-label="Founders">
-                {adrian ? (
-                  <HeroFounder
-                    person={adrian}
-                    videoStartDelayMs={0}
-                    onOpen={(nextPerson, clickPoint) =>
-                      setActivePerson({ person: nextPerson, clickPoint })
-                    }
-                  />
-                ) : null}
-                {dmytro ? (
-                  <HeroFounder
-                    person={dmytro}
-                    videoStartDelayMs={DMYTRO_START_DELAY_MS}
-                    onOpen={(nextPerson, clickPoint) =>
-                      setActivePerson({ person: nextPerson, clickPoint })
-                    }
-                  />
-                ) : null}
-              </ul>
-
-              <ul className="hero-proof-rail" aria-label="Experience">
-                {clientExperienceProof.heroProofFacts.map((fact) => (
-                  <li key={fact} className="hero-proof-rail__item">
-                    {fact}
-                  </li>
-                ))}
-              </ul>
+            <div className="section-card-header founders-section__header">
+              <h2
+                id="founders-heading"
+                className="how-col-title how-col-title-cyan section-card-header__title"
+              >
+                The people behind the work
+              </h2>
+              <p className="section-card-header__lead how-support-line">
+                Direction and producing under one standard — from first idea to final frame.
+              </p>
             </div>
 
-            <ClientExperienceBlock compact />
+            <ul className="hero-frame__founders founders-section__pair" aria-label="Founders">
+              {adrian ? (
+                <FounderCard
+                  person={adrian}
+                  videoStartDelayMs={0}
+                  onOpen={(nextPerson, clickPoint) =>
+                    setActivePerson({ person: nextPerson, clickPoint })
+                  }
+                />
+              ) : null}
+              {dmytro ? (
+                <FounderCard
+                  person={dmytro}
+                  videoStartDelayMs={DMYTRO_START_DELAY_MS}
+                  onOpen={(nextPerson, clickPoint) =>
+                    setActivePerson({ person: nextPerson, clickPoint })
+                  }
+                />
+              ) : null}
+            </ul>
+
+            <ClientExperienceBlock />
           </div>
         </article>
       </div>

@@ -56,6 +56,7 @@ export const site = {
 };
 
 export const sectionIds = {
+  latest: "latest",
   work: "work",
   services: "services",
   contact: "contact",
