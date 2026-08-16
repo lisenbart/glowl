@@ -2949,7 +2949,7 @@ html[data-art="bright-home"] .mobile-estimate-bar {
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
   grid-template-areas: "adrian cta dmytro";
-  align-items: center;
+  align-items: start;
   column-gap: clamp(0.75rem, 2vw, 1.35rem);
   width: 100%;
 }
@@ -2964,6 +2964,7 @@ html[data-art="bright-home"] .mobile-estimate-bar {
 .site-main--home .founders-section .hero-founders__person:first-child {
   grid-area: adrian !important;
   justify-self: end !important;
+  align-self: start !important;
   width: 100% !important;
   max-width: 13.5rem !important;
 }
@@ -2971,6 +2972,7 @@ html[data-art="bright-home"] .mobile-estimate-bar {
 .site-main--home .founders-section .hero-founders__person:last-child {
   grid-area: dmytro !important;
   justify-self: start !important;
+  align-self: start !important;
   width: 100% !important;
   max-width: 13.5rem !important;
 }
@@ -2981,6 +2983,7 @@ html[data-art="bright-home"] .mobile-estimate-bar {
   flex-direction: column !important;
   flex-wrap: nowrap !important;
   align-items: stretch !important;
+  align-self: center !important;
   justify-content: center !important;
   gap: 0.65rem !important;
   width: min(11.5rem, 100%);
@@ -3037,17 +3040,24 @@ html[data-art="bright-home"] .mobile-estimate-bar {
       "cta cta";
     row-gap: 1rem;
     column-gap: 0.65rem;
+    align-items: start;
   }
 
   .site-main--home .founders-section .hero-founders__person:first-child,
   .site-main--home .founders-section .hero-founders__person:last-child {
     justify-self: center !important;
+    align-self: start !important;
     max-width: 11rem !important;
+  }
+
+  .site-main--home .founders-section .hero-founders__meta {
+    min-height: 3.25rem;
   }
 
   .site-main--home .founders-section__cta {
     width: min(16rem, 100%);
     justify-self: center;
+    align-self: start !important;
   }
 }
 
