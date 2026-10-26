@@ -36,7 +36,7 @@ export const site = {
   meta: {
     title: "GLOWL — Cinematic Production for Brands, Games and Entertainment",
     description:
-      "GLOWL is a cinematic production studio for advertising, gaming, film and entertainment, led by experienced directors and producers across handcrafted, AI-generated and hybrid production.",
+      "GLOWL is a cinematic production studio for brands, games and film — handcrafted, AI-generated and hybrid.",
     ogImage: publicAsset("/images/Glowl_header.png"),
   },
   organizationDescription:

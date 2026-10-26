@@ -32,12 +32,12 @@ export default function LatestWorkSection() {
       <div className="showreel-card mx-auto w-full min-w-0 max-w-[1100px]">
         <div className="showreel-section__frame">
           <div className="showreel-section__header latest-work__header">
-            <h2
+            <h1
               id="latest-work-heading"
               className="how-col-title how-col-title-cyan showreel-section__title"
             >
               {latestWorkSection.title}
-            </h2>
+            </h1>
             <p className="latest-work__eyebrow how-support-line">{latestWorkSection.eyebrow}</p>
           </div>
 
